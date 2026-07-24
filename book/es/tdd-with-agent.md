@@ -146,9 +146,7 @@ el [prototipo desechable](prototype-to-answer.md).
 En los toolkits el ciclo viene ya montado: en [Superpowers](superpowers.md)
 el skill `test-driven-development` es obligatorio dentro de cada tarea del
 plan, en los [skills de Matt Pocock](matt-pocock-skills.md) `/tdd` añade
-costuras y rebanadas verticales y saca la refactorización a la revisión, y
-en [Kiro](kiro.md) los criterios de aceptación de la fase de requisitos se
-convierten en casos de test antes de cualquier implementación.
+costuras y rebanadas verticales y saca la refactorización a la revisión.
 
 ## Ejemplo
 

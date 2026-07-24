@@ -199,8 +199,8 @@ un correo con el informe — mucho antes del final de toda la especificación.
 - **The Pragmatic Programmer** — las balas trazadoras como metáfora: un
   canal fino de extremo a extremo por el sistema que muestra hacia dónde va
   la ráfaga — y, a diferencia del prototipo, se queda en el código.
-- **Toolkits de SDD** — `tasks.md` en [Spec Kit](spec-kit.md) y los planes
-  de [Superpowers](superpowers.md): el mismo troceado en pasos ejecutables;
+- **Toolkits de SDD** — los planes y listas de tareas de
+  [Superpowers](superpowers.md): el mismo troceado en pasos ejecutables;
   los trazadores añaden la verticalidad y el bloqueo explícito.
 
 ## Patrones relacionados

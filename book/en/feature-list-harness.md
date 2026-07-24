@@ -197,8 +197,8 @@ asking around.
 - **Eval harnesses** — the same mechanics in agent evaluation: a fixed list
   of verifiable scenarios with statuses that must not be fitted to the
   result.
-- **SDD toolkits** — `tasks.md` in [Spec Kit](spec-kit.md) and
-  [OpenSpec](openspec.md) as the weak form: the checklist exists, but a mark
+- **SDD toolkits** — `tasks.md` in [OpenSpec](openspec.md) as the weak form:
+  the checklist exists, but a mark
   is not always a check; the ledger hardens exactly that spot.
 
 ## Related patterns

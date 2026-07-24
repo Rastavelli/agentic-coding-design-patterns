@@ -55,10 +55,10 @@ article per framework.
 | Slug | Status | Pitch / Note | Src |
 |------|--------|--------------|-----|
 | spec-driven-development | done | Overview: treat the spec as the source of truth (intent, not code): Specify → Plan → Tasks → Implement. Absorbs "start high-level, let the agent expand it" [addy]. | [speckit] |
-| spec-kit | done | GitHub Spec Kit: `specify` CLI, `/speckit.*` command per phase, artifact per command; agent-agnostic. | [speckit] |
+| spec-kit | rejected | Chapter removed 2026-07-24 — section trimmed to OpenSpec/Superpowers/Matt Pocock; tool still linked from `resources.md` and named in the overview. | [speckit] |
 | openspec | done | Change lifecycle propose → review → apply → archive; standing specs updated by deltas, brownfield-first. | [openspec] |
-| kiro | done | AWS: SDD as an IDE mode — spec sessions with phase-gate approvals, EARS requirements, steering files, hooks. | [kiro] |
-| tessl | done | Spec as the *source* of code; evolved into a "context as code" platform with SDD as an installable plugin. | [tessl] |
+| kiro | rejected | Chapter removed 2026-07-24 — section trimmed to OpenSpec/Superpowers/Matt Pocock; tool still linked from `resources.md` and named in the overview. | [kiro] |
+| tessl | rejected | Chapter removed 2026-07-24 — section trimmed to OpenSpec/Superpowers/Matt Pocock; tool still linked from `resources.md` and named in the overview. | [tessl] |
 | superpowers | done | SDD as a Claude Code skill pack: brainstorm → plan → subagent TDD implementation with mandatory checkpoints. | [superpowers] |
 | matt-pocock-skills | done | SDD on top of the issue tracker: grill interview → spec → tracer-bullet tickets → implement with TDD and two-axis review. | [mp] |
 

@@ -135,7 +135,7 @@ plan is enough.
 
 In spec-driven development pipelines the role of the journal for a single
 feature is played by `tasks.md`: task lists with completion marks exist in
-[Spec Kit](spec-kit.md), [OpenSpec](openspec.md), and [Kiro](kiro.md), and in
+[OpenSpec](openspec.md), and in
 [Superpowers](superpowers.md) the plan of small tasks is explicitly designed
 as a document from which work can be resumed at any point. The progress
 journal is the same technique without the pipeline: one file for any
@@ -204,7 +204,7 @@ break off safely.
   the progress journal is the same idea, but about one specific piece of work
   and inside the repository itself.
 - **SDD toolkits** — `tasks.md` with completion marks in
-  [Spec Kit](spec-kit.md), [OpenSpec](openspec.md), [Kiro](kiro.md), and the
+  [OpenSpec](openspec.md) and the
   plans of [Superpowers](superpowers.md): a progress journal built into the
   feature pipeline.
 - **Structured note-taking** from the Anthropic context engineering article —

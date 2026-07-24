@@ -102,6 +102,6 @@ Matt Pocock's pack is the option for those who already live in Claude Code and
 an issue tracker and want SDD without a new tool in the stack: the pipeline is
 assembled from slash commands, and the artifacts land in familiar issues. If
 you want a rigid frame with fixed artifact files in the repository,
-[Spec Kit](spec-kit.md) or [OpenSpec](openspec.md) is closer; philosophically
+[OpenSpec](openspec.md) is closer; philosophically
 the nearest neighbor is [Superpowers](superpowers.md) — another skill pack,
 with stricter checkpoints.

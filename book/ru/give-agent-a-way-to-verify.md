@@ -132,9 +132,8 @@ Give the agent a way to verify its work, verification loop, замкнутый �
    агент знал их в каждой сессии.
 
 В тулкитах спеко-ориентированной разработки петля встроена в конвейер: в
-[Spec Kit](spec-kit.md) и [OpenSpec](openspec.md) каждая задача из `tasks.md`
-несёт свой способ проверки, в [Kiro](kiro.md) критерии приёмки записываются в
-EARS-нотации ещё на фазе требований, в [Superpowers](superpowers.md) цикл
+[OpenSpec](openspec.md) каждая задача из `tasks.md`
+несёт свой способ проверки, в [Superpowers](superpowers.md) цикл
 red–green–refactor обязателен внутри каждой задачи, а в
 [скилах Мэтта Покока](matt-pocock-skills.md) `/implement` не завершается без
 `/tdd` и двухосевого ревью.

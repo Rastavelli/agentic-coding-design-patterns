@@ -141,10 +141,8 @@ bucle sin vigilancia.
    conozca en cada sesión.
 
 En los toolkits del desarrollo orientado a especificaciones el bucle está
-integrado en la tubería: en [Spec Kit](spec-kit.md) y
-[OpenSpec](openspec.md) cada tarea de `tasks.md` lleva su forma de
-verificarse, en [Kiro](kiro.md) los criterios de aceptación se escriben en
-notación EARS ya en la fase de requisitos, en [Superpowers](superpowers.md)
+integrado en la tubería: en [OpenSpec](openspec.md) cada tarea de `tasks.md`
+lleva su forma de verificarse, en [Superpowers](superpowers.md)
 el ciclo red–green–refactor es obligatorio dentro de cada tarea, y en los
 [skills de Matt Pocock](matt-pocock-skills.md) `/implement` no termina sin
 `/tdd` y la revisión de dos ejes.
