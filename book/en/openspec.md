@@ -81,5 +81,6 @@ Everything lives in `openspec/`, in two zones:
 
 OpenSpec is the best fit when the work happens in an existing system and the
 main value is an accumulating, always-current model of the requirements. If
-what you need is the simplest linear pipeline for new features,
-[Spec Kit](spec-kit.md) is the more canonical choice.
+what you need is the simplest linear pipeline for new features, more linear
+toolkits such as GitHub Spec Kit are a better fit (see
+[Useful Links](resources.md)).

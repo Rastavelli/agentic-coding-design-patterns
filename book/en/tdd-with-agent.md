@@ -145,9 +145,7 @@ In the toolkits the cycle comes pre-assembled: in
 [Superpowers](superpowers.md) the `test-driven-development` skill is
 mandatory inside every plan task, in
 [Matt Pocock's skills](matt-pocock-skills.md) `/tdd` adds seams and vertical
-slices and moves refactoring out into review, and in [Kiro](kiro.md) the
-acceptance criteria from the requirements phase turn into test cases before
-any implementation.
+slices and moves refactoring out into review.
 
 ## Example
 

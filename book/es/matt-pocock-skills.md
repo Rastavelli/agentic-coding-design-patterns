@@ -109,7 +109,7 @@ El pack de Matt Pocock es la opción para quien ya vive en Claude Code y un
 gestor de incidencias y quiere SDD sin una herramienta nueva en el stack: la
 tubería se monta con comandos slash y los artefactos aterrizan en issues
 familiares. Si quieres un marco rígido con archivos-artefacto fijos en el
-repositorio, quedan más cerca [Spec Kit](spec-kit.md) u
-[OpenSpec](openspec.md); filosóficamente el vecino más próximo es
+repositorio, queda más cerca [OpenSpec](openspec.md); filosóficamente el
+vecino más próximo es
 [Superpowers](superpowers.md) — otro pack de skills, con puntos de control más
 estrictos.

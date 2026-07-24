@@ -14,10 +14,7 @@
 ## Спеко-ориентированная разработка
 
 * [Обзор подхода](spec-driven-development.md)
-* [GitHub Spec Kit](spec-kit.md)
 * [OpenSpec](openspec.md)
-* [Kiro](kiro.md)
-* [Tessl](tessl.md)
 * [Superpowers](superpowers.md)
 * [Скилы Мэтта Покока](matt-pocock-skills.md)
 
@@ -56,3 +53,4 @@
 ## Приложения
 
 * [Глоссарий](glossary.md)
+* [Полезные ссылки](resources.md)

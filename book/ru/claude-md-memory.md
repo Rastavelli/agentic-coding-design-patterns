@@ -218,8 +218,8 @@ Claude Code читает `CLAUDE.md`, поэтому команде с AGENTS.md
   Apache Airflow и Temporal; в монорепо OpenAI — 88 вложенных файлов.
 - **Правила редакторов** — `.cursor/rules` в Cursor, custom instructions в
   GitHub Copilot: та же идея в форматах конкретных инструментов.
-- **SDD-тулкиты** — конституция в [Spec Kit](spec-kit.md), `project.md` в
-  [OpenSpec](openspec.md), steering-файлы в [Kiro](kiro.md).
+- **SDD-тулкиты** — `project.md` в [OpenSpec](openspec.md), конституция в
+  GitHub Spec Kit, steering-файлы в Kiro.
 
 ## Связанные паттерны
 

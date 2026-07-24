@@ -136,10 +136,8 @@ unattended.
    so the agent knows them in every session.
 
 In the spec-driven development toolkits the loop is built into the pipeline:
-in [Spec Kit](spec-kit.md) and [OpenSpec](openspec.md) every task in
-`tasks.md` carries its own way of being verified, in [Kiro](kiro.md)
-acceptance criteria are written in EARS notation back at the requirements
-phase, in [Superpowers](superpowers.md) the red–green–refactor cycle is
+in [OpenSpec](openspec.md) every task in
+`tasks.md` carries its own way of being verified, in [Superpowers](superpowers.md) the red–green–refactor cycle is
 mandatory inside every task, and in
 [Matt Pocock's skills](matt-pocock-skills.md) `/implement` doesn't finish
 without `/tdd` and the two-axis review.

@@ -139,8 +139,8 @@ dentro de la propia sesión.
 
 En las tuberías del desarrollo orientado a especificaciones el papel del
 diario para una funcionalidad concreta lo desempeña `tasks.md`: listas de
-tareas con marcas de finalización existen en [Spec Kit](spec-kit.md),
-[OpenSpec](openspec.md) y [Kiro](kiro.md), y en
+tareas con marcas de finalización existen en
+[OpenSpec](openspec.md), y en
 [Superpowers](superpowers.md) el plan de tareas pequeñas está pensado
 explícitamente como un documento desde el que retomar el trabajo en cualquier
 punto. El diario de progreso es la misma técnica sin la tubería: un archivo
@@ -211,7 +211,7 @@ cortarse sin peligro.
   diario de progreso es la misma idea, pero sobre un trabajo concreto y
   dentro del propio repositorio.
 - **Toolkits de SDD** — `tasks.md` con marcas de finalización en
-  [Spec Kit](spec-kit.md), [OpenSpec](openspec.md), [Kiro](kiro.md) y los
+  [OpenSpec](openspec.md) y los
   planes de [Superpowers](superpowers.md): un diario de progreso integrado en
   la tubería de la funcionalidad.
 - **Las notas estructuradas** del artículo de Anthropic sobre ingeniería de

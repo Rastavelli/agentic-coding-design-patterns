@@ -237,9 +237,8 @@ Desde la sesión siguiente, todos los agentes del proyecto conocen esta regla.
   contiene 88 archivos anidados.
 - **Reglas de los editores** — `.cursor/rules` en Cursor, custom instructions
   en GitHub Copilot: la misma idea en los formatos de cada herramienta.
-- **Toolkits de SDD** — la constitución en [Spec Kit](spec-kit.md),
-  `project.md` en [OpenSpec](openspec.md), los archivos de steering en
-  [Kiro](kiro.md).
+- **Toolkits de SDD** — `project.md` en [OpenSpec](openspec.md), la
+  constitución en GitHub Spec Kit, los archivos de steering en Kiro.
 
 ## Patrones relacionados
 

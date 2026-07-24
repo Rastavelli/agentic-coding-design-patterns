@@ -226,8 +226,8 @@ From the next session on, every agent on the project knows this rule.
   Apache Airflow and Temporal; OpenAI's monorepo holds 88 nested files.
 - **Editor rules** — `.cursor/rules` in Cursor, custom instructions in GitHub
   Copilot: the same idea in tool-specific formats.
-- **SDD toolkits** — the constitution in [Spec Kit](spec-kit.md),
-  `project.md` in [OpenSpec](openspec.md), steering files in [Kiro](kiro.md).
+- **SDD toolkits** — `project.md` in [OpenSpec](openspec.md), the constitution
+  in GitHub Spec Kit, steering files in Kiro.
 
 ## Related patterns
 

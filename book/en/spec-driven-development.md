@@ -133,18 +133,12 @@ For a two-file edit the pipeline is overkill — there,
 6. When reality diverges, fix the specification first, the code second.
 
 This pipeline is almost never assembled by hand — there are ready-made
-frameworks, each with its own view of what it should be. Each one has its own
-article in this section:
+frameworks, each with its own view of what it should be. Three are covered in
+this section:
 
-- [GitHub Spec Kit](spec-kit.md) — the most direct translation of the pattern
-  into a tool: a slash command per phase, an artifact per command.
 - [OpenSpec](openspec.md) — a pipeline around a **change**: the system's
   standing specifications are updated by deltas, the way migrations update a
   database schema.
-- [Kiro](kiro.md) — SDD as an IDE mode: spec sessions with explicit approval
-  of each phase and acceptance criteria in EARS notation.
-- [Tessl](tessl.md) — the radical variant: the specification is the source,
-  the code a derived artifact.
 - [Superpowers](superpowers.md) — SDD as a Claude Code skill pack:
   brainstorming → plan → subagent implementation with TDD and mandatory
   checkpoints.
@@ -152,11 +146,17 @@ article in this section:
   issue tracker: interview → specification → tracer-bullet tickets →
   implementation.
 
+There are many more — GitHub Spec Kit (the most direct translation of the
+pattern into a tool), Kiro, Tessl, BMAD, and dozens of others. A survey and
+comparison of them lives in the
+[spec-compare](https://cameronsjo.github.io/spec-compare/) project; links to
+the tools are in [Useful Links](resources.md).
+
 ## Example
 
 The task: add scheduled report exports to the service.
 
-**Specification** (`/speckit.specify` or `/opsx:propose` — same essence):
+**Specification** (e.g. the `/opsx:propose` command in OpenSpec):
 
 > A user configures a recurring report export: picks the report, a schedule,
 > and recipients. At the scheduled time the system builds the report and sends
@@ -197,13 +197,15 @@ workaround in the code.
 
 ## Known uses
 
-- [GitHub Spec Kit](spec-kit.md), [OpenSpec](openspec.md), [Kiro](kiro.md),
-  [Tessl](tessl.md), [Superpowers](superpowers.md), and
-  [Matt Pocock's skills](matt-pocock-skills.md) — the six solutions covered by
-  this section's articles; the SDD manifesto as a methodology is in the
+- [OpenSpec](openspec.md), [Superpowers](superpowers.md), and
+  [Matt Pocock's skills](matt-pocock-skills.md) — the three solutions covered
+  by this section's articles; the SDD manifesto as a methodology is in the
   [Spec Kit announcement](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/).
-- **BMAD-Method** — SDD in an agile wrapper: role agents (analyst, PM,
-  architect, developer) drive PRD → architecture → stories.
+- The full SDD tool landscape — GitHub Spec Kit, Kiro, Tessl, BMAD-Method (SDD
+  in an agile wrapper with role agents), Spec Kitty, Traycer, and dozens of
+  others — is gathered in the
+  [spec-compare](https://cameronsjo.github.io/spec-compare/) comparison and in
+  [Useful Links](resources.md).
 
 ## Related patterns
 

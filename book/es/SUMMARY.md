@@ -14,10 +14,7 @@
 ## Desarrollo orientado a especificaciones
 
 * [Visión general](spec-driven-development.md)
-* [GitHub Spec Kit](spec-kit.md)
 * [OpenSpec](openspec.md)
-* [Kiro](kiro.md)
-* [Tessl](tessl.md)
 * [Superpowers](superpowers.md)
 * [Skills de Matt Pocock](matt-pocock-skills.md)
 
@@ -56,3 +53,4 @@
 ## Apéndice
 
 * [Glosario](glossary.md)
+* [Enlaces útiles](resources.md)

@@ -85,4 +85,5 @@ Todo vive en `openspec/`, en dos zonas:
 OpenSpec es la mejor opción cuando el trabajo ocurre en un sistema existente y
 el valor principal es un modelo de requisitos acumulativo y siempre actual. Si
 lo que necesitas es la tubería lineal más simple para funcionalidades nuevas,
-[Spec Kit](spec-kit.md) es la elección más canónica.
+encajan mejor toolkits más lineales como GitHub Spec Kit (véase
+[Enlaces útiles](resources.md)).

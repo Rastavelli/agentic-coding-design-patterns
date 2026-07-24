@@ -138,18 +138,11 @@ Para un cambio de dos archivos la tubería es excesiva — ahí basta con
    código.
 
 Esta tubería casi nunca se monta a mano: hay frameworks listos, cada uno con
-su propia visión de cómo debe ser. Cada uno tiene su propio artículo en esta
-sección:
+su propia visión de cómo debe ser. En esta sección se analizan tres:
 
-- [GitHub Spec Kit](spec-kit.md) — la traducción más directa del patrón a una
-  herramienta: un comando slash por fase, un artefacto por comando.
 - [OpenSpec](openspec.md) — una tubería alrededor de un **cambio**: las
   especificaciones permanentes del sistema se actualizan con deltas, como las
   migraciones actualizan el esquema de una base de datos.
-- [Kiro](kiro.md) — SDD como modo del IDE: sesiones spec con aprobación
-  explícita de cada fase y criterios de aceptación en notación EARS.
-- [Tessl](tessl.md) — la variante radical: la especificación es la fuente y el
-  código un artefacto derivado.
 - [Superpowers](superpowers.md) — SDD como pack de skills de Claude Code:
   brainstorming → plan → implementación con subagentes, TDD y puntos de
   control obligatorios.
@@ -157,12 +150,17 @@ sección:
   de incidencias: entrevista → especificación → tickets bala trazadora →
   implementación.
 
+Hay muchas más — GitHub Spec Kit (la traducción más directa del patrón a una
+herramienta), Kiro, Tessl, BMAD y decenas de otras. Un repaso y una comparación
+de todas están en el proyecto
+[spec-compare](https://cameronsjo.github.io/spec-compare/); los enlaces a las
+herramientas, en [Enlaces útiles](resources.md).
+
 ## Ejemplo
 
 La tarea: añadir al servicio la exportación de informes programada.
 
-**Especificación** (`/speckit.specify` o `/opsx:propose` — la esencia es la
-misma):
+**Especificación** (por ejemplo, con el comando `/opsx:propose` de OpenSpec):
 
 > El usuario configura una exportación recurrente de un informe: elige el
 > informe, el horario y los destinatarios. A la hora programada el sistema
@@ -207,14 +205,16 @@ adjunto), no un rodeo silencioso en el código.
 
 ## Usos conocidos
 
-- [GitHub Spec Kit](spec-kit.md), [OpenSpec](openspec.md), [Kiro](kiro.md),
-  [Tessl](tessl.md), [Superpowers](superpowers.md) y los
-  [skills de Matt Pocock](matt-pocock-skills.md) — las seis soluciones
+- [OpenSpec](openspec.md), [Superpowers](superpowers.md) y los
+  [skills de Matt Pocock](matt-pocock-skills.md) — las tres soluciones
   analizadas en los artículos de esta sección; el manifiesto de SDD como
   metodología está en el
   [anuncio de Spec Kit](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/).
-- **BMAD-Method** — SDD con envoltorio agile: agentes de rol (analista, PM,
-  arquitecto, desarrollador) conducen PRD → arquitectura → historias.
+- El panorama completo de herramientas SDD — GitHub Spec Kit, Kiro, Tessl,
+  BMAD-Method (SDD con envoltorio agile y agentes de rol), Spec Kitty, Traycer
+  y decenas más — está reunido en la comparación
+  [spec-compare](https://cameronsjo.github.io/spec-compare/) y en
+  [Enlaces útiles](resources.md).
 
 ## Patrones relacionados
 

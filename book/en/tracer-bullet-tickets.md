@@ -193,7 +193,7 @@ is done.
 - **The Pragmatic Programmer** — tracer bullets as the metaphor: a thin
   end-to-end channel through the system that shows where the burst is
   going — and, unlike a prototype, stays in the code.
-- **SDD toolkits** — `tasks.md` in [Spec Kit](spec-kit.md) and the plans of
+- **SDD toolkits** — the plans and task lists of
   [Superpowers](superpowers.md): the same slicing into executable steps;
   tracers add the verticality and the explicit blocking.
 

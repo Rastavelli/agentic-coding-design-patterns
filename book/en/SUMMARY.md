@@ -14,10 +14,7 @@
 ## Spec-Driven Development
 
 * [Overview](spec-driven-development.md)
-* [GitHub Spec Kit](spec-kit.md)
 * [OpenSpec](openspec.md)
-* [Kiro](kiro.md)
-* [Tessl](tessl.md)
 * [Superpowers](superpowers.md)
 * [Matt Pocock's Skills](matt-pocock-skills.md)
 
@@ -56,3 +53,4 @@
 ## Appendix
 
 * [Glossary](glossary.md)
+* [Useful Links](resources.md)

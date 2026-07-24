@@ -207,8 +207,8 @@ preguntar.
 - **Los harnesses de evaluación** — la misma mecánica en la evaluación de
   agentes: una lista fija de escenarios verificables con estados que no se
   pueden amañar al resultado.
-- **Toolkits de SDD** — `tasks.md` en [Spec Kit](spec-kit.md) y
-  [OpenSpec](openspec.md) como la forma débil: la lista de control existe,
+- **Toolkits de SDD** — `tasks.md` en [OpenSpec](openspec.md) como la forma
+  débil: la lista de control existe,
   pero la marca no siempre es una comprobación; el registro endurece
   justamente ese punto.
 
