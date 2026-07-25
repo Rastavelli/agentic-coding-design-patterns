@@ -5,6 +5,6 @@ developer works with an AI agent when writing code.
 
 Choose a language:
 
-* [Русский](ru/)
 * [English](en/)
+* [Русский](ru/)
 * [Español](es/)

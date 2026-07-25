@@ -1,5 +1,5 @@
 # Languages
 
-* [Русский](ru/)
 * [English](en/)
+* [Русский](ru/)
 * [Español](es/)

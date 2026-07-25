@@ -2,7 +2,7 @@
   "title": "Agentic Design Patterns",
   "description": "Design patterns for coding with AI agents, in the spirit of the Gang of Four",
   "author": "Hexlet",
-  "language": "ru",
+  "language": "en",
   "plugins": ["toolbar"],
   "pluginsConfig": {
     "toolbar": {
@@ -20,13 +20,13 @@
           "position": "left"
         },
         {
-          "label": "Организованное программирование (Telegram)",
+          "label": "Organized Programming (Telegram)",
           "icon": "fa fa-paper-plane",
           "url": "https://t.me/orgprog",
           "position": "left"
         },
         {
-          "label": "Организованное программирование (YouTube)",
+          "label": "Organized Programming (YouTube)",
           "icon": "fa fa-youtube-play",
           "url": "https://www.youtube.com/@mokevnin",
           "position": "left"
