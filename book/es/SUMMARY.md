@@ -53,4 +53,5 @@
 ## Apéndice
 
 * [Glosario](glossary.md)
+* [Frases para AGENTS.md](agents-md-phrases.md)
 * [Enlaces útiles](resources.md)
