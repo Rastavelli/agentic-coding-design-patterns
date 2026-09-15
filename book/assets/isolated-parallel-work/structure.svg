@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1240" height="610" viewBox="0 0 1240 610" role="img" aria-labelledby="title desc">
-  <title id="title">Изолированная параллельная работа</title>
-  <desc id="desc">Целевая ветка порождает три независимых рабочих дерева. Каждый агент создаёт проверенный коммит, после чего интегратор последовательно собирает и проверяет изменения.</desc>
+  <title id="title">Isolated parallel work</title>
+  <desc id="desc">A target branch produces three isolated worktrees. Each agent creates a verified commit, then an integrator combines and verifies the changes one at a time.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
@@ -16,12 +16,12 @@
   </defs>
 
   <rect width="1240" height="610" rx="24" fill="#f8fafc"/>
-  <text x="620" y="44" text-anchor="middle" class="title">Одна задача — одна ветка — один worktree</text>
+  <text x="620" y="44" text-anchor="middle" class="title">One task — one branch — one worktree</text>
 
   <rect x="40" y="245" width="180" height="110" rx="16" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-  <text x="130" y="285" text-anchor="middle" class="label">Целевая ветка</text>
+  <text x="130" y="285" text-anchor="middle" class="label">Target branch</text>
   <text x="130" y="316" text-anchor="middle" class="code">origin/main</text>
-  <text x="130" y="340" text-anchor="middle" class="small">общая точка старта</text>
+  <text x="130" y="340" text-anchor="middle" class="small">shared starting point</text>
 
   <path d="M220 300 H265 V135 H300" class="branch"/>
   <path d="M220 300 H300" class="branch"/>
@@ -29,26 +29,26 @@
 
   <g>
     <rect x="300" y="75" width="300" height="120" rx="16" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
-    <text x="450" y="108" text-anchor="middle" class="label">Задача A · агент A</text>
+    <text x="450" y="108" text-anchor="middle" class="label">Task A · agent A</text>
     <text x="450" y="137" text-anchor="middle" class="code">branch: agent/auth</text>
     <text x="450" y="162" text-anchor="middle" class="code">worktree: ../project-auth</text>
-    <text x="450" y="184" text-anchor="middle" class="small">правка → проверка → коммит</text>
+    <text x="450" y="184" text-anchor="middle" class="small">edit → verify → commit</text>
   </g>
 
   <g>
     <rect x="300" y="240" width="300" height="120" rx="16" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-    <text x="450" y="273" text-anchor="middle" class="label">Задача B · агент B</text>
+    <text x="450" y="273" text-anchor="middle" class="label">Task B · agent B</text>
     <text x="450" y="302" text-anchor="middle" class="code">branch: agent/docs</text>
     <text x="450" y="327" text-anchor="middle" class="code">worktree: ../project-docs</text>
-    <text x="450" y="349" text-anchor="middle" class="small">правка → проверка → коммит</text>
+    <text x="450" y="349" text-anchor="middle" class="small">edit → verify → commit</text>
   </g>
 
   <g>
     <rect x="300" y="405" width="300" height="120" rx="16" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="450" y="438" text-anchor="middle" class="label">Задача C · агент C</text>
+    <text x="450" y="438" text-anchor="middle" class="label">Task C · agent C</text>
     <text x="450" y="467" text-anchor="middle" class="code">branch: agent/tests</text>
     <text x="450" y="492" text-anchor="middle" class="code">worktree: ../project-tests</text>
-    <text x="450" y="514" text-anchor="middle" class="small">правка → проверка → коммит</text>
+    <text x="450" y="514" text-anchor="middle" class="small">edit → verify → commit</text>
   </g>
 
   <path d="M600 135 H650 V250 H700" class="line"/>
@@ -56,18 +56,18 @@
   <path d="M600 465 H650 V350 H700" class="line"/>
 
   <rect x="700" y="205" width="230" height="190" rx="16" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
-  <text x="815" y="243" text-anchor="middle" class="label">Интегратор</text>
-  <text x="815" y="280" text-anchor="middle" class="small">1. Обновить ветку</text>
-  <text x="815" y="308" text-anchor="middle" class="small">2. Разрешить конфликт</text>
-  <text x="815" y="336" text-anchor="middle" class="small">3. Влить один коммит</text>
-  <text x="815" y="364" text-anchor="middle" class="small">4. Проверить композицию</text>
+  <text x="815" y="243" text-anchor="middle" class="label">Integrator</text>
+  <text x="815" y="280" text-anchor="middle" class="small">1. Update branch</text>
+  <text x="815" y="308" text-anchor="middle" class="small">2. Resolve conflicts</text>
+  <text x="815" y="336" text-anchor="middle" class="small">3. Merge one commit</text>
+  <text x="815" y="364" text-anchor="middle" class="small">4. Verify composition</text>
 
   <path d="M930 300 H990" class="line"/>
 
   <rect x="990" y="245" width="210" height="110" rx="16" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
-  <text x="1095" y="283" text-anchor="middle" class="label">Собранная ветка</text>
+  <text x="1095" y="283" text-anchor="middle" class="label">Integrated branch</text>
   <text x="1095" y="314" text-anchor="middle" class="code">main + A + B + C</text>
-  <text x="1095" y="339" text-anchor="middle" class="small">общая проверка зелёная</text>
+  <text x="1095" y="339" text-anchor="middle" class="small">combined check is green</text>
 
-  <text x="620" y="575" text-anchor="middle" class="small">Worktree разделяет файлы и индекс; порты, базы и контейнеры разводятся отдельно</text>
+  <text x="620" y="575" text-anchor="middle" class="small">Worktrees isolate files and indexes; ports, databases, and containers need separate isolation</text>
 </svg>

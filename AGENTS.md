@@ -4,20 +4,18 @@ Operating guide for agents (and humans) working in this repository.
 
 ## Language
 
-- Book content lives in `book/<locale>/` (ru/en/es); localized chapter skeletons
-  in `templates/<locale>/`.
-- Everything else — READMEs, configs, CI, and the `book/` chrome outside locale
-  folders — is written in **English**.
+- Book content lives in `book/<locale>/` (ru/en/es); localized chapter skeletons in `templates/<locale>/`.
+- Everything else — READMEs, configs, CI, and the `book/` chrome outside locale folders — is written in **English**.
+
+## Markdown formatting
+
+- Do not hard-wrap prose to a fixed column width. Keep each paragraph, list item, and blockquote on one physical source line; use line breaks only for intentional Markdown structure such as headings, separate list items, tables, fenced code, and paragraph boundaries.
 
 ## Commits
 
-- Follow [Conventional Commits](https://www.conventionalcommits.org/), written in
-  **English**.
-- Enforced locally by a `commit-msg` hook: [lefthook](https://github.com/evilmartians/lefthook)
-  (config in `lefthook.yml`) runs [commitlint](https://commitlint.js.org/).
-  Both come from `pnpm install`, which also installs the hooks.
-- Examples: `feat: add reflection pattern`, `docs: translate preface to es`,
-  `ci: bump actions to latest`.
+- Follow [Conventional Commits](https://www.conventionalcommits.org/), written in **English**.
+- Enforced locally by a `commit-msg` hook: [lefthook](https://github.com/evilmartians/lefthook) (config in `lefthook.yml`) runs [commitlint](https://commitlint.js.org/). Both come from `pnpm install`, which also installs the hooks.
+- Examples: `feat: add reflection pattern`, `docs: translate preface to es`, `ci: bump actions to latest`.
 
 ## Build / preview
 
@@ -29,10 +27,8 @@ Operating guide for agents (and humans) working in this repository.
 
 ## Structure conventions
 
-- Patterns are flat files `book/<locale>/<slug>.md`; grouping lives only in
-  `book/<locale>/SUMMARY.md`.
+- Patterns are flat files `book/<locale>/<slug>.md`; grouping lives only in `book/<locale>/SUMMARY.md`.
 - Shared assets in `book/assets/<slug>/`, referenced via `../assets/<slug>/...`.
 - Canonical locale is `ru`: write a pattern in Russian first, then translate.
-- New pattern ideas are tracked in [CANDIDATES.md](CANDIDATES.md) — check it
-  before writing a chapter, and record accepted/rejected there.
+- New pattern ideas are tracked in [CANDIDATES.md](CANDIDATES.md) — check it before writing a chapter, and record accepted/rejected there.
 - See [CONTRIBUTING.md](CONTRIBUTING.md) for the full authoring workflow.
