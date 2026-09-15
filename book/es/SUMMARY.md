@@ -44,6 +44,7 @@
 * [Mapa de investigación](wayfinder.md)
 * [Triaje de tareas](triage-state-machine.md)
 * [Skills](skills-as-packaged-workflows.md)
+* [Trabajo paralelo aislado](isolated-parallel-work.md)
 
 ## Antipatrones
 

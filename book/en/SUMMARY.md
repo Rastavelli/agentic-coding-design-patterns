@@ -44,6 +44,7 @@
 * [Investigation Map](wayfinder.md)
 * [Issue Triage](triage-state-machine.md)
 * [Skills](skills-as-packaged-workflows.md)
+* [Isolated Parallel Work](isolated-parallel-work.md)
 
 ## Anti-patterns
 
