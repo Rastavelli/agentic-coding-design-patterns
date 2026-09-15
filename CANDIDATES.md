@@ -73,6 +73,7 @@ article per framework.
 | json-spec-file | rejected | Merged into `feature-list-harness` (author decision 2026-07-23): a format choice, not a standalone pattern — becomes a section on the status-file format there. | [harness] |
 | handoff | done | Deliberately compact the session into a handoff document for the next agent — instead of trusting auto-summarization. Neighbor of `progress-file`, but a different moment: progress is a running log, handoff is a session boundary. | [mp] |
 | domain-context-file | done | A domain glossary + ADRs in the repo (`CONTEXT.md`) as the canonical language the agent reads every session — cures term drift and renaming churn. Separate axis from `claude-md-memory`: that's "how to work", this is "what words mean". | [mp] |
+| executable-guardrails | accepted | Move enforceable constraints out of prose and into hooks, sandbox boundaries, permissions, and deterministic checks, so the agent can work autonomously inside explicit limits. | [gh-hooks], [cc-sandbox] |
 
 ## Verification
 
@@ -84,6 +85,7 @@ article per framework.
 | writer-reviewer | done | Review the diff in a *fresh* context (separate session/subagent) so the agent isn't biased toward code it just wrote. Includes adversarial refutation (grader ≠ author) as a hardened variant (merge decided 2026-07-23). | [cc-bp] |
 | adversarial-review | rejected | Merged into `writer-reviewer` (author decision 2026-07-23): difference in degree, not structure. | [cc-bp] |
 | prototype-to-answer | done | Build a throwaway prototype to answer a design question ("does this state model even fly?") before the real implementation — verify the design, not the code. | [mp] |
+| agent-workflow-evals | accepted | Maintain a small suite of representative tasks that measures whether agent instructions and skills still produce correct, bounded, and efficient behavior after changes. | [agent-evals] |
 
 ## Project organization
 
@@ -94,6 +96,8 @@ article per framework.
 | wayfinder | done | Work bigger than one session is planned as a map of investigation tickets on the tracker; the agent resolves them one at a time until the way is clear. Extends `feature-list-harness` toward *investigation*, not features. | [mp] |
 | triage-state-machine | done | Incoming issues move through a fixed set of role labels (`needs-triage` → `ready-for-agent` / `ready-for-human`) ending in an agent-ready brief. | [mp] |
 | skills-as-packaged-workflows | done | Package recurring procedures as skills/slash-commands instead of re-explaining them in every prompt. Meta-pattern over most others in this list. | [mp] |
+| isolated-parallel-work | accepted | Give every concurrent task its own branch and Git worktree, with explicit ownership and integration order, so parallel sessions cannot corrupt shared state. | [cc-bp], [parallel-claude] |
+| reproducible-agent-bootstrap | accepted | Provide one command that installs dependencies, prepares safe local configuration and fixtures, and proves a green baseline for every fresh session or worktree. | [harness] |
 
 ## Anti-patterns
 
@@ -120,7 +124,7 @@ an agent.
 | orchestrator-workers | A lead model spawns and coordinates sub-agents. Agent-architecture. | [bea] |
 | tool-use | Ng's canonical pattern; largely a model capability, not a developer move. | [ng] |
 | planning | Ng frames it as agent-side autonomy; overlaps `explore-plan-code-commit` on the human side. | [ng] |
-| multi-agent-collaboration | Multiple agents split/debate work. Could seed a "project-org" chapter — author call. | [ng] |
+| multi-agent-collaboration | Developer-side isolation mechanics are accepted as `isolated-parallel-work`; general multi-agent orchestration remains out of scope. | [ng], [cc-bp], [parallel-claude] |
 | react | Interleave reasoning traces and actions in one loop — the canonical agentic-cycle. Model-internal. | [react] |
 | reflexion | Verbal self-reflection stored in an episodic memory buffer across trials. Agent-internal origin of `reflection`. | [reflexion] |
 | tree-of-thoughts | Deliberate reasoning over a tree of thoughts with look-ahead / backtracking. Model-internal. | [tot] |
@@ -135,6 +139,10 @@ an agent.
 - `[ctx]` — Anthropic, *Effective context engineering for AI agents* — https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 - `[cc-bp]` — Anthropic, *Claude Code best practices* — https://code.claude.com/docs/en/best-practices
 - `[cc-mem]` — Anthropic, *Claude Code — Memory* — https://code.claude.com/docs/en/memory
+- `[cc-sandbox]` — Anthropic, *Claude Code Sandboxing* — https://www.anthropic.com/engineering/claude-code-sandboxing
+- `[parallel-claude]` — Anthropic, *Building a C compiler with a team of parallel Claudes* — https://www.anthropic.com/engineering/building-c-compiler
+- `[agent-evals]` — Anthropic, *Demystifying evals for AI agents* — https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+- `[gh-hooks]` — GitHub Docs, *About hooks* — https://docs.github.com/en/copilot/concepts/agents/hooks
 - `[ng]` — Andrew Ng, *Four agentic design patterns* — https://x.com/AndrewYNg/status/1773393357022298617
 - `[speckit]` — GitHub, *Spec-driven development with AI (Spec Kit)* — https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
 - `[agentsmd]` — *AGENTS.md convention* — https://agents.md/
