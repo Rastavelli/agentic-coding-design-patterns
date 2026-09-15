@@ -28,6 +28,7 @@
 * [Vocabulario del dominio](domain-context-file.md)
 * [Diario de progreso](progress-file.md)
 * [Traspaso de sesión](handoff.md)
+* [Límites ejecutables](executable-guardrails.md)
 
 ## Verificación
 
@@ -36,6 +37,7 @@
 * [Reflexión](reflection.md)
 * [Escritor y revisor](writer-reviewer.md)
 * [Prototipo desechable](prototype-to-answer.md)
+* [Evaluaciones del flujo del agente](agent-workflow-evals.md)
 
 ## Organización del proyecto
 
@@ -44,6 +46,7 @@
 * [Mapa de investigación](wayfinder.md)
 * [Triaje de tareas](triage-state-machine.md)
 * [Skills](skills-as-packaged-workflows.md)
+* [Inicio reproducible del agente](reproducible-agent-bootstrap.md)
 * [Trabajo paralelo aislado](isolated-parallel-work.md)
 
 ## Antipatrones

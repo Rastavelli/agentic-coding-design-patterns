@@ -28,6 +28,7 @@
 * [Domain Vocabulary](domain-context-file.md)
 * [Progress Journal](progress-file.md)
 * [Session Handoff](handoff.md)
+* [Executable Guardrails](executable-guardrails.md)
 
 ## Verification
 
@@ -36,6 +37,7 @@
 * [Reflection](reflection.md)
 * [Writer and Reviewer](writer-reviewer.md)
 * [Throwaway Prototype](prototype-to-answer.md)
+* [Agent Workflow Evals](agent-workflow-evals.md)
 
 ## Project Organization
 
@@ -44,6 +46,7 @@
 * [Investigation Map](wayfinder.md)
 * [Issue Triage](triage-state-machine.md)
 * [Skills](skills-as-packaged-workflows.md)
+* [Reproducible Agent Bootstrap](reproducible-agent-bootstrap.md)
 * [Isolated Parallel Work](isolated-parallel-work.md)
 
 ## Anti-patterns
