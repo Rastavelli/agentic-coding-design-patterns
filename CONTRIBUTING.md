@@ -19,7 +19,7 @@ language.
    order in the book).
 4. If you need a diagram or code, put it in `book/assets/<slug>/` and reference it
    with a relative path `../assets/<slug>/...`.
-5. Preview with `npm start`.
+5. Preview with `pnpm start`.
 
 Anti-patterns go into the separate "Anti-patterns" chapter and use
 `templates/<locale>/anti-pattern.md`.

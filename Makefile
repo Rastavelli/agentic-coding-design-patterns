@@ -1,18 +1,21 @@
-.PHONY: setup serve build pdf clean
+.PHONY: setup serve build pdf update clean
 
 setup: ## Install dependencies and git hooks
-	npm install
+	pnpm install
 
 serve: ## Local preview (Honkit serve)
-	npm start
+	pnpm start
 
 build: ## Static build into ./dist
-	npm run build
+	pnpm build
 
 pdf: ## Build PDFs for all locales
-	npm run pdf:ru
-	npm run pdf:en
-	npm run pdf:es
+	pnpm pdf:ru
+	pnpm pdf:en
+	pnpm pdf:es
+
+update: ## Bump all dependencies to latest (npm-check-updates)
+	pnpm deps:update
 
 clean: ## Remove build output and installed deps
 	rm -rf dist node_modules

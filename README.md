@@ -36,10 +36,10 @@ same across all locales.
 ## Development
 
 ```sh
-npm install
-npm start          # local preview (honkit serve)
-npm run build      # static build into ./dist
-npm run pdf:ru     # PDF for a locale (requires Calibre/ebook-convert)
+pnpm install
+pnpm start         # local preview (honkit serve)
+pnpm build         # static build into ./dist
+pnpm pdf:ru        # PDF for a locale (requires Calibre/ebook-convert)
 ```
 
 - How to add a pattern and how translations work — see [CONTRIBUTING.md](CONTRIBUTING.md).

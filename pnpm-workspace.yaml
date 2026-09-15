@@ -1,0 +1,4 @@
+# pnpm settings (pnpm no longer reads the "pnpm" field in package.json).
+# lefthook's postinstall script installs the git hooks, so it must be allowed to build.
+allowBuilds:
+  lefthook: true

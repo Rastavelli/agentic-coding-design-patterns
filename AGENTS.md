@@ -15,7 +15,7 @@ Operating guide for agents (and humans) working in this repository.
   **English**.
 - Enforced locally by a `commit-msg` hook: [lefthook](https://github.com/evilmartians/lefthook)
   (config in `lefthook.yml`) runs [commitlint](https://commitlint.js.org/).
-  Both come from `npm install`, which also installs the hooks.
+  Both come from `pnpm install`, which also installs the hooks.
 - Examples: `feat: add reflection pattern`, `docs: translate preface to es`,
   `ci: bump actions to latest`.
 
@@ -25,6 +25,7 @@ Operating guide for agents (and humans) working in this repository.
 - `make serve` — local preview (Honkit serve)
 - `make build` — static build into `./dist`
 - `make pdf` — PDFs for all locales
+- `make update` — bump all dependencies to latest (npm-check-updates)
 
 ## Structure conventions
 
