@@ -1,15 +1,19 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development, explore-plan-code-commit]
-source_rev: 69d336ebeb0525cf4dd7e9cd7d354ce31dffe499
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # Matt Pocock's Skills
 
+*Commands and capabilities checked on September 15, 2026.*
+
 [Matt Pocock's skill pack](https://github.com/mattpocock/skills) is an
 implementation of [spec-driven development](spec-driven-development.md) as a
-set of Claude Code skills. Unlike Spec Kit and OpenSpec, which stack artifacts
+set of coding-agent skills. Unlike Spec Kit and OpenSpec, which stack artifacts
 in a repository directory, this pack builds the pipeline on top of the **issue
 tracker**: the specification is published as an issue, tasks as linked
 tickets, and the work then follows the team's usual process.
@@ -18,11 +22,10 @@ tickets, and the work then follows the team's usual process.
 
 Two ways: editable — `npx skills@latest add mattpocock/skills` (the skills are
 copied into the repository, ready to fork and edit) — and managed, via the
-Claude Code plugin marketplace
-(`/plugin install mattpocock-skills@mattpocock`). Then
-`/setup-matt-pocock-skills` runs once per repository: the setup skill
-establishes where the tracker lives (GitHub by default; a local Markdown-file
-variant is also supported out of the box), the triage label vocabulary
+official Claude Code plugin marketplace (`/plugin install mattpocock-skills`). Then
+`/setup-matt-pocock-skills` runs once per repository: the setup skill detects
+the tracker from the repository and confirms the choice (GitHub, GitLab, Linear,
+local Markdown files, and custom workflows are supported), the triage label vocabulary
 (`needs-triage`, `ready-for-agent`, `ready-for-human`…), and the domain-doc
 layout; the configuration lands in `docs/agents/`.
 
@@ -98,10 +101,11 @@ Around the main pipeline sit skills for scale and the edges of the process:
 
 ## When to choose it
 
-Matt Pocock's pack is the option for those who already live in Claude Code and
-an issue tracker and want SDD without a new tool in the stack: the pipeline is
-assembled from slash commands, and the artifacts land in familiar issues. If
-you want a rigid frame with fixed artifact files in the repository,
+Matt Pocock's pack is the option for those who already live in a coding agent
+and an issue tracker and want SDD without a new tool in the stack: the pipeline
+is assembled from skills, and the artifacts land in familiar issues. Managed
+installation is available in Claude Code; the editable route works in Codex and
+other agents. If you want a rigid frame with fixed artifact files in the repository,
 [OpenSpec](openspec.md) is closer; philosophically
 the nearest neighbor is [Superpowers](superpowers.md) — another skill pack,
 with stricter checkpoints.

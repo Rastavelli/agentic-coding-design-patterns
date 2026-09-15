@@ -2,7 +2,7 @@
 group: project-org
 status: draft
 related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development]
-source_rev: 63b78b18c8a9e2a7e3ac3add6aba38c64d63eb8d
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # Feature List

@@ -1,16 +1,20 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development, explore-plan-code-commit]
-source_rev: 69d336ebeb0525cf4dd7e9cd7d354ce31dffe499
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # Skills de Matt Pocock
 
+*Comandos y capacidades comprobados el 15 de septiembre de 2026.*
+
 El [pack de skills de Matt Pocock](https://github.com/mattpocock/skills) es
 una implementación del
 [desarrollo orientado a especificaciones](spec-driven-development.md) como un
-conjunto de skills de Claude Code. A diferencia de Spec Kit y OpenSpec, que
+conjunto de skills para agentes de código. A diferencia de Spec Kit y OpenSpec, que
 apilan los artefactos en un directorio del repositorio, este pack construye la
 tubería sobre el **gestor de incidencias**: la especificación se publica como
 una issue, las tareas como tickets enlazados, y el trabajo sigue después el
@@ -20,11 +24,12 @@ proceso habitual del equipo.
 
 Dos vías: la editable — `npx skills@latest add mattpocock/skills` (los skills
 se copian al repositorio, listos para forkear y editar) — y la gestionada, vía
-el marketplace de plugins de Claude Code
-(`/plugin install mattpocock-skills@mattpocock`). Después,
+el marketplace oficial de plugins de Claude Code
+(`/plugin install mattpocock-skills`). Después,
 `/setup-matt-pocock-skills` se ejecuta una vez por repositorio: el skill de
-configuración establece dónde vive el tracker (GitHub por defecto; también se
-soporta de serie una variante local con archivos Markdown), el vocabulario de
+configuración detecta el tracker desde el repositorio y confirma la elección
+(se admiten GitHub, GitLab, Linear, archivos Markdown locales y flujos
+personalizados), el vocabulario de
 etiquetas de triaje (`needs-triage`, `ready-for-agent`, `ready-for-human`…) y
 la disposición de los documentos de dominio; la configuración aterriza en
 `docs/agents/`.
@@ -105,11 +110,12 @@ proceso:
 
 ## Cuándo elegirlo
 
-El pack de Matt Pocock es la opción para quien ya vive en Claude Code y un
-gestor de incidencias y quiere SDD sin una herramienta nueva en el stack: la
-tubería se monta con comandos slash y los artefactos aterrizan en issues
-familiares. Si quieres un marco rígido con archivos-artefacto fijos en el
-repositorio, queda más cerca [OpenSpec](openspec.md); filosóficamente el
+El pack de Matt Pocock es la opción para quien ya vive en un agente de código y
+un gestor de incidencias y quiere SDD sin una herramienta nueva en el stack: la
+tubería se monta con skills y los artefactos aterrizan en issues familiares. La
+instalación gestionada está disponible en Claude Code; la vía editable funciona
+en Codex y otros agentes. Si quieres un marco rígido con archivos-artefacto fijos
+en el repositorio, queda más cerca [OpenSpec](openspec.md); filosóficamente el
 vecino más próximo es
 [Superpowers](superpowers.md) — otro pack de skills, con puntos de control más
 estrictos.

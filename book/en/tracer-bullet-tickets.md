@@ -2,7 +2,7 @@
 group: task-setting
 status: draft
 related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer]
-source_rev: 6343b5fc999014627b1813b3570142891efc48be
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # Tracer-Bullet Tickets

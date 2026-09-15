@@ -1,11 +1,15 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development, explore-plan-code-commit]
-source_rev: 69d336ebeb0525cf4dd7e9cd7d354ce31dffe499
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # Superpowers
+
+*Commands and capabilities checked on September 15, 2026.*
 
 [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent (obra) is
 "a complete software development methodology for your coding agents, built on

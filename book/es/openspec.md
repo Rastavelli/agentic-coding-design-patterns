@@ -1,11 +1,15 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development]
-source_rev: 07fc27a4a9be99f1aa6f1a42525711a2e8b2e9f3
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # OpenSpec
+
+*Comandos y capacidades comprobados el 15 de septiembre de 2026.*
 
 [OpenSpec](https://github.com/Fission-AI/OpenSpec) (Fission-AI) construye el
 [desarrollo orientado a especificaciones](spec-driven-development.md) no
@@ -15,9 +19,8 @@ propose → review → apply → archive. La idea clave es separar «lo que ya e
 actualizan con deltas, como las migraciones actualizan el esquema de una base
 de datos.
 
-OpenSpec es un toolkit agnóstico respecto al agente: los comandos slash
-funcionan en Claude Code, Cursor, GitHub Copilot y una veintena más de
-asistentes.
+OpenSpec es un toolkit agnóstico respecto al agente: soporta más de 30 agentes y
+asistentes de código, incluidos Claude Code, Codex, Cursor y GitHub Copilot.
 
 ## Instalación
 
@@ -35,8 +38,8 @@ agentes tras una actualización.
 ## Flujo de trabajo
 
 El conjunto de comandos depende del perfil elegido
-(`openspec config profile`). El perfil por defecto son tres comandos a lo
-largo del ciclo del cambio:
+(`openspec config profile`). El perfil por defecto lleva un cambio por cuatro
+pasos:
 
 1. `/opsx:explore` — modo de reflexión antes de cualquier artefacto: el agente
    lee el código y sopesa opciones sin cambiar nada.
@@ -44,15 +47,21 @@ largo del ciclo del cambio:
    artefactos (ver abajo). La revisión del paquete es el punto de control
    antes de la primera línea de código.
 3. `/opsx:apply` — implementación siguiendo el checklist de tareas.
+4. `/opsx:archive` — mover el cambio completado al archivo e incorporar sus
+   deltas a las especificaciones permanentes.
 
 El perfil extendido añade comandos para trabajos largos: `/opsx:new`,
 `/opsx:continue`, `/opsx:ff` (fast-forward), `/opsx:verify` (contrastar la
 implementación con los artefactos), `/opsx:bulk-archive` y `/opsx:onboard`
 (desplegar OpenSpec en un proyecto existente).
 
-Tras el merge el cambio se archiva: sus deltas se funden en las
+Tras el merge, ejecuta `/opsx:archive`: sus deltas se funden en las
 especificaciones permanentes y el cambio pasa al archivo — la historia de
 decisiones queda en el repositorio.
+
+La forma del comando depende del agente. Por ejemplo, Codex puede mostrar
+`$openspec-propose`, mientras Cursor y GitHub Copilot usan `/opsx-propose`;
+`openspec init` imprime la sintaxis para la herramienta elegida.
 
 ## Artefactos
 

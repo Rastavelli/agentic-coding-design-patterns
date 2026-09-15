@@ -2,7 +2,7 @@
 group: verification
 status: draft
 related: [tdd-with-agent, writer-reviewer, reflection, explore-plan-code-commit]
-source_rev: 6d586548a8656f66e46b3f057035aa3492bc82da
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # Bucle de retroalimentación

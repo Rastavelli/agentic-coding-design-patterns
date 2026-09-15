@@ -2,7 +2,7 @@
 group: context
 status: draft
 related: [context-engineering, handoff, claude-md-memory]
-source_rev: 8793328d905abff7836d30fca810d2058ccde866
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # Progress Journal

@@ -14,6 +14,9 @@
 ## Desarrollo orientado a especificaciones
 
 * [Visión general](spec-driven-development.md)
+
+### Perfiles de herramientas
+
 * [OpenSpec](openspec.md)
 * [Superpowers](superpowers.md)
 * [Skills de Matt Pocock](matt-pocock-skills.md)

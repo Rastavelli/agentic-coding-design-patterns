@@ -2,7 +2,7 @@
 group: sdd
 status: draft
 related: [explore-plan-code-commit, premature-specification]
-source_rev: 69d336ebeb0525cf4dd7e9cd7d354ce31dffe499
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # Spec-Driven Development

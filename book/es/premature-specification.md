@@ -2,7 +2,7 @@
 kind: anti-pattern
 status: draft
 related: [explore-plan-code-commit]
-source_rev: 8c338c7d59e316b9e8010a5e247c763c65c87f52
+source_rev: 7f11d956633c1981bc349bb2fac1261b4125afe2
 ---
 
 # Especificación prematura

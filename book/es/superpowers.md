@@ -1,11 +1,15 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development, explore-plan-code-commit]
-source_rev: 69d336ebeb0525cf4dd7e9cd7d354ce31dffe499
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # Superpowers
+
+*Comandos y capacidades comprobados el 15 de septiembre de 2026.*
 
 [Superpowers](https://github.com/obra/superpowers), de Jesse Vincent (obra),
 es «una metodología completa de desarrollo de software para tus agentes de

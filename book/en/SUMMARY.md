@@ -14,6 +14,9 @@
 ## Spec-Driven Development
 
 * [Overview](spec-driven-development.md)
+
+### Tool Profiles
+
 * [OpenSpec](openspec.md)
 * [Superpowers](superpowers.md)
 * [Matt Pocock's Skills](matt-pocock-skills.md)

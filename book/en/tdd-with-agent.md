@@ -2,7 +2,7 @@
 group: verification
 status: draft
 related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
-source_rev: 4f50917e2eb5b562d841ef4d1d5e2c0a40776861
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
 # TDD with an Agent

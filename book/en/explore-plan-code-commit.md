@@ -2,7 +2,7 @@
 group: task-setting
 status: draft
 related: [spec-driven-development, premature-specification]
-source_rev: 572b790bc4562778693d591204befe0d594da2fe
+source_rev: 7f11d956633c1981bc349bb2fac1261b4125afe2
 ---
 
 # Four Phases

@@ -1,11 +1,15 @@
 ---
 group: sdd
+kind: tool
+checked_on: 2026-09-15
 status: draft
 related: [spec-driven-development]
-source_rev: 07fc27a4a9be99f1aa6f1a42525711a2e8b2e9f3
+source_rev: aa305c46decbe91760dcab4d8cd6ec89558d28c1
 ---
 
 # OpenSpec
+
+*Commands and capabilities checked on September 15, 2026.*
 
 [OpenSpec](https://github.com/Fission-AI/OpenSpec) (Fission-AI) builds
 [spec-driven development](spec-driven-development.md) not around a feature but
@@ -14,8 +18,8 @@ key idea is to separate "what already is" from "what is changing": the
 system's standing specifications are updated by deltas, the way migrations
 update a database schema.
 
-OpenSpec is an agent-agnostic toolkit: the slash commands work in Claude Code,
-Cursor, GitHub Copilot, and two dozen other assistants.
+OpenSpec is an agent-agnostic toolkit: it supports more than 30 coding agents
+and assistants, including Claude Code, Codex, Cursor, and GitHub Copilot.
 
 ## Installation
 
@@ -33,7 +37,7 @@ instructions after an upgrade.
 ## Workflow
 
 The command set depends on the chosen profile (`openspec config profile`).
-The default profile is three commands along the change cycle:
+The default profile takes a change through four steps:
 
 1. `/opsx:explore` — thinking mode before any artifacts: the agent reads the
    code and weighs options, changing nothing.
@@ -41,15 +45,21 @@ The default profile is three commands along the change cycle:
    created (see below). Reviewing the bundle is the checkpoint before the
    first line of code.
 3. `/opsx:apply` — implementation following the task checklist.
+4. `/opsx:archive` — moving the completed change to the archive and folding its
+   deltas into the standing specifications.
 
 The extended profile adds commands for long-running work: `/opsx:new`,
 `/opsx:continue`, `/opsx:ff` (fast-forward), `/opsx:verify` (checking the
 implementation against the artifacts), `/opsx:bulk-archive`, and
 `/opsx:onboard` (rolling OpenSpec out on an existing project).
 
-After the merge the change is archived: its deltas fold into the standing
+After the merge, run `/opsx:archive`: its deltas fold into the standing
 specifications, and the change itself moves to the archive — the history of
 decisions stays in the repository.
+
+Command syntax depends on the agent. Codex, for example, may expose
+`$openspec-propose`, while Cursor and GitHub Copilot use `/opsx-propose`;
+`openspec init` prints the syntax for the selected tool.
 
 ## Artifacts
 
