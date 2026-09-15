@@ -30,6 +30,11 @@ practical-card structure: installation, workflow, artifacts, distinctions, and
 selection criteria. Show the check date to readers because commands and product
 capabilities change faster than pattern descriptions.
 
+Recheck a tool profile against the tool's primary documentation before each
+book release and whenever its commands or capabilities are edited. Advance
+`checked_on` only after that verification; changing prose alone is not evidence
+that the product details are current.
+
 ## Chapter front matter (optional but useful)
 
 Honkit takes the title from the first `#` and navigation from `SUMMARY.md`. A small
