@@ -1,3 +1,7 @@
+---
+source_rev: 79d120b16827b66b81df7bc80df912b4631836ac
+---
+
 # Agentic Design Patterns
 
 Un catálogo de patrones de programación con agentes al estilo de la «Banda de los

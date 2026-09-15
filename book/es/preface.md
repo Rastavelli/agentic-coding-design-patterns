@@ -1,3 +1,7 @@
+---
+source_rev: cd183077a183e2eb5932824fcf7573f7adbe8e10
+---
+
 # Prefacio
 
 La «Banda de los Cuatro» dio en su momento a la programación orientada a objetos

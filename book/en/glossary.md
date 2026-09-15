@@ -1,3 +1,7 @@
+---
+source_rev: 41ffe61445820e8cf04a836addf315d74618f395
+---
+
 # Glossary
 
 **Agent** — an LLM-based program the developer assigns tasks to, and which carries

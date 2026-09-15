@@ -1,3 +1,7 @@
+---
+source_rev: 96fe9e06b86b7b38ac4da102b12e55b3fca4ee2b
+---
+
 # Frases para AGENTS.md
 
 Un pequeño conjunto de reglas universales que vale la pena añadir a la

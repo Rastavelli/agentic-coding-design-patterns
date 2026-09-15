@@ -1,3 +1,7 @@
+---
+source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
+---
+
 # Enlaces útiles
 
 Una colección de enlaces a herramientas de

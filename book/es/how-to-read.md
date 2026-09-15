@@ -1,3 +1,7 @@
+---
+source_rev: 7e55f190b32a442a316091c9b62608c9ee3aaaec
+---
+
 # Cómo leer este libro
 
 ## Qué es un patrón

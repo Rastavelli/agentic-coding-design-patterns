@@ -1,3 +1,7 @@
+---
+source_rev: 41ffe61445820e8cf04a836addf315d74618f395
+---
+
 # Glosario
 
 **Agente** — programa basado en un LLM al que el desarrollador asigna tareas y que

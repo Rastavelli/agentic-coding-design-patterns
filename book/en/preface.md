@@ -1,3 +1,7 @@
+---
+source_rev: cd183077a183e2eb5932824fcf7573f7adbe8e10
+---
+
 # Preface
 
 The "Gang of Four" once gave object-oriented programming a shared vocabulary:
