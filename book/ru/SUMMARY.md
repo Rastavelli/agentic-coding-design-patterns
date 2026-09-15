@@ -44,6 +44,7 @@
 * [Карта исследования](wayfinder.md)
 * [Триаж задач](triage-state-machine.md)
 * [Скилы](skills-as-packaged-workflows.md)
+* [Изолированная параллельная работа](isolated-parallel-work.md)
 
 ## Анти-паттерны
 
