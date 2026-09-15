@@ -56,3 +56,11 @@ en un límite concreto de contexto. La reflexión pide al autor que critique su
 propio resultado, mientras que [Escritor y revisor](writer-reviewer.md) entrega
 la comprobación a un contexto nuevo. TDD es una forma estricta del bucle de
 retroalimentación para comportamientos que se pueden expresar como tests.
+
+La [Lista de funcionalidades](feature-list-harness.md) guarda el estado
+verificable de todo el trabajo, mientras Una funcionalidad a la vez limita el
+alcance de una sola pasada. Los tickets trazadores sirven para dividir una
+funcionalidad grande ya entendida en cortes verticales con dependencias. El
+[Mapa de investigación](wayfinder.md) se aplica antes, cuando la ruta al
+resultado todavía se desconoce y primero hay que resolver preguntas de
+investigación.

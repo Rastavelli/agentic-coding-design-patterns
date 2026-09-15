@@ -54,3 +54,10 @@ a specific context boundary. Reflection asks the author to criticize its own
 work, while [Writer and Reviewer](writer-reviewer.md) gives the check to a fresh
 context. TDD is a strict form of the feedback loop for behavior that can be
 expressed as a test.
+
+[Feature List](feature-list-harness.md) stores the verifiable state of the whole
+body of work, while One Feature at a Time limits the scope of a single pass.
+Tracer-bullet tickets are for splitting an already-understood large feature into
+vertical slices with dependencies. [Investigation Map](wayfinder.md) comes
+earlier—when the route to the result is still unknown and research questions
+must be resolved first.
