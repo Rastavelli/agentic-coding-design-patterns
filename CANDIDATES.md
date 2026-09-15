@@ -73,7 +73,7 @@ article per framework.
 | json-spec-file | rejected | Merged into `feature-list-harness` (author decision 2026-07-23): a format choice, not a standalone pattern — becomes a section on the status-file format there. | [harness] |
 | handoff | done | Deliberately compact the session into a handoff document for the next agent — instead of trusting auto-summarization. Neighbor of `progress-file`, but a different moment: progress is a running log, handoff is a session boundary. | [mp] |
 | domain-context-file | done | A domain glossary + ADRs in the repo (`CONTEXT.md`) as the canonical language the agent reads every session — cures term drift and renaming churn. Separate axis from `claude-md-memory`: that's "how to work", this is "what words mean". | [mp] |
-| executable-guardrails | accepted | Move enforceable constraints out of prose and into hooks, sandbox boundaries, permissions, and deterministic checks, so the agent can work autonomously inside explicit limits. | [gh-hooks], [cc-sandbox] |
+| executable-guardrails | done | Move enforceable constraints out of prose and into hooks, sandbox boundaries, permissions, and deterministic checks, so the agent can work autonomously inside explicit limits. | [gh-hooks], [cc-sandbox] |
 
 ## Verification
 
@@ -85,7 +85,7 @@ article per framework.
 | writer-reviewer | done | Review the diff in a *fresh* context (separate session/subagent) so the agent isn't biased toward code it just wrote. Includes adversarial refutation (grader ≠ author) as a hardened variant (merge decided 2026-07-23). | [cc-bp] |
 | adversarial-review | rejected | Merged into `writer-reviewer` (author decision 2026-07-23): difference in degree, not structure. | [cc-bp] |
 | prototype-to-answer | done | Build a throwaway prototype to answer a design question ("does this state model even fly?") before the real implementation — verify the design, not the code. | [mp] |
-| agent-workflow-evals | accepted | Maintain a small suite of representative tasks that measures whether agent instructions and skills still produce correct, bounded, and efficient behavior after changes. | [agent-evals] |
+| agent-workflow-evals | done | Maintain a small suite of representative tasks that measures whether agent instructions and skills still produce correct, bounded, and efficient behavior after changes. | [agent-evals] |
 
 ## Project organization
 
@@ -97,7 +97,7 @@ article per framework.
 | triage-state-machine | done | Incoming issues move through a fixed set of role labels (`needs-triage` → `ready-for-agent` / `ready-for-human`) ending in an agent-ready brief. | [mp] |
 | skills-as-packaged-workflows | done | Package recurring procedures as skills/slash-commands instead of re-explaining them in every prompt. Meta-pattern over most others in this list. | [mp] |
 | isolated-parallel-work | done | Give every concurrent task its own branch and Git worktree, with explicit ownership and integration order, so parallel sessions cannot corrupt shared state. | [cc-bp], [parallel-claude] |
-| reproducible-agent-bootstrap | accepted | Provide one command that installs dependencies, prepares safe local configuration and fixtures, and proves a green baseline for every fresh session or worktree. | [harness] |
+| reproducible-agent-bootstrap | done | Provide one command that installs dependencies, prepares safe local configuration and fixtures, and proves a green baseline for every fresh session or worktree. | [harness] |
 
 ## Anti-patterns
 

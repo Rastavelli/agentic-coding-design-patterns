@@ -28,6 +28,7 @@
 * [Словарь домена](domain-context-file.md)
 * [Журнал прогресса](progress-file.md)
 * [Передача сессии](handoff.md)
+* [Исполняемые ограничения](executable-guardrails.md)
 
 ## Проверка
 
@@ -36,6 +37,7 @@
 * [Рефлексия](reflection.md)
 * [Писатель и рецензент](writer-reviewer.md)
 * [Одноразовый прототип](prototype-to-answer.md)
+* [Эвалы рабочего процесса](agent-workflow-evals.md)
 
 ## Организация проекта
 
@@ -44,6 +46,7 @@
 * [Карта исследования](wayfinder.md)
 * [Триаж задач](triage-state-machine.md)
 * [Скилы](skills-as-packaged-workflows.md)
+* [Воспроизводимый старт агента](reproducible-agent-bootstrap.md)
 * [Изолированная параллельная работа](isolated-parallel-work.md)
 
 ## Анти-паттерны
