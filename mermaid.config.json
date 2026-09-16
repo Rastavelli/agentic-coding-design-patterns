@@ -1,0 +1,38 @@
+{
+  "theme": "base",
+  "fontFamily": "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+  "themeVariables": {
+    "fontSize": "14px",
+    "primaryColor": "#eef3f9",
+    "primaryBorderColor": "#4a6fa5",
+    "primaryTextColor": "#1a2b3c",
+    "lineColor": "#4a6fa5",
+    "textColor": "#1a2b3c",
+    "titleColor": "#a5764a",
+    "clusterBkg": "transparent",
+    "clusterBorder": "#5b6b7c",
+    "edgeLabelBackground": "#ffffff",
+    "labelBoxBorderColor": "#4a6fa5",
+    "actorBkg": "#eef3f9",
+    "actorBorder": "#4a6fa5",
+    "actorTextColor": "#1a2b3c",
+    "signalColor": "#4a6fa5",
+    "signalTextColor": "#1a2b3c",
+    "noteBkgColor": "#f6f1e7",
+    "noteBorderColor": "#a5764a",
+    "noteTextColor": "#1a2b3c"
+  },
+  "flowchart": {
+    "htmlLabels": false,
+    "curve": "basis",
+    "padding": 12,
+    "nodeSpacing": 45,
+    "rankSpacing": 55
+  },
+  "sequence": {
+    "useMaxWidth": true,
+    "wrap": true
+  },
+  "themeCSS": ".accent rect, .accent polygon, .accent path { fill: #f6f1e7 !important; stroke: #a5764a !important; } .warn rect, .warn polygon, .warn path { fill: #f9eded !important; stroke: #a54a4a !important; } .muted rect, .muted polygon, .muted path { fill: #f4f5f6 !important; stroke: #5b6b7c !important; } .cluster rect { stroke-dasharray: 6 4 !important; stroke: #5b6b7c !important; } .cluster-label text { fill: #5b6b7c !important; }",
+  "htmlLabels": false
+}
