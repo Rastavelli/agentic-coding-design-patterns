@@ -50,7 +50,22 @@ code in the first two.
 
 ## Structure
 
-![Pattern structure](../assets/explore-plan-code-commit/structure.en.svg)
+```mermaid
+---
+title: a checkpoint between the plan and the code
+---
+flowchart TB
+  explore["Explore<br/>reads the code, writes nothing"]
+  plan["Plan<br/>approach and risks, no code yet"]
+  code["Code<br/>implements the plan"]
+  commit["Commit<br/>commit, PR, documentation"]
+  explore --> plan
+  plan -- "the developer approves the plan" --> code
+  code --> commit
+  code -. "plan diverges from reality — go back" .-> plan
+  gate["checkpoint<br/>the one place a human is required"]:::warn
+  plan -.- gate
+```
 
 The phases run strictly in order, but the process is not one-way: if the plan
 diverges from reality during implementation, the right move is to return to the

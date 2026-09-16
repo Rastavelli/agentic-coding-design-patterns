@@ -71,7 +71,19 @@ refactorización y no con los cambios de comportamiento.
 
 ## Estructura
 
-![Estructura del patrón](../assets/tdd-with-agent/structure.es.svg)
+```mermaid
+---
+title: un prompt por fase — si no, el agente las mezcla
+---
+flowchart TB
+  red["Fase roja<br/>tests según los casos, ejecutar — deben fallar<br/>implementación prohibida"]:::warn
+  green["Fase verde<br/>código mínimo hasta el verde<br/>los tests, congelados"]
+  overfit["Control de amaño<br/>un subagente fresco: ¿está el código amañado<br/>para esos tests?"]:::muted
+  refactor["Refactorización<br/>después del verde, protegida por los tests"]:::accent
+  red -- "commit: el oráculo queda fijado" --> green
+  green --> overfit --> refactor
+  refactor -. "siguiente rebanada: un test — una implementación" .-> red
+```
 
 Las fases van de izquierda a derecha, cada una con su prompt: la roja
 produce un oráculo que falla, el commit lo congela, la verde hace girar el

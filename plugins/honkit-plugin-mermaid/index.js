@@ -20,8 +20,8 @@ const CACHE_DIR = path.join(process.cwd(), 'node_modules', '.cache', 'honkit-mer
 /** @type {import('mermaid').MermaidConfig} */
 let mermaidConfig = {};
 
-/** @type {import('mermaid-isomorphic').MermaidRenderer | null} */
-let renderer = null;
+/** @type {Promise<import('mermaid-isomorphic').MermaidRenderer> | null} */
+let rendererPromise = null;
 
 /**
  * Cache key for a diagram: its source plus the theme it is rendered with.
@@ -56,15 +56,16 @@ function readCached(key) {
  * @returns {Promise<string>}
  */
 async function render(source, key) {
-  if (!renderer) {
-    const { createMermaidRenderer } = await import('mermaid-isomorphic');
-    renderer = createMermaidRenderer();
-  }
+  // Memoised as a promise: a page with several fences renders them in parallel,
+  // and each of those calls must reuse the one browser the renderer manages.
+  rendererPromise ??= import('mermaid-isomorphic').then(({ createMermaidRenderer }) => createMermaidRenderer());
+  const renderer = await rendererPromise;
   // One diagram per call, so the SVG ids are derived from the content and stay
   // unique on a page that mixes freshly rendered and cached diagrams.
   const [result] = await renderer([source], { mermaidConfig, prefix: `mermaid-${key}` });
   if (result.status === 'rejected') {
-    throw new Error(`Mermaid diagram failed to render:\n${source}\n\n${result.reason}`);
+    const reason = result.reason?.message ?? String(result.reason);
+    throw new Error(`Mermaid diagram failed to render: ${reason}\n\n${source}`);
   }
   fs.mkdirSync(CACHE_DIR, { recursive: true });
   fs.writeFileSync(path.join(CACHE_DIR, `${key}.svg`), result.value.svg);

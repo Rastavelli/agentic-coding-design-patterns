@@ -1,6 +1,6 @@
 {
   "theme": "base",
-  "fontFamily": "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+  "fontFamily": "Arial, 'Liberation Sans', Helvetica, sans-serif",
   "themeVariables": {
     "fontSize": "16px",
     "primaryColor": "#eef3f9",

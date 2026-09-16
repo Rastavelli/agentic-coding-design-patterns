@@ -51,7 +51,22 @@ escribir código en las dos primeras.
 
 ## Estructura
 
-![Estructura del patrón](../assets/explore-plan-code-commit/structure.es.svg)
+```mermaid
+---
+title: un punto de control entre el plan y el código
+---
+flowchart TB
+  explore["Exploración<br/>lee el código, no escribe nada"]
+  plan["Plan<br/>enfoque y riesgos, aún sin código"]
+  code["Código<br/>implementación según el plan"]
+  commit["Commit<br/>commit, PR, documentación"]
+  explore --> plan
+  plan -- "el desarrollador aprueba el plan" --> code
+  code --> commit
+  code -. "el plan se aparta de la realidad — volver" .-> plan
+  gate["punto de control<br/>el único lugar donde el humano es obligatorio"]:::warn
+  plan -.- gate
+```
 
 Las fases van estrictamente en orden, pero el proceso no es unidireccional: si
 durante la implementación el plan se aparta de la realidad, lo correcto es

@@ -69,7 +69,19 @@ otherwise they break from refactoring, not from behavior changes.
 
 ## Structure
 
-![Pattern structure](../assets/tdd-with-agent/structure.en.svg)
+```mermaid
+---
+title: one prompt per phase — left alone, the agent blends them
+---
+flowchart TB
+  red["Red phase<br/>tests from the cases, run — they must fail<br/>implementation forbidden"]:::warn
+  green["Green phase<br/>minimal code until green<br/>tests are frozen"]
+  overfit["Overfit check<br/>a fresh subagent: is the code fitted<br/>to the specific tests"]:::muted
+  refactor["Refactoring<br/>after green, under the tests' protection"]:::accent
+  red -- "commit: the oracle is frozen" --> green
+  green --> overfit --> refactor
+  refactor -. "next slice: one test — one implementation" .-> red
+```
 
 The phases run left to right, each with its own prompt: the red one produces
 a failing oracle, the commit freezes it, the green one spins the

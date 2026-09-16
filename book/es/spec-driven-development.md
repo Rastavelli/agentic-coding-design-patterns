@@ -65,7 +65,21 @@ envejece en silencio y deja de ser la fuente de verdad.
 
 ## Estructura
 
-![Estructura del patrón](../assets/spec-driven-development/structure.es.svg)
+```mermaid
+---
+title: "puntos de control: el desarrollador revisa cada artefacto, no solo el diff final"
+---
+flowchart TB
+  spec["Especificación<br/>qué y para qué, sin decisiones técnicas<br/>spec.md"]
+  plan["Plan<br/>cómo: stack, arquitectura<br/>plan.md"]
+  tasks["Tareas<br/>pasos pequeños con verificaciones<br/>tasks.md"]
+  impl["Implementación<br/>código y tests tarea por tarea<br/>diff + tests"]
+  rules["convenciones del proyecto<br/>(constitution)"]:::accent
+  spec -- "revisión" --> plan -- "revisión" --> tasks -- "revisión" --> impl
+  impl -. "la realidad se apartó de la spec —<br/>corrige la spec, no solo el código" .-> spec
+  rules -.- spec
+  rules -.- impl
+```
 
 Los cuatro artefactos forman una tubería, y cada uno se deriva del anterior:
 el plan de la especificación, las tareas del plan, el código de las tareas.

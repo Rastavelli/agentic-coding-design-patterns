@@ -25,7 +25,13 @@ source_rev:
 
 ## Structure
 
-![Pattern structure](../assets/<slug>/structure.svg)
+```mermaid
+---
+title: <the short idea the diagram carries>
+---
+flowchart LR
+  a["<step>"] --> b["<step>"]:::accent
+```
 
 <Walk through the diagram: the parts and how they interact.>
 

@@ -25,7 +25,13 @@ source_rev:
 
 ## Estructura
 
-![Estructura del patrón](../assets/<slug>/structure.svg)
+```mermaid
+---
+title: <la idea corta que sostiene el diagrama>
+---
+flowchart LR
+  a["<paso>"] --> b["<paso>"]:::accent
+```
 
 <Recorrido por el diagrama: las partes y cómo interactúan.>
 

@@ -62,7 +62,21 @@ stops being the source of truth.
 
 ## Structure
 
-![Pattern structure](../assets/spec-driven-development/structure.en.svg)
+```mermaid
+---
+title: "checkpoints: the developer reviews each artifact, not just the final diff"
+---
+flowchart TB
+  spec["Specify<br/>what and why, no tech choices<br/>spec.md"]
+  plan["Plan<br/>how: stack, architecture<br/>plan.md"]
+  tasks["Tasks<br/>small steps with checks<br/>tasks.md"]
+  impl["Implement<br/>code and tests task by task<br/>diff + tests"]
+  rules["project conventions<br/>(constitution)"]:::accent
+  spec -- "review" --> plan -- "review" --> tasks -- "review" --> impl
+  impl -. "reality diverged from the spec —<br/>fix the spec, not just the code" .-> spec
+  rules -.- spec
+  rules -.- impl
+```
 
 The four artifacts form a pipeline, and each next one is derived from the
 previous: the plan from the specification, the tasks from the plan, the code

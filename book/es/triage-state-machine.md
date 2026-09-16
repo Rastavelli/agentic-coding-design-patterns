@@ -90,6 +90,9 @@ stateDiagram-v2
   state "ready-for-human" as human
   state "wontfix" as wontfix
 
+  class agent accent
+  class wontfix warn
+
   [*] --> triage: un issue o un PR externo
   triage --> info: faltan datos
   info --> triage: el reportero respondió

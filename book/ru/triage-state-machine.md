@@ -87,6 +87,9 @@ stateDiagram-v2
   state "ready-for-human" as human
   state "wontfix" as wontfix
 
+  class agent accent
+  class wontfix warn
+
   [*] --> triage: тикет или внешний PR
   triage --> info: не хватает данных
   info --> triage: репортёр ответил
