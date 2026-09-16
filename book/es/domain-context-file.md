@@ -74,7 +74,23 @@ dejarlo para luego.
 
 ## Estructura
 
-![Estructura del patrón](../assets/domain-context-file/structure.es.svg)
+```mermaid
+---
+title: un concepto — una palabra; cada decisión tiene su porqué escrito
+---
+flowchart LR
+  glossary["CONTEXT.md<br/>glosario: canon + listas «evitar»<br/>sin detalles de implementación"]:::accent
+  adr["docs/adr/<br/>decisiones: qué y por qué<br/>registros de un párrafo"]
+  map["CONTEXT-MAP.md<br/>si hay varios dominios"]:::muted
+  session["Sesión del agente<br/>términos y código se cotejan con el vocabulario"]
+  dev["Desarrollador<br/>árbitro del lenguaje"]:::accent
+  glossary --> session
+  adr --> session
+  adr -.- map
+  session -- "conflicto — pregunta" --> dev
+  dev -- "el término canónico" --> session
+  session -. "el término asentado se fija en el vocabulario al momento" .-> glossary
+```
 
 A la izquierda, los artefactos: el glosario con sus términos canónicos y el
 registro de decisiones; en repositorios grandes con varios dominios los une un

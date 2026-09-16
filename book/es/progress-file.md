@@ -65,7 +65,26 @@ y rige en cada sesión automáticamente.
 
 ## Estructura
 
-![Estructura del patrón](../assets/progress-file/structure.es.svg)
+```mermaid
+---
+title: cada sesión deja artefactos claros a la siguiente
+---
+sequenceDiagram
+  participant S1 as Sesión 1
+  participant P as PROGRESS.md
+  participant G as historia de git
+  participant S2 as Sesión 2
+  participant S3 as Sesión 3
+
+  S1->>P: estado · siguiente paso · enfoques descartados
+  S1->>G: commits
+  Note over S1,S2: contexto perdido — ventana fresca
+  P->>S2: se lee lo primero
+  G->>S2: git log
+  S2->>P: se actualiza al final de cada paso
+  Note over S2,S3: contexto perdido — ventana fresca
+  P->>S3: continúa sin repetir el camino
+```
 
 Las sesiones se suceden, y entre ellas hay un corte: la ventana se acabó o se
 compactó, el contexto se perdió. La continuidad la dan los dos artefactos de

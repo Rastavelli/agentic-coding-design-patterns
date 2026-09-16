@@ -72,7 +72,23 @@ vocabulary the moment it settles — not put off for later.
 
 ## Structure
 
-![Pattern structure](../assets/domain-context-file/structure.en.svg)
+```mermaid
+---
+title: one concept — one word; every decision has its "why" written down
+---
+flowchart LR
+  glossary["CONTEXT.md<br/>glossary: the canon + 'avoid' lists<br/>no implementation details"]:::accent
+  adr["docs/adr/<br/>decisions: what and why<br/>one-paragraph records"]
+  map["CONTEXT-MAP.md<br/>when there are several domains"]:::muted
+  session["Agent session<br/>terms and code are checked against the vocabulary"]
+  dev["Developer<br/>arbiter of the language"]:::accent
+  glossary --> session
+  adr --> session
+  adr -.- map
+  session -- "conflict — a question" --> dev
+  dev -- "the canonical term" --> session
+  session -. "a settled term goes into the vocabulary immediately" .-> glossary
+```
 
 On the left, the artifacts: the glossary with its canonical terms and the
 decision log; in large repositories with several domains they are tied

@@ -61,7 +61,23 @@ project rules, custom instructions.
 
 ## Структура
 
-![Структура паттерна](../assets/claude-md-memory/structure.svg)
+```mermaid
+---
+title: правило записывается один раз — читается каждую сессию
+---
+flowchart LR
+  org["организация<br/>управляемая политика"]
+  user["пользователь<br/>~/.claude/CLAUDE.md"]
+  project["проект — общий, в git<br/>./CLAUDE.md · AGENTS.md"]:::accent
+  local["локальный — в .gitignore<br/>CLAUDE.local.md"]
+  nested["вложенные CLAUDE.md<br/>в подкаталогах — по требованию"]:::muted
+  window["Контекстное окно сессии<br/>слои конкатенируются при старте:<br/>от широкого уровня к узкому<br/>каждая строка — токены каждой сессии"]
+  org --> window
+  user --> window
+  project --> window
+  local --> window
+  nested -.-> window
+```
 
 Память многослойна: уровень организации (управляемая политика), личный
 уровень пользователя, уровень проекта и локальный файл с личными настройками

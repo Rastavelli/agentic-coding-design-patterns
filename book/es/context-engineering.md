@@ -78,7 +78,27 @@ del agente pero le gasta la atención.
 
 ## Estructura
 
-![Estructura del patrón](../assets/context-engineering/structure.es.svg)
+```mermaid
+---
+title: el conjunto mínimo de tokens de alta señal
+---
+flowchart LR
+  persistent["capa permanente<br/>CLAUDE.md · CONTEXT.md<br/>se carga en cada sesión"]:::accent
+  task["capa de la tarea (just-in-time)<br/>rutas y enlaces en vez de archivos enteros"]
+  subgraph window["Ventana de contexto — atención limitada"]
+    direction TB
+    sys["prompt de sistema"]
+    mem["memoria · vocabulario del dominio"]
+    hist["historial del diálogo"]
+    tools["resultados de herramientas"]
+  end
+  external["estado externo<br/>diario de progreso · handoff<br/>sobrevive a la sesión"]:::accent
+  persistent --> window
+  task --> window
+  window -- "hacia fuera" --> external
+  external -. "condensado, a la sesión siguiente" .-> window
+  window -. "compactación: resumir deliberadamente y continuar" .-> window
+```
 
 En el centro está la ventana de contexto con su presupuesto de atención. A la
 izquierda, lo que *entra* en la ventana: la capa permanente (la memoria del

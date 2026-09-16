@@ -61,7 +61,26 @@ Progress file, progress log; `claude-progress.txt` из статьи Anthropic �
 
 ## Структура
 
-![Структура паттерна](../assets/progress-file/structure.svg)
+```mermaid
+---
+title: каждая сессия оставляет следующей внятные артефакты
+---
+sequenceDiagram
+  participant S1 as Сессия 1
+  participant P as PROGRESS.md
+  participant G as git-история
+  participant S2 as Сессия 2
+  participant S3 as Сессия 3
+
+  S1->>P: состояние · следующий шаг · отброшенные подходы
+  S1->>G: коммиты
+  Note over S1,S2: контекст потерян — свежее окно
+  P->>S2: читается первым делом
+  G->>S2: git log
+  S2->>P: обновляется в конце каждого шага
+  Note over S2,S3: контекст потерян — свежее окно
+  P->>S3: продолжает, не повторяя пройденный путь
+```
 
 Сессии идут чередой, и между ними — обрыв: окно закончилось или
 скомпактилось, контекст потерян. Непрерывность обеспечивают два артефакта

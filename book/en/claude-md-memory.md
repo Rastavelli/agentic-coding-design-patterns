@@ -64,7 +64,23 @@ by mechanics: hooks, permissions, tool settings.
 
 ## Structure
 
-![Pattern structure](../assets/claude-md-memory/structure.en.svg)
+```mermaid
+---
+title: a rule is written once — and read every session
+---
+flowchart LR
+  org["organization<br/>managed policy"]
+  user["user<br/>~/.claude/CLAUDE.md"]
+  project["project — shared, in git<br/>./CLAUDE.md · AGENTS.md"]:::accent
+  local["local — in .gitignore<br/>CLAUDE.local.md"]
+  nested["nested CLAUDE.md files<br/>in subdirectories — on demand"]:::muted
+  window["Session context window<br/>layers are concatenated at launch:<br/>from the broadest scope to the narrowest<br/>every line costs tokens in every session"]
+  org --> window
+  user --> window
+  project --> window
+  local --> window
+  nested -.-> window
+```
 
 Memory is layered: the organization level (managed policy), the user's
 personal level, the project level, and a local file with personal settings for

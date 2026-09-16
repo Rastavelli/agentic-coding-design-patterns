@@ -62,7 +62,26 @@ applies in every session automatically.
 
 ## Structure
 
-![Pattern structure](../assets/progress-file/structure.en.svg)
+```mermaid
+---
+title: every session leaves clear artifacts for the next one
+---
+sequenceDiagram
+  participant S1 as Session 1
+  participant P as PROGRESS.md
+  participant G as git history
+  participant S2 as Session 2
+  participant S3 as Session 3
+
+  S1->>P: state · next step · discarded approaches
+  S1->>G: commits
+  Note over S1,S2: context lost — fresh window
+  P->>S2: read first thing
+  G->>S2: git log
+  S2->>P: updated at the end of every step
+  Note over S2,S3: context lost — fresh window
+  P->>S3: continues without retracing
+```
 
 Sessions come one after another, and between them is a break: the window ran
 out or got compacted, the context is lost. Continuity is provided by the two

@@ -72,7 +72,27 @@ its attention.
 
 ## Structure
 
-![Pattern structure](../assets/context-engineering/structure.en.svg)
+```mermaid
+---
+title: the smallest set of high-signal tokens
+---
+flowchart LR
+  persistent["persistent layer<br/>CLAUDE.md · CONTEXT.md<br/>loaded every session"]:::accent
+  task["task layer (just-in-time)<br/>paths and links instead of whole files"]
+  subgraph window["Context window — the attention budget is limited"]
+    direction TB
+    sys["system prompt"]
+    mem["project memory · domain vocabulary"]
+    hist["conversation history"]
+    tools["tool results"]
+  end
+  external["external state<br/>progress journal · handoff<br/>outlives window and session"]:::accent
+  persistent --> window
+  task --> window
+  window -- "moved out" --> external
+  external -. "back condensed, next session" .-> window
+  window -. "compaction: deliberately summarize and continue" .-> window
+```
 
 At the center is the context window with its attention budget. On the left,
 what *enters* the window: the persistent layer (project memory and the domain

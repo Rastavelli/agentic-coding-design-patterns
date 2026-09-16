@@ -65,7 +65,23 @@ herramienta.
 
 ## Estructura
 
-![Estructura del patrón](../assets/claude-md-memory/structure.es.svg)
+```mermaid
+---
+title: la regla se escribe una vez — y se lee en cada sesión
+---
+flowchart LR
+  org["organización<br/>política gestionada"]
+  user["usuario<br/>~/.claude/CLAUDE.md"]
+  project["proyecto — compartido, en git<br/>./CLAUDE.md · AGENTS.md"]:::accent
+  local["local — en .gitignore<br/>CLAUDE.local.md"]
+  nested["CLAUDE.md anidados<br/>en subdirectorios — bajo demanda"]:::muted
+  window["Ventana de contexto de la sesión<br/>las capas se concatenan al inicio:<br/>de la más amplia a la más estrecha<br/>cada línea cuesta tokens en cada sesión"]
+  org --> window
+  user --> window
+  project --> window
+  local --> window
+  nested -.-> window
+```
 
 La memoria tiene capas: el nivel de la organización (política gestionada), el
 nivel personal del usuario, el nivel del proyecto y un archivo local con
