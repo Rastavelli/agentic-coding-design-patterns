@@ -12,7 +12,8 @@ Operating guide for agents (and humans) working in this repository.
 - Diagrams are written as ```` ```mermaid ```` fences directly in the chapter, so the labels are translated together with the prose and GitHub renders them in the repo.
 - `plugins/honkit-plugin-mermaid` renders the fences into inline SVG at build time (Mermaid in headless Playwright), so diagrams also survive `honkit pdf`, which never runs JS.
 - Shared palette and theme live in `mermaid.config.json`. Use the `accent`, `warn` and `muted` classes (`node:::accent`) instead of per-diagram `classDef`.
-- Rendered SVGs are cached in `node_modules/.cache/honkit-mermaid`, keyed by diagram source plus theme config.
+- Rendered SVGs are cached in `node_modules/.cache/honkit-mermaid`, keyed by diagram source plus theme config. The theme is read once at startup, so restart `make serve` after editing `mermaid.config.json`.
+- A diagram is read inside a ~770px column. Keep it under ~1200px wide — prefer `flowchart TB` over a long left-to-right chain, and remember that a note hung off a node with `-.-` widens the diagram.
 
 ## Markdown formatting
 

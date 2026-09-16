@@ -8,6 +8,9 @@
 // CommonJS on purpose: honkit loads plugins with a synchronous `require()`, so
 // the entry point cannot be an ES module. The ESM-only renderer is pulled in
 // with a dynamic `import()` instead.
+//
+// The `page` hook reads the HTML honkit has already produced, so in book.json
+// this plugin must stay after any plugin that rewrites <pre> blocks.
 
 const crypto = require('node:crypto');
 const fs = require('node:fs');
