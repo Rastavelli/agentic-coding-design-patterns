@@ -20,7 +20,25 @@
     "signalTextColor": "#1a2b3c",
     "noteBkgColor": "#f6f1e7",
     "noteBorderColor": "#a5764a",
-    "noteTextColor": "#1a2b3c"
+    "noteTextColor": "#1a2b3c",
+    "git0": "#4a6fa5",
+    "git1": "#a5764a",
+    "git2": "#5b6b7c",
+    "git3": "#4a6fa5",
+    "gitBranchLabel0": "#ffffff",
+    "gitBranchLabel1": "#ffffff",
+    "gitBranchLabel2": "#ffffff",
+    "gitBranchLabel3": "#ffffff",
+    "commitLabelColor": "#1a2b3c",
+    "commitLabelBackground": "#ffffff",
+    "pie1": "#eef3f9",
+    "pie2": "#e3e9f0",
+    "pie3": "#f4f5f6",
+    "pie4": "#f6f1e7",
+    "pieStrokeColor": "#4a6fa5",
+    "pieOuterStrokeColor": "#4a6fa5",
+    "pieSectionTextColor": "#1a2b3c",
+    "pieLegendTextColor": "#1a2b3c"
   },
   "flowchart": {
     "htmlLabels": false,
@@ -34,6 +52,12 @@
     "useMaxWidth": true,
     "wrap": true
   },
-  "themeCSS": ".accent rect, .accent polygon, .accent path { fill: #f6f1e7 !important; stroke: #a5764a !important; } .warn rect, .warn polygon, .warn path { fill: #f9eded !important; stroke: #a54a4a !important; } .muted rect, .muted polygon, .muted path { fill: #f4f5f6 !important; stroke: #5b6b7c !important; } .cluster rect { stroke-dasharray: 6 4 !important; stroke: #5b6b7c !important; } .cluster-label text { fill: #5b6b7c !important; }",
-  "htmlLabels": false
+  "themeCSS": ".accent rect, .accent polygon, .accent path { fill: #f6f1e7 !important; stroke: #a5764a !important; } .warn rect, .warn polygon, .warn path { fill: #f9eded !important; stroke: #a54a4a !important; } .muted rect, .muted polygon, .muted path { fill: #f4f5f6 !important; stroke: #5b6b7c !important; } .cluster rect { stroke-dasharray: 6 4 !important; stroke: #5b6b7c !important; } .cluster-label text { fill: #5b6b7c !important; } .nodes .node rect { fill: #4a6fa5 !important; stroke: #4a6fa5 !important; } .node-labels text { fill: #1a2b3c !important; }",
+  "htmlLabels": false,
+  "sankey": {
+    "useMaxWidth": true,
+    "showValues": true,
+    "linkColor": "#c9d6e6",
+    "nodeAlignment": "justify"
+  }
 }

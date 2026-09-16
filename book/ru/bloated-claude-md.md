@@ -74,6 +74,22 @@ Bloated CLAUDE.md, over-specified memory file, память-свалка.
 > релиза на 30 шагов и правило «не трогать папку legacy» на строке 287 —
 > которое агент вчера нарушил.
 
+```mermaid
+%% TODO: подписи узлов по-английски — sankey-beta (mermaid 12.0.0) не парсит не-ASCII
+%% в именах узлов. Вернуть русские, когда починят.
+sankey-beta
+
+Architecture overview,Deleted,120
+Package list,Deleted,60
+Linter style guide,Deleted,85
+Release procedure,Skill /release,95
+Frontend rules,.claude/rules/,30
+Legacy ban,PreToolUse hook,5
+Commands and conventions,CLAUDE.md (stays),25
+```
+
+Из 420 строк 265 просто удаляются: их агент и так видит в коде. Ещё 95 — процедура, которой место в скиле. До памяти доходят 25 строк команд и соглашений; правила фронтенда уезжают в `.claude/rules/`, а запрет на legacy становится хуком. Файл худеет не потому, что правила выбросили, а потому, что каждое уехало туда, где оно работает.
+
 **Стало:**
 
 > CLAUDE.md на 60 строк: команды, которых нет в Makefile, соглашения,

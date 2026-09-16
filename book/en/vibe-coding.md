@@ -68,6 +68,26 @@ real code the real process: the intent gets recorded (a
 by you or by a [fresh-context reviewer](writer-reviewer.md). The line is
 simple: code that will live must be understood by someone.
 
+```mermaid
+---
+title: the mode follows cost of error and lifetime of the code
+---
+quadrantChart
+  x-axis "Dies this week" --> "Lives in production"
+  y-axis "Low cost of error" --> "High cost of error"
+  quadrant-1 Spec and review
+  quadrant-2 End-to-end check
+  quadrant-3 Vibe is fine
+  quadrant-4 Read the diff
+  Landing prototype: [0.15, 0.18]
+  One-off script: [0.28, 0.3]
+  Migration script: [0.3, 0.78]
+  Internal dashboard: [0.72, 0.32]
+  Payment page: [0.85, 0.88]
+```
+
+Both axes are needed together. A landing prototype and a one-off script sit in the bottom-left corner, where the vibe is honest and costs nothing. A payment page needs the full process. The dangerous corner is the top left: a migration script will be dead within the hour, but a mistake in it may leave nothing left to repair — a short lifetime does not remove the end-to-end check.
+
 ## Example
 
 **Before:**

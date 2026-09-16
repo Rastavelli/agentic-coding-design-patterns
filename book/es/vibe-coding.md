@@ -70,6 +70,26 @@ comprendido. Al código real, el proceso real: la intención se anota (una
 lee — tú mismo o un [revisor con contexto fresco](writer-reviewer.md). La
 línea es simple: el código que va a vivir debe ser comprendido por alguien.
 
+```mermaid
+---
+title: el modo lo eligen el coste del error y la vida del código
+---
+quadrantChart
+  x-axis "Muere esta semana" --> "Vivirá en producción"
+  y-axis "Coste del error bajo" --> "Coste del error alto"
+  quadrant-1 Especificar y revisar
+  quadrant-2 Prueba de extremo a extremo
+  quadrant-3 El vibe vale
+  quadrant-4 Leer el diff
+  Prototipo de landing: [0.15, 0.18]
+  Script de un solo uso: [0.28, 0.3]
+  Script de migración: [0.3, 0.78]
+  Panel interno: [0.72, 0.32]
+  Página de pago: [0.85, 0.88]
+```
+
+Ambos ejes se necesitan a la vez. Un prototipo de landing y un script de un solo uso están en la esquina inferior izquierda, donde el vibe es honesto y no cuesta nada. Una página de pago exige el proceso completo. La esquina peligrosa es la superior izquierda: un script de migración morirá en una hora, pero un error en él puede dejar ya nada que reparar; una vida corta no elimina la prueba de extremo a extremo.
+
 ## Ejemplo
 
 **Antes:**

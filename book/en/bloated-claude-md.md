@@ -77,6 +77,20 @@ dependencies.
 > 30-step release procedure, and a "don't touch the legacy folder" rule on
 > line 287 — which the agent broke yesterday.
 
+```mermaid
+sankey-beta
+
+Architecture overview,Deleted,120
+Package list,Deleted,60
+Linter style guide,Deleted,85
+Release procedure,Skill /release,95
+Frontend rules,.claude/rules/,30
+Legacy ban,PreToolUse hook,5
+Commands and conventions,CLAUDE.md (stays),25
+```
+
+Of the 420 lines, 265 are simply deleted: the agent already sees them in the code. Another 95 are a procedure that belongs in a skill. Only 25 lines of commands and conventions reach memory; the frontend rules move to `.claude/rules/`, and the legacy ban becomes a hook. The file shrinks not because the rules were thrown away, but because each one moved to where it actually works.
+
 **After:**
 
 > A 60-line CLAUDE.md: the commands that aren't in the Makefile, the

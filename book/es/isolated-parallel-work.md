@@ -145,6 +145,29 @@ El primer agente cambia el middleware y las pruebas; el segundo, el runbook. Amb
 
 La documentación depende de los nombres definitivos de las métricas, así que el integrador incorpora primero el código. Después actualiza la rama del runbook, descubre que la métrica ahora se llama `rate_limit_rejected_total`, corrige la referencia y ejecuta la comprobación de documentación. El conflicto semántico aparece donde se puede ver y resolver, en lugar de quedar oculto dentro de un directorio de trabajo compartido.
 
+```mermaid
+---
+title: el orden de fusión lo marca la dependencia, no la disponibilidad
+---
+gitGraph
+  commit id: "origin/main"
+  branch agent/rate-limit
+  branch agent/runbook
+  checkout agent/rate-limit
+  commit id: "feat: add API rate limiting"
+  checkout agent/runbook
+  commit id: "docs: document rate-limit operations"
+  checkout main
+  merge agent/rate-limit
+  checkout agent/runbook
+  merge main id: "actualizar desde main"
+  commit id: "fix: rate_limit_rejected_total"
+  checkout main
+  merge agent/runbook
+```
+
+Ambas ramas parten del mismo punto y hacen commits de forma independiente. El orden de fusión lo marca la dependencia, no quién terminó antes: `agent/runbook` primero incorpora el código ya fusionado y solo después corrige el nombre de la métrica, de modo que la discrepancia aparece como un commit propio en su rama y no como una edición en mitad de la sesión ajena.
+
 Si ambas instancias necesitan un servidor local, un worktree no basta: asigna `PORT=4101` a la primera y `PORT=4102` a la segunda, y da nombres distintos a las bases de pruebas. De lo contrario, el aislamiento del sistema de archivos será correcto mientras los procesos siguen rompiendo el estado del otro a través del entorno.
 
 ## Antipatrones y errores comunes

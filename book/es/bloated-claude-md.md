@@ -81,6 +81,22 @@ calendario — como la actualización de dependencias.
 > regla «no tocar la carpeta legacy» en la línea 287 — que el agente rompió
 > ayer.
 
+```mermaid
+%% TODO: etiquetas en inglés — sankey-beta (mermaid 12.0.0) no admite caracteres no ASCII
+%% en los nombres de nodo. Volver al español cuando se corrija.
+sankey-beta
+
+Architecture overview,Deleted,120
+Package list,Deleted,60
+Linter style guide,Deleted,85
+Release procedure,Skill /release,95
+Frontend rules,.claude/rules/,30
+Legacy ban,PreToolUse hook,5
+Commands and conventions,CLAUDE.md (stays),25
+```
+
+De las 420 líneas, 265 simplemente se eliminan: el agente ya las ve en el código. Otras 95 son un procedimiento que pertenece a un skill. A la memoria llegan solo 25 líneas de comandos y convenciones; las reglas del frontend se van a `.claude/rules/`, y la prohibición de legacy se convierte en un hook. El archivo adelgaza no porque se hayan tirado las reglas, sino porque cada una se ha movido a donde de verdad funciona.
+
 **Después:**
 
 > Un CLAUDE.md de 60 líneas: los comandos que no están en el Makefile, las

@@ -145,6 +145,29 @@ The first agent changes middleware and tests; the second changes the runbook. Bo
 
 The documentation depends on the final metric names, so the integrator merges the code first. It then updates the runbook branch, notices that the metric is now called `rate_limit_rejected_total`, fixes the reference, and runs the documentation check. The semantic conflict appears where it can be seen and resolved instead of being silently hidden in a shared working directory.
 
+```mermaid
+---
+title: merge order follows dependency, not readiness
+---
+gitGraph
+  commit id: "origin/main"
+  branch agent/rate-limit
+  branch agent/runbook
+  checkout agent/rate-limit
+  commit id: "feat: add API rate limiting"
+  checkout agent/runbook
+  commit id: "docs: document rate-limit operations"
+  checkout main
+  merge agent/rate-limit
+  checkout agent/runbook
+  merge main id: "update from main"
+  commit id: "fix: rate_limit_rejected_total"
+  checkout main
+  merge agent/runbook
+```
+
+Both branches start from the same point and commit independently. Merge order comes from the dependency, not from who finished first: `agent/runbook` first pulls in the already-merged code and only then fixes the metric name — so the mismatch surfaces as a separate commit on its own branch instead of an edit in the middle of someone else's session.
+
 If both instances need a local server, one worktree is not enough: assign `PORT=4101` to the first and `PORT=4102` to the second, and give the test databases different names. Otherwise filesystem isolation will be sound while the processes continue to break each other's state through the environment.
 
 ## Anti-patterns and common mistakes
