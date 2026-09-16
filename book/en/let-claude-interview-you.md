@@ -62,7 +62,18 @@ more than time spent watching the implementation.
 
 ## Structure
 
-![Pattern structure](../assets/let-claude-interview-you/structure.en.svg)
+```mermaid
+---
+title: a precise spec pays off more than watching the implementation
+---
+flowchart TB
+  prompt["A minimal prompt<br/>the idea in two sentences"]:::accent
+  interview["The interview<br/>the agent asks about the hard parts,<br/>the developer decides —<br/>question by question, to completeness"]
+  spec["SPEC.md<br/>self-contained: files and interfaces,<br/>'out of scope' listed,<br/>an end-to-end check at the end"]:::accent
+  fresh["A fresh session<br/>a clean window + the specification"]
+  prompt --> interview --> spec
+  spec -- "the session boundary: the interview stays behind,<br/>the spec crosses" --> fresh
+```
 
 On the left, the minimal prompt — the idea in a couple of sentences. In the
 center, the interview loop: the agent asks about the hard parts, the

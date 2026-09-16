@@ -75,7 +75,22 @@ código del prototipo.
 
 ## Estructura
 
-![Estructura del patrón](../assets/prototype-to-answer/structure.es.svg)
+```mermaid
+---
+title: el prototipo muere — la respuesta queda
+---
+flowchart LR
+  q["Pregunta de diseño<br/>una sola frase —<br/>la forma sigue a la pregunta"]:::accent
+  logic["Ejecutor de lógica<br/>mini-app de terminal,<br/>los casos difíciles del modelo"]
+  ui["Abanico de variantes UI<br/>ideas distintas en una ruta,<br/>conmutador de variantes"]
+  rules["reglas de desechabilidad:<br/>marcado como prototipo<br/>un comando · sin pulido<br/>estado en memoria"]:::muted
+  run["La ejecución<br/>el desarrollador prueba<br/>los casos difíciles en persona"]
+  verdict["Veredicto<br/>la respuesta — al ticket o al ADR<br/>la decisión — al código real<br/>el prototipo — a una rama-fuente<br/>ni una línea suya llega a main"]:::accent
+  q --> logic --> run
+  q --> ui --> run
+  run --> verdict
+  ui -.- rules
+```
 
 A la izquierda, la pregunta — existe antes que el prototipo y determina su
 forma: una pregunta sobre lógica produce un ejecutor de terminal, una sobre

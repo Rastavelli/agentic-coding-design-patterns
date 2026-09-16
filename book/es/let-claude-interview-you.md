@@ -62,7 +62,18 @@ más que el tiempo invertido en vigilar la implementación.
 
 ## Estructura
 
-![Estructura del patrón](../assets/let-claude-interview-you/structure.es.svg)
+```mermaid
+---
+title: precisar la spec rinde más que vigilar la implementación
+---
+flowchart TB
+  prompt["Prompt mínimo<br/>la idea en dos frases"]:::accent
+  interview["La entrevista<br/>el agente pregunta lo difícil,<br/>el desarrollador decide —<br/>pregunta a pregunta, hasta cubrir todo"]
+  spec["SPEC.md<br/>autosuficiente: archivos e interfaces,<br/>el «fuera de alcance» listado,<br/>comprobación de extremo a extremo"]:::accent
+  fresh["Sesión fresca<br/>ventana limpia + la especificación"]
+  prompt --> interview --> spec
+  spec -- "la frontera de sesiones: la entrevista queda atrás,<br/>la spec cruza" --> fresh
+```
 
 A la izquierda, el prompt mínimo — la idea en un par de frases. En el
 centro, el ciclo de la entrevista: el agente pregunta por lo difícil, el

@@ -63,7 +63,27 @@ one unfinished feature, not the whole front.
 
 ## Structure
 
-![Pattern structure](../assets/one-feature-at-a-time/structure.en.svg)
+```mermaid
+---
+title: the window is spent on depth, not breadth
+---
+flowchart TB
+  subgraph oneshot["without the constraint — a one-shot attempt"]
+    direction LR
+    p0["Pass 1<br/>the whole front at once"]
+    wide["feature A ~ · feature B ~<br/>feature C ~ · feature D ~ · …<br/>the window ran out — none finished, none verified"]:::warn
+    p0 --> wide
+  end
+  subgraph oneAtATime["one feature at a time"]
+    direction LR
+    p1["Pass 1<br/>feature A — verified ✓"]
+    p2["Pass 2<br/>feature B — verified ✓"]
+    p3["Pass 3<br/>feature C — verified ✓"]
+    p1 --> p2 --> p3
+  end
+  note["whatever is noticed along the way goes to<br/>the feature list and the journal, not into the current diff"]:::accent
+  p2 -.- note
+```
 
 The top lane is what happens without the constraint: one pass fans out
 across the whole front, the window ends before the front does, and the

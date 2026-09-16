@@ -65,7 +65,22 @@ trabajo.
 
 ## Estructura
 
-![Estructura del patrón](../assets/grilling/structure.es.svg)
+```mermaid
+---
+title: los agujeros afloran en la mesa — al precio de una réplica, no de un rehacer
+---
+flowchart LR
+  plan["Un plan terminado<br/>convincente para su autor;<br/>sus agujeros, invisibles para él"]:::accent
+  grill["El grilling<br/>una pregunta a la vez, rama por rama<br/>una recomendación con cada pregunta<br/>los hechos — del código, las decisiones — del desarrollador"]
+  hole["un agujero<br/>una rama sin pensar — corregir el plan"]:::warn
+  proto["irresoluble hablando<br/>la pregunta va a un prototipo"]:::muted
+  shared["entendimiento común<br/>confirmado — el trabajo empieza"]:::accent
+  plan --> grill
+  grill --> hole
+  grill --> proto
+  grill --> shared
+  hole -. "el plan se corrige al momento — el grilling continúa" .-> plan
+```
 
 A la izquierda, el plan terminado — convincente para su autor, con agujeros
 que él no ve. En el centro, el ciclo del interrogatorio: pregunta con

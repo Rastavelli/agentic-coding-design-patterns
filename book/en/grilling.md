@@ -65,7 +65,22 @@ work begin.
 
 ## Structure
 
-![Pattern structure](../assets/grilling/structure.en.svg)
+```mermaid
+---
+title: the holes surface at the table — at the price of a reply, not a redo
+---
+flowchart LR
+  plan["A finished plan<br/>convincing to its author;<br/>its holes invisible to him"]:::accent
+  grill["The grilling<br/>one question at a time, branch by branch<br/>a recommendation with every question<br/>facts — from the code, decisions — from the developer"]
+  hole["a hole<br/>an unthought branch — fix the plan"]:::warn
+  proto["unresolvable by talk<br/>the question goes to a prototype"]:::muted
+  shared["shared understanding<br/>confirmed — the work begins"]:::accent
+  plan --> grill
+  grill --> hole
+  grill --> proto
+  grill --> shared
+  hole -. "the plan is fixed immediately — the grilling continues" .-> plan
+```
 
 On the left, the finished plan — convincing to its author, with holes he
 can't see. In the center, the interrogation loop: a question with a

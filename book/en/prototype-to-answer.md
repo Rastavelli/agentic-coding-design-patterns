@@ -73,7 +73,22 @@ decision reaches main — not the prototype's code.
 
 ## Structure
 
-![Pattern structure](../assets/prototype-to-answer/structure.en.svg)
+```mermaid
+---
+title: the prototype dies — the answer remains
+---
+flowchart LR
+  q["Design question<br/>one sentence —<br/>the form follows the question"]:::accent
+  logic["Logic runner<br/>a tiny terminal app,<br/>the model's hard cases"]
+  ui["A fan of UI variants<br/>different ideas on one route,<br/>a variant switcher"]
+  rules["disposability rules:<br/>marked as a prototype<br/>one command · no polish<br/>state in memory"]:::muted
+  run["The run<br/>the developer drives<br/>the hard cases personally"]
+  verdict["Verdict<br/>the answer — into a ticket or ADR<br/>the decision — into the real code<br/>the prototype — into a source branch<br/>not a line of it reaches main"]:::accent
+  q --> logic --> run
+  q --> ui --> run
+  run --> verdict
+  ui -.- rules
+```
 
 On the left is the question — it exists before the prototype and determines
 its shape: a question about logic produces a terminal runner, a question

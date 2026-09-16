@@ -65,7 +65,27 @@ frente.
 
 ## Estructura
 
-![Estructura del patrón](../assets/one-feature-at-a-time/structure.es.svg)
+```mermaid
+---
+title: la ventana se gasta en profundidad, no en anchura
+---
+flowchart TB
+  subgraph oneshot["sin la restricción — intento de one-shot"]
+    direction LR
+    p0["Pasada 1<br/>todo el frente a la vez"]
+    wide["función A ~ · función B ~<br/>función C ~ · función D ~ · …<br/>la ventana se acabó — ninguna terminada, ninguna verificada"]:::warn
+    p0 --> wide
+  end
+  subgraph oneAtATime["una funcionalidad a la vez"]
+    direction LR
+    p1["Pasada 1<br/>función A — verificada ✓"]
+    p2["Pasada 2<br/>función B — verificada ✓"]
+    p3["Pasada 3<br/>función C — verificada ✓"]
+    p1 --> p2 --> p3
+  end
+  note["lo notado por el camino va a la lista y al diario,<br/>no al diff actual"]:::accent
+  p2 -.- note
+```
 
 El carril de arriba es lo que pasa sin la restricción: una pasada se abre en
 abanico por todo el frente, la ventana se acaba antes que el frente, y el
