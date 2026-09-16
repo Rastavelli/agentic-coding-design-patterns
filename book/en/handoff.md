@@ -63,7 +63,21 @@ someone else's history.
 
 ## Structure
 
-![Pattern structure](../assets/handoff/structure.en.svg)
+```mermaid
+---
+title: assembled at the end of the session — tailored to the next one's goal
+---
+flowchart LR
+  a["Session A — window low<br/>context still intact"]
+  doc["handoff.md<br/>state and goal<br/>decisions and their 'why'<br/>discarded dead ends<br/>the next step<br/>links to artifacts"]:::accent
+  b["Session B — fresh window<br/>starts from the document"]
+  artifacts["specs · ADRs · commits<br/>by link, not retold"]:::muted
+  a --> doc --> b
+  doc -.- artifacts
+  a -. "auto-compaction: you don't choose what survives,<br/>the thread continues instead of a clean start" .-> b
+  note["what crosses the session boundary<br/>is the developer's decision"]:::muted
+  b -.- note
+```
 
 The upper path is the pattern: the departing session, while its context is
 still intact, assembles the handoff document for the named goal; the next

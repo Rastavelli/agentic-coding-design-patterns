@@ -2,7 +2,7 @@
   "theme": "base",
   "fontFamily": "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
   "themeVariables": {
-    "fontSize": "14px",
+    "fontSize": "16px",
     "primaryColor": "#eef3f9",
     "primaryBorderColor": "#4a6fa5",
     "primaryTextColor": "#1a2b3c",
@@ -27,7 +27,8 @@
     "curve": "basis",
     "padding": 12,
     "nodeSpacing": 45,
-    "rankSpacing": 55
+    "rankSpacing": 55,
+    "wrappingWidth": 230
   },
   "sequence": {
     "useMaxWidth": true,

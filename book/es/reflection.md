@@ -69,7 +69,26 @@ resultado sigue sin inspirar confianza, hace falta contexto fresco.
 
 ## Estructura
 
-![Estructura del patrón](../assets/reflection/structure.es.svg)
+```mermaid
+---
+title: crítica antes de corregir; lista de puntos débiles en vez de veredicto
+---
+flowchart TB
+  subgraph session["una sesión — una ventana"]
+    direction LR
+    draft["Borrador<br/>el primer resultado"]
+    critique["Crítica<br/>según los ejes dados<br/>lista de puntos débiles"]:::warn
+    revise["Corrección<br/>según la lista"]
+    draft --> critique --> revise
+    revise -. "otra ronda — no más de una o dos" .-> critique
+  end
+  dev["Desarrollador<br/>fija los ejes · lee la lista<br/>decide qué arreglar"]:::accent
+  result["Resultado<br/>tras el filtro"]:::accent
+  caveat["el sesgo del autor permanece —<br/>un diff serio pasa por un contexto fresco"]:::warn
+  dev --> critique
+  revise --> result
+  result -.- caveat
+```
 
 Todo el ciclo vive dentro de una sesión: el borrador, la crítica según los
 ejes dados, la corrección según la lista — y, si hace falta, una ronda más.

@@ -70,7 +70,22 @@ layers and tests for impossible cases.
 
 ## Structure
 
-![Pattern structure](../assets/writer-reviewer/structure.en.svg)
+```mermaid
+---
+title: the work is judged by someone other than whoever did it
+---
+flowchart LR
+  writer["Writer — session A<br/>the full history: the task, the reasoning, the edits<br/>fixes what was found"]
+  diff["diff + criteria<br/>plan · specification · axes"]:::accent
+  reviewer["Reviewer — fresh context<br/>a separate session or subagent<br/>sees only the diff and criteria<br/>finds — doesn't fix"]
+  findings["findings<br/>gaps, not taste"]:::warn
+  writer --> diff --> reviewer
+  reviewer --> findings --> writer
+  hard["the hardened variant — refutation:<br/>'prove that this doesn't work'"]:::warn
+  reviewer -.- hard
+  note["the author's reasoning never crosses the boundary —<br/>that is the whole mechanism"]:::muted
+  diff -.- note
+```
 
 Two contexts, and between them — only artifacts. On the left, the writer
 with the session's full history; the diff and the criteria travel right, the

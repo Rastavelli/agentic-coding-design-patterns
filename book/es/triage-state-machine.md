@@ -78,7 +78,33 @@ Todo lo que el agente publica en un tracker público empieza con la nota
 
 ## Estructura
 
-![Estructura del patrón](../assets/triage-state-machine/structure.es.svg)
+```mermaid
+---
+title: categoría — exactamente una; estado — exactamente uno
+---
+stateDiagram-v2
+  direction LR
+  state "needs-triage" as triage
+  state "needs-info" as info
+  state "ready-for-agent" as agent
+  state "ready-for-human" as human
+  state "wontfix" as wontfix
+
+  [*] --> triage: un issue o un PR externo
+  triage --> info: faltan datos
+  info --> triage: el reportero respondió
+  triage --> agent: brief autosuficiente adjunto
+  triage --> human: brief + por qué no se delega
+  triage --> wontfix: el rechazo, anotado en la base
+  agent --> [*]
+  human --> [*]
+  wontfix --> [*]
+
+  note right of triage
+    cada ticket: contexto, verificar
+    la afirmación, entrevista, desenlace
+  end note
+```
 
 El ticket entrante cae en `needs-triage` — el único estado donde ocurre el
 trabajo de clasificación. De él salen cuatro salidas: el brief para un

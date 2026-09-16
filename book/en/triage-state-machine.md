@@ -77,7 +77,33 @@ AI during triage" note — the transparency is non-negotiable.
 
 ## Structure
 
-![Pattern structure](../assets/triage-state-machine/structure.en.svg)
+```mermaid
+---
+title: category — exactly one; state — exactly one
+---
+stateDiagram-v2
+  direction LR
+  state "needs-triage" as triage
+  state "needs-info" as info
+  state "ready-for-agent" as agent
+  state "ready-for-human" as human
+  state "wontfix" as wontfix
+
+  [*] --> triage: an issue or an external PR
+  triage --> info: not enough data
+  info --> triage: the reporter replied
+  triage --> agent: a self-contained brief attached
+  triage --> human: a brief + why it can't be delegated
+  triage --> wontfix: the rejection recorded in the KB
+  agent --> [*]
+  human --> [*]
+  wontfix --> [*]
+
+  note right of triage
+    every ticket: context, verify
+    the claim, interview, outcome
+  end note
+```
 
 An incoming ticket lands in `needs-triage` — the only state where the
 sorting work happens. Out of it lead four exits: a brief for an agent, a

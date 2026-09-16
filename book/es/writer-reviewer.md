@@ -71,7 +71,22 @@ imposibles.
 
 ## Estructura
 
-![Estructura del patrón](../assets/writer-reviewer/structure.es.svg)
+```mermaid
+---
+title: el trabajo lo juzga alguien distinto de quien lo hizo
+---
+flowchart LR
+  writer["Escritor — sesión A<br/>la historia completa: la tarea, el razonamiento, los cambios<br/>arregla lo hallado"]
+  diff["diff + criterios<br/>plan · especificación · ejes"]:::accent
+  reviewer["Revisor — contexto fresco<br/>sesión aparte o subagente<br/>solo ve el diff y los criterios<br/>encuentra — no arregla"]
+  findings["hallazgos<br/>brechas, no gustos"]:::warn
+  writer --> diff --> reviewer
+  reviewer --> findings --> writer
+  hard["variante endurecida — refutación:<br/>«demuestra que esto no funciona»"]:::warn
+  reviewer -.- hard
+  note["el razonamiento del autor nunca cruza la frontera —<br/>ese es todo el mecanismo"]:::muted
+  diff -.- note
+```
 
 Dos contextos, y entre ellos — solo artefactos. A la izquierda, el escritor
 con toda la historia de la sesión; hacia la derecha viajan el diff y los

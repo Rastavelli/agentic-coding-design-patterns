@@ -75,7 +75,33 @@ Triage state machine, конечный автомат триажа; `/triage` в
 
 ## Структура
 
-![Структура паттерна](../assets/triage-state-machine/structure.svg)
+```mermaid
+---
+title: категория — ровно одна; состояние — ровно одно
+---
+stateDiagram-v2
+  direction LR
+  state "needs-triage" as triage
+  state "needs-info" as info
+  state "ready-for-agent" as agent
+  state "ready-for-human" as human
+  state "wontfix" as wontfix
+
+  [*] --> triage: тикет или внешний PR
+  triage --> info: не хватает данных
+  info --> triage: репортёр ответил
+  triage --> agent: самодостаточный бриф приложен
+  triage --> human: бриф + почему не делегируется
+  triage --> wontfix: отказ — записью в базу знаний
+  agent --> [*]
+  human --> [*]
+  wontfix --> [*]
+
+  note right of triage
+    разбор каждого тикета: контекст,
+    проверка заявления, интервью, исход
+  end note
+```
 
 Входящий тикет попадает в `needs-triage` — единственное состояние, где
 происходит работа разбора. Из него четыре выхода: бриф для агента, бриф для

@@ -66,7 +66,21 @@ de una historia ajena.
 
 ## Estructura
 
-![Estructura del patrón](../assets/handoff/structure.es.svg)
+```mermaid
+---
+title: se prepara al final de la sesión — a medida del objetivo de la siguiente
+---
+flowchart LR
+  a["Sesión A — ventana al límite<br/>el contexto sigue intacto"]
+  doc["handoff.md<br/>estado y objetivo<br/>decisiones y su porqué<br/>callejones descartados<br/>el siguiente paso<br/>enlaces a los artefactos"]:::accent
+  b["Sesión B — ventana fresca<br/>empieza por el documento"]
+  artifacts["specs · ADR · commits<br/>por enlace, sin recontar"]:::muted
+  a --> doc --> b
+  doc -.- artifacts
+  a -. "compactación automática: no eliges qué sobrevive,<br/>el hilo continúa en vez de un comienzo limpio" .-> b
+  note["qué cruza la frontera de la sesión<br/>lo decide el desarrollador"]:::muted
+  b -.- note
+```
 
 El camino superior es el patrón: la sesión saliente, con el contexto aún
 intacto, prepara el documento de traspaso para el objetivo nombrado; la

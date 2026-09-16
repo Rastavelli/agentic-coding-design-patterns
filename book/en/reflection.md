@@ -67,7 +67,26 @@ result still doesn't inspire trust, a fresh context is needed.
 
 ## Structure
 
-![Pattern structure](../assets/reflection/structure.en.svg)
+```mermaid
+---
+title: critique before revision; a list of weak spots instead of a verdict
+---
+flowchart TB
+  subgraph session["one session — one window"]
+    direction LR
+    draft["Draft<br/>the first result"]
+    critique["Critique<br/>along the given axes<br/>a list of weak spots"]:::warn
+    revise["Revision<br/>from the list"]
+    draft --> critique --> revise
+    revise -. "another round — no more than one or two" .-> critique
+  end
+  dev["Developer<br/>sets the axes · reads the list<br/>decides what to fix"]:::accent
+  result["Result<br/>after the filter"]:::accent
+  caveat["the author's bias remains —<br/>a serious diff gets a fresh-context check"]:::warn
+  dev --> critique
+  revise --> result
+  result -.- caveat
+```
 
 The whole cycle lives inside one session: the draft, the critique along the
 given axes, the revision from the list — and, if needed, one more round. The
