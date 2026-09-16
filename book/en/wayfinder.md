@@ -78,7 +78,24 @@ the map has ended and it's time to hand the work into execution.
 
 ## Structure
 
-![Pattern structure](../assets/wayfinder/structure.en.svg)
+```mermaid
+---
+title: the map is done when nothing is left to decide
+---
+flowchart TB
+  map["The map — one tracker issue<br/>the destination — what counts as the end<br/>decisions: an index with links to tickets<br/>'not yet specified' — the fog of war<br/>'out of scope' — beyond the destination"]:::accent
+  fog["The fog<br/>questions that can't yet<br/>be stated precisely"]:::muted
+  closed["✓ closed<br/>the answer in a comment"]
+  frontier["The frontier<br/>open · unblocked"]:::accent
+  blocked["blocked<br/>waiting on decisions"]:::muted
+  session["A session — one ticket at a time<br/>claim → resolve → close → record"]
+  map --> closed
+  map --> frontier
+  map --> blocked
+  fog -. "cleared — became a ticket" .-> frontier
+  frontier --> session
+  session -. "the decision — a line in the index" .-> map
+```
 
 At the top, the map — the index of the whole journey: the destination, the
 accumulated decisions with links, the fog, and what was cut from scope.

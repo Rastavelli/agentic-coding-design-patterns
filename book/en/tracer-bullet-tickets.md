@@ -72,7 +72,24 @@ final contract ticket deletes the old form once no caller remains.
 
 ## Structure
 
-![Pattern structure](../assets/tracer-bullet-tickets/structure.en.svg)
+```mermaid
+---
+title: a narrow slice through every layer — demoable on its own
+---
+flowchart LR
+  spec["The spec<br/>an approved epic"]:::accent
+  subgraph slices["every ticket cuts through schema, API, UI and tests"]
+    direction LR
+    t1["ticket 1"]:::accent
+    t2["ticket 2"]:::accent
+    t3["ticket 3"]:::accent
+    t1 --> t2 --> t3
+  end
+  frontier["The frontier<br/>tickets with no blockers;<br/>one per session,<br/>each one lands green"]
+  horizontal["for contrast: a horizontal slice —<br/>a wide piece of one layer —<br/>is demoable only at the integration at the very end"]:::warn
+  spec --> slices --> frontier
+  t2 -.- horizontal
+```
 
 On the left, the specification-epic. In the center, its slicing: each
 ticket threads all the layers in a narrow strip, and the blocking arrows

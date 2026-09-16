@@ -65,7 +65,21 @@ work of a session you weren't watching.
 
 ## Structure
 
-![Pattern structure](../assets/give-agent-a-way-to-verify/structure.en.svg)
+```mermaid
+---
+title: evidence instead of a "done" assertion
+---
+flowchart TB
+  dev["Developer<br/>sets the check, accepts the work"]:::accent
+  agent["Agent<br/>works and iterates"]
+  check["Check<br/>tests · build · linter<br/>diff vs fixture · screenshot<br/>signal: pass / fail"]
+  evidence["Evidence<br/>test output, a screenshot,<br/>the command and its result"]:::accent
+  dev -- "task + a way to verify" --> agent
+  agent -- "runs and reads" --> check
+  check -- "fail — iterate" --> agent
+  check -- "pass" --> evidence
+  evidence --> dev
+```
 
 The developer stands at the ends of the loop: at the entrance they hand the
 agent the task together with a way to verify it, at the exit they accept the

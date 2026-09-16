@@ -74,7 +74,24 @@ la forma vieja cuando no queda ningún llamador.
 
 ## Estructura
 
-![Estructura del patrón](../assets/tracer-bullet-tickets/structure.es.svg)
+```mermaid
+---
+title: una rebanada estrecha por todas las capas — demostrable por sí sola
+---
+flowchart LR
+  spec["La spec<br/>un épico aprobado"]:::accent
+  subgraph slices["cada ticket atraviesa esquema, API, UI y tests"]
+    direction LR
+    t1["ticket 1"]:::accent
+    t2["ticket 2"]:::accent
+    t3["ticket 3"]:::accent
+    t1 --> t2 --> t3
+  end
+  frontier["La frontera<br/>tickets sin bloqueadores;<br/>uno por sesión,<br/>cada uno aterriza en verde"]
+  horizontal["para contrastar: la rebanada horizontal —<br/>un trozo ancho de una capa —<br/>solo se puede demostrar en la integración del final"]:::warn
+  spec --> slices --> frontier
+  t2 -.- horizontal
+```
 
 A la izquierda, la especificación-épico. En el centro, su troceado: cada
 ticket atraviesa todas las capas en una franja estrecha, y las flechas de

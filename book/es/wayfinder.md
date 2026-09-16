@@ -83,7 +83,24 @@ señal de que el mapa terminó y toca traspasar el trabajo a la ejecución.
 
 ## Estructura
 
-![Estructura del patrón](../assets/wayfinder/structure.es.svg)
+```mermaid
+---
+title: el mapa está listo cuando no queda nada por decidir
+---
+flowchart TB
+  map["El mapa — un issue del tracker<br/>el destino — qué cuenta como final<br/>decisiones: un índice con enlaces a tickets<br/>«aún sin formular» — la niebla de guerra<br/>«fuera de alcance» — más allá del destino"]:::accent
+  fog["La niebla<br/>preguntas que aún no<br/>se pueden formular con precisión"]:::muted
+  closed["✓ cerrados<br/>la respuesta en un comentario"]
+  frontier["La frontera<br/>abierto · sin bloquear"]:::accent
+  blocked["bloqueados<br/>esperan decisiones"]:::muted
+  session["Una sesión — un ticket a la vez<br/>reclamar → resolver → cerrar → anotar"]
+  map --> closed
+  map --> frontier
+  map --> blocked
+  fog -. "se aclaró — ya es un ticket" .-> frontier
+  frontier --> session
+  session -. "la decisión — una línea en el índice" .-> map
+```
 
 Arriba, el mapa — el índice de todo el viaje: el destino, las decisiones
 acumuladas con enlaces, la niebla y lo recortado del alcance. Debajo, los

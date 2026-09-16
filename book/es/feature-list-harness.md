@@ -69,7 +69,22 @@ por pasada (por qué una es un [capítulo aparte](one-feature-at-a-time.md)).
 
 ## Estructura
 
-![Estructura del patrón](../assets/feature-list-harness/structure.es.svg)
+```mermaid
+---
+title: el estado lo cambia una comprobación, no la sensación de «listo»
+---
+flowchart TB
+  req["Requisitos<br/>la especificación"]:::accent
+  ledger["feature-list.json<br/>✓ crear una nota — passes<br/>✗ búsqueda por etiqueta — failing<br/>✗ archivado — failing<br/>… 84 puntos más"]
+  rules["el agente cambia solo el campo de estado;<br/>prohibido borrar o editar puntos"]:::warn
+  cycle["Ciclo de sesión<br/>1. prueba de humo<br/>2. tomar la siguiente failing<br/>3. implementar<br/>4. verificar como usuario<br/>5. cambiar el estado"]
+  regression["¿regresión? passing → failing"]:::warn
+  req -- "se despliega en el registro una vez, entero" --> ledger
+  ledger -- "punto" --> cycle
+  cycle -- "estado" --> ledger
+  ledger -.- rules
+  cycle -.- regression
+```
 
 A la izquierda, los requisitos — de ellos el registro se despliega una vez,
 entero, antes de que empiece la implementación. En el centro, el propio

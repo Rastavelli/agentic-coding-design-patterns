@@ -66,7 +66,22 @@ implement, verify, flip the status — one per pass (why one is a
 
 ## Structure
 
-![Pattern structure](../assets/feature-list-harness/structure.en.svg)
+```mermaid
+---
+title: the status is flipped by a check, not by a feeling of "done"
+---
+flowchart TB
+  req["Requirements<br/>the specification"]:::accent
+  ledger["feature-list.json<br/>✓ create a note — passes<br/>✗ search by tag — failing<br/>✗ archiving — failing<br/>… 84 more items"]
+  rules["the agent flips only the status field;<br/>removing or editing items is forbidden"]:::warn
+  cycle["Session cycle<br/>1. smoke test<br/>2. pick the next failing one<br/>3. implement<br/>4. verify as a user<br/>5. flip the status"]
+  regression["regression? passing → failing"]:::warn
+  req -- "expanded into the ledger once, in full" --> ledger
+  ledger -- "feature" --> cycle
+  cycle -- "status" --> ledger
+  ledger -.- rules
+  cycle -.- regression
+```
 
 On the left, the requirements — the ledger is expanded from them once, in
 full, before implementation begins. In the center, the ledger itself: items

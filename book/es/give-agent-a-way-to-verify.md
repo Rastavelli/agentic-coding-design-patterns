@@ -67,7 +67,21 @@ aceptar el trabajo de una sesión que no vigilabas.
 
 ## Estructura
 
-![Estructura del patrón](../assets/give-agent-a-way-to-verify/structure.es.svg)
+```mermaid
+---
+title: evidencia en vez de un «listo» afirmado
+---
+flowchart TB
+  dev["Desarrollador<br/>define la comprobación, acepta el trabajo"]:::accent
+  agent["Agente<br/>trabaja e itera"]
+  check["Comprobación<br/>tests · build · linter<br/>diff contra patrón · captura<br/>señal: pasa / no pasa"]
+  evidence["Evidencia<br/>salida de tests, una captura,<br/>el comando y su resultado"]:::accent
+  dev -- "tarea + forma de verificar" --> agent
+  agent -- "ejecuta y lee" --> check
+  check -- "no pasa — itera" --> agent
+  check -- "pasa" --> evidence
+  evidence --> dev
+```
 
 El desarrollador está en los extremos del bucle: a la entrada entrega al
 agente la tarea junto con la forma de verificarla, a la salida acepta la
