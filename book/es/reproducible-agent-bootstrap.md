@@ -40,7 +40,20 @@ Bootstrap se ocupa del arranque, no de toda la matriz de pruebas, y no debe actu
 
 ## Estructura
 
-![Estructura del inicio reproducible](../assets/reproducible-agent-bootstrap/structure.svg)
+```mermaid
+---
+title: un comando convierte el estado local desconocido en un baseline verde
+---
+flowchart TB
+  fresh["Sesión nueva<br/>estado desconocido<br/>make setup"]:::warn
+  validate["Validar<br/>versiones del runtime<br/>herramientas necesarias<br/>dependencias fijadas"]
+  prepare["Preparar<br/>configuración segura<br/>fixtures + migraciones<br/>recursos aislados"]
+  smoke["Comprobación smoke<br/>interfaz real<br/>código de salida claro"]
+  green["Verde<br/>empieza el trabajo"]:::accent
+  fresh --> validate --> prepare --> smoke --> green
+  note["cualquier fallo antes del verde es del entorno;<br/>cualquier fallo nuevo después es del cambio"]:::accent
+  smoke -.- note
+```
 
 Una sesión nueva con estado desconocido invoca un comando. Este valida herramientas, crea estado seguro y ejecuta una comprobación smoke. Solo el verde abre el trabajo; el rojo lo detiene y separa el fallo del entorno del futuro diff.
 

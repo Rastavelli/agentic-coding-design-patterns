@@ -46,7 +46,24 @@ El patrón se sostiene sobre cuatro límites:
 
 ## Estructura
 
-![Estructura del trabajo paralelo aislado](../assets/isolated-parallel-work/structure.svg)
+```mermaid
+---
+title: una tarea — una rama — un worktree
+---
+flowchart LR
+  target["Rama objetivo<br/>origin/main<br/>punto de partida común"]
+  a["Tarea A · agente A<br/>rama: agent/auth<br/>worktree: ../project-auth<br/>editar → verificar → commit"]
+  b["Tarea B · agente B<br/>rama: agent/docs<br/>worktree: ../project-docs<br/>editar → verificar → commit"]
+  c["Tarea C · agente C<br/>rama: agent/tests<br/>worktree: ../project-tests<br/>editar → verificar → commit"]
+  integrator["Integrador<br/>1. actualizar la rama<br/>2. resolver conflictos<br/>3. mergear un commit<br/>4. verificar lo ensamblado"]:::accent
+  merged["Rama integrada<br/>main + A + B + C<br/>la comprobación combinada está verde"]
+  env["el worktree aísla archivos e índice;<br/>puertos, bases y contenedores se aíslan aparte"]:::warn
+  target --> a --> integrator
+  target --> b --> integrator
+  target --> c --> integrator
+  integrator --> merged
+  b -.- env
+```
 
 Una rama objetivo da origen a ramas y árboles de trabajo independientes. En cada worktree, un agente completa el ciclo de su tarea y produce un commit separado. El integrador acepta los commits de uno en uno y comprueba el estado ensamblado después de cada uno. Si las tareas se solapan, el choque aparece en un punto controlado —durante la actualización o el merge— y no a mitad de la sesión de otro agente.
 

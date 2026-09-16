@@ -37,7 +37,23 @@ Un buen límite es pequeño, determinista y explicable. Devuelve la razón y un 
 
 ## Estructura
 
-![Estructura de los límites ejecutables](../assets/executable-guardrails/structure.svg)
+```mermaid
+---
+title: la instrucción orienta; la política ejecutable sostiene el límite
+---
+flowchart LR
+  action["Acción del agente<br/>herramienta + argumentos"]
+  policy["Política ejecutable<br/>sandbox · permisos<br/>pre-tool hook · allowlist<br/>permitir / denegar / preguntar"]:::accent
+  run["Se ejecuta con seguridad"]
+  block["Se bloquea con explicación"]:::warn
+  ask["Escalado a un humano"]:::accent
+  gate["Puerta de resultado<br/>pruebas · CI · auditoría"]
+  action --> policy
+  policy --> run
+  policy --> block
+  policy --> ask
+  run --> gate
+```
 
 La instrucción textual orienta al agente, pero no forma una barrera. Cada acción atraviesa una política ejecutable: las acciones seguras se ejecutan, las prohibidas se bloquean y las ambiguas se escalan. Después, una puerta independiente verifica el resultado.
 

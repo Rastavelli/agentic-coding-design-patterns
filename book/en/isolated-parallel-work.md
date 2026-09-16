@@ -46,7 +46,24 @@ The pattern rests on four boundaries:
 
 ## Structure
 
-![Structure of isolated parallel work](../assets/isolated-parallel-work/structure.svg)
+```mermaid
+---
+title: one task — one branch — one worktree
+---
+flowchart LR
+  target["Target branch<br/>origin/main<br/>shared starting point"]
+  a["Task A · agent A<br/>branch: agent/auth<br/>worktree: ../project-auth<br/>edit → verify → commit"]
+  b["Task B · agent B<br/>branch: agent/docs<br/>worktree: ../project-docs<br/>edit → verify → commit"]
+  c["Task C · agent C<br/>branch: agent/tests<br/>worktree: ../project-tests<br/>edit → verify → commit"]
+  integrator["Integrator<br/>1. update branch<br/>2. resolve conflicts<br/>3. merge one commit<br/>4. verify composition"]:::accent
+  merged["Integrated branch<br/>main + A + B + C<br/>combined check is green"]
+  env["worktrees isolate files and indexes;<br/>ports, databases and containers need separate isolation"]:::warn
+  target --> a --> integrator
+  target --> b --> integrator
+  target --> c --> integrator
+  integrator --> merged
+  b -.- env
+```
 
 One target branch produces independent branches and working trees. In each worktree, an agent completes its task cycle and produces a separate commit. The integrator accepts commits one at a time and checks the assembled state after each one. If tasks overlap, the collision appears at a controlled point—during the update or merge—instead of halfway through someone else's session.
 

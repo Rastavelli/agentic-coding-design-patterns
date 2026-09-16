@@ -40,7 +40,20 @@ Bootstrap owns startup, not the full test matrix, and it must not update depende
 
 ## Structure
 
-![Structure of reproducible agent bootstrap](../assets/reproducible-agent-bootstrap/structure.svg)
+```mermaid
+---
+title: one command turns unknown local state into a proven green baseline
+---
+flowchart TB
+  fresh["Fresh session<br/>unknown state<br/>make setup"]:::warn
+  validate["Validate<br/>runtime versions<br/>required tools<br/>locked dependencies"]
+  prepare["Prepare<br/>safe config<br/>fixtures + migrations<br/>isolated resources"]
+  smoke["Smoke check<br/>real interface<br/>clear exit code"]
+  green["Green<br/>start the task"]:::accent
+  fresh --> validate --> prepare --> smoke --> green
+  note["any failure before green belongs to setup;<br/>any new failure after green belongs to the change"]:::accent
+  smoke -.- note
+```
 
 A fresh session with unknown state invokes one command. The command validates tools, creates safe local state, and runs a smoke check. Only green opens work on the task; red stops it and separates environment failure from the future diff.
 

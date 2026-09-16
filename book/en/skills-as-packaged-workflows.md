@@ -72,7 +72,21 @@ always. "How we release" is a procedure — it is needed on demand.
 
 ## Structure
 
-![Pattern structure](../assets/skills-as-packaged-workflows/structure.en.svg)
+```mermaid
+---
+title: a rule goes into project memory, a procedure into a skill
+---
+flowchart LR
+  prompts["A procedure in prompts<br/>re-explained every session<br/>the wording drifts<br/>runs differently each time"]:::warn
+  skill["SKILL.md<br/>a name + a trigger description<br/>steps with completion criteria<br/>reference in sibling files, loaded on demand<br/>in git: review, versions, sharing"]:::accent
+  manual["/name<br/>the developer, by command;<br/>zero context cost"]
+  auto["auto-invocation<br/>the agent, by triggers;<br/>the description always loaded"]
+  packs["skill packs<br/>whole methodologies vendored into a project as a set"]:::muted
+  prompts -- "packaged once" --> skill
+  skill --> manual
+  skill --> auto
+  skill -.- packs
+```
 
 On the left, a procedure's life before packaging: re-explanation in every
 session and drift. In the center, the skill: a name, a trigger description,

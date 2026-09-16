@@ -38,7 +38,20 @@ Keep a baseline and distinguish capability evals from regression evals. Capabili
 
 ## Structure
 
-![Structure of agent workflow evals](../assets/agent-workflow-evals/structure.svg)
+```mermaid
+---
+title: a failed real task becomes a stable regression case, not an anecdote
+---
+flowchart LR
+  suite["Versioned task suite<br/>prompt · clean fixture<br/>success criteria · multiple trials"]:::accent
+  harness["Agent workflow<br/>instructions + model<br/>tools + permissions<br/>records the transcript"]
+  outcome["Outcome graders<br/>tests · diff · state"]
+  trajectory["Trajectory graders<br/>scope · tools · cost"]
+  report["Comparison report<br/>baseline vs candidate<br/>quality · variance · cost"]:::accent
+  suite --> harness
+  harness --> outcome --> report
+  harness --> trajectory --> report
+```
 
 One workflow version runs several times against the same task bank. The harness restores starting state and records trajectories and outcomes. Graders produce signals, and a report compares them with the baseline. A failure becomes a reproducible case rather than a chat anecdote.
 

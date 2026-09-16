@@ -38,7 +38,20 @@ Guarda un baseline y separa evaluaciones de capacidad y de regresión. Las prime
 
 ## Estructura
 
-![Estructura de las evaluaciones del flujo](../assets/agent-workflow-evals/structure.svg)
+```mermaid
+---
+title: un fallo se convierte en un caso reproducible, no en una anécdota de chat
+---
+flowchart LR
+  suite["Banco de tareas versionado<br/>prompt · fixture inicial<br/>criterios de éxito · varios intentos"]:::accent
+  harness["Flujo del agente<br/>instrucciones + modelo<br/>herramientas + permisos<br/>registra la trayectoria"]
+  outcome["Evaluador de resultado<br/>pruebas · diff · estado"]
+  trajectory["Evaluador de trayectoria<br/>alcance · herramientas · coste"]
+  report["Informe comparativo<br/>baseline contra candidato<br/>calidad · variabilidad · coste"]:::accent
+  suite --> harness
+  harness --> outcome --> report
+  harness --> trajectory --> report
+```
 
 Una versión del flujo se ejecuta varias veces contra el mismo banco. El harness restaura el estado inicial y registra trayectorias y resultados. Los evaluadores producen señales y un informe las compara con el baseline. Un fallo se convierte en un caso reproducible, no en una anécdota de chat.
 

@@ -37,7 +37,23 @@ A good guardrail is small, deterministic, and explainable. It returns the reason
 
 ## Structure
 
-![Structure of executable guardrails](../assets/executable-guardrails/structure.svg)
+```mermaid
+---
+title: advice guides decisions; executable policy enforces boundaries
+---
+flowchart LR
+  action["Agent action<br/>tool + arguments"]
+  policy["Executable policy<br/>sandbox · permissions<br/>pre-tool hook · allowlist<br/>allow / deny / ask"]:::accent
+  run["Run safely"]
+  block["Block + explain"]:::warn
+  ask["Ask a human"]:::accent
+  gate["Result gate<br/>tests · CI · audit"]
+  action --> policy
+  policy --> run
+  policy --> block
+  policy --> ask
+  run --> gate
+```
 
 Text instructions guide the agent but do not form a barrier. Every action passes through an executable policy: safe actions run automatically, forbidden actions are blocked, and ambiguous actions are escalated. An independent gate verifies the result after changes.
 

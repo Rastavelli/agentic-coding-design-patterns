@@ -38,7 +38,20 @@ Agent workflow evals, regression task suite, behavioral evals, контроль�
 
 ## Структура
 
-![Структура эвалов рабочего процесса](../assets/agent-workflow-evals/structure.svg)
+```mermaid
+---
+title: провал становится воспроизводимым кейсом, а не впечатлением из переписки
+---
+flowchart LR
+  suite["Банк задач под версией<br/>промпт · чистый fixture<br/>критерии успеха · несколько trials"]:::accent
+  harness["Рабочий процесс агента<br/>инструкции + модель<br/>инструменты + права<br/>записывает траекторию"]
+  outcome["Outcome grader<br/>тесты · diff · состояние"]
+  trajectory["Trajectory grader<br/>скоуп · инструменты · стоимость"]
+  report["Отчёт сравнения<br/>baseline против кандидата<br/>качество · разброс · стоимость"]:::accent
+  suite --> harness
+  harness --> outcome --> report
+  harness --> trajectory --> report
+```
 
 Одна версия рабочего процесса запускается на одинаковом банке задач несколько раз. Harness восстанавливает начальное состояние, записывает траекторию и итог, grader-ы считают сигналы, а отчёт сравнивает их с baseline. Провал становится воспроизводимым кейсом, а не впечатлением из переписки.
 

@@ -75,7 +75,21 @@ falta bajo demanda.
 
 ## Estructura
 
-![Estructura del patrón](../assets/skills-as-packaged-workflows/structure.es.svg)
+```mermaid
+---
+title: la regla va a la memoria del proyecto; el procedimiento, a un skill
+---
+flowchart LR
+  prompts["Procedimiento en prompts<br/>se reexplica cada sesión<br/>la redacción deriva<br/>se ejecuta distinto cada vez"]:::warn
+  skill["SKILL.md<br/>nombre + descripción-disparador<br/>pasos con criterios de finalización<br/>referencia en archivos vecinos, bajo demanda<br/>en git: revisión, versiones, compartir"]:::accent
+  manual["/nombre<br/>el desarrollador, por comando;<br/>coste de contexto cero"]
+  auto["auto-invocación<br/>el agente, por disparadores;<br/>la descripción siempre cargada"]
+  packs["packs de skills<br/>metodologías completas se vendorizan al proyecto en bloque"]:::muted
+  prompts -- "se empaqueta una vez" --> skill
+  skill --> manual
+  skill --> auto
+  skill -.- packs
+```
 
 A la izquierda, la vida del procedimiento antes del empaque: reexplicación
 en cada sesión y deriva. En el centro, el skill: nombre,
