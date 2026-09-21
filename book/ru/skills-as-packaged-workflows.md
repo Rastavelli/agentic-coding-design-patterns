@@ -130,7 +130,7 @@ disable-model-invocation: true
 
 - **Claude Code** поддерживает `SKILL.md` в `.claude/skills/`, аргументы и настройку вызова через `disable-model-invocation`.
 - **Superpowers** объединяет планирование, TDD, реализацию и ревью в набор скилов.
-- **Скилы Мэтта Покока** включают указатель процедур и руководство *writing great skills* по их написанию.
+- **Скилы Мэтта Покока** включают указатель процедур и руководство [writing-for-agents](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md) по написанию инструкций для агентов.
 - **Другие кодинг-агенты** тоже поддерживают сохранённые процедуры, хотя формат и правила загрузки различаются.
 
 ## Связанные паттерны
