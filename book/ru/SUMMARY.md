@@ -19,7 +19,7 @@
 
 * [OpenSpec](openspec.md)
 * [Superpowers](superpowers.md)
-* [Скилы Мэтта Покока](matt-pocock-skills.md)
+* [Скиллы Мэтта Покока](matt-pocock-skills.md)
 
 ## Работа с контекстом
 
@@ -45,11 +45,11 @@
 * [Одна фича за раз](one-feature-at-a-time.md)
 * [Карта исследования](wayfinder.md)
 * [Триаж задач](triage-state-machine.md)
-* [Скилы](skills-as-packaged-workflows.md)
+* [Скиллы](skills-as-packaged-workflows.md)
 * [Воспроизводимый старт агента](reproducible-agent-bootstrap.md)
 * [Изолированная параллельная работа](isolated-parallel-work.md)
 
-## Анти-паттерны
+## Антипаттерны
 
 * [Преждевременная спецификация](premature-specification.md)
 * [Преждевременный успех](premature-success.md)

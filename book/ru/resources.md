@@ -6,7 +6,7 @@
 
 - [OpenSpec](openspec.md). Официальный сайт [openspec.dev](https://openspec.dev/) и [репозиторий](https://github.com/Fission-AI/OpenSpec).
 - [Superpowers](superpowers.md). Исходный код и инструкции доступны в [репозитории](https://github.com/obra/superpowers).
-- [Скилы Мэтта Покока](matt-pocock-skills.md). Набор процедур доступен в [репозитории](https://github.com/mattpocock/skills).
+- [Скиллы Мэтта Покока](matt-pocock-skills.md). Набор процедур доступен в [репозитории](https://github.com/mattpocock/skills).
 
 ## Другие инструменты SDD
 
