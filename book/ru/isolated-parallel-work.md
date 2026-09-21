@@ -48,7 +48,7 @@ Worktree per task, branch per agent, isolated checkout, параллельные
 
 ```mermaid
 ---
-title: одна задача — одна ветка — один worktree
+title: каждая задача получает свою ветку и worktree
 ---
 flowchart LR
   target["Целевая ветка<br/>origin/main<br/>общая точка старта"]
@@ -147,7 +147,7 @@ Runbook зависит от окончательных имён метрик, п
 
 ```mermaid
 ---
-title: порядок слияния — по зависимости, а не по готовности
+title: зависимости определяют порядок слияния
 ---
 gitGraph
   commit id: "origin/main"

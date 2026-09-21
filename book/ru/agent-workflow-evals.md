@@ -40,7 +40,7 @@ Agent workflow evals, regression task suite, behavioral evals, контроль�
 
 ```mermaid
 ---
-title: провал становится воспроизводимым кейсом, а не впечатлением из переписки
+title: контрольный набор позволяет воспроизвести провал
 ---
 flowchart LR
   suite["Банк задач под версией<br/>промпт · чистый fixture<br/>критерии успеха · несколько trials"]:::accent

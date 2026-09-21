@@ -42,7 +42,7 @@ Test-driven development с агентом, red–green–refactor, test-first.
 
 ```mermaid
 ---
-title: промпт на каждую фазу — иначе агент смешает их сам
+title: отдельные запросы задают порядок фаз TDD
 ---
 flowchart TB
   red["Красная фаза<br/>тесты по кейсам, прогнать — должны упасть<br/>реализация запрещена"]:::warn

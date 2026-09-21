@@ -42,7 +42,7 @@ Context engineering, контекст-инжиниринг.
 
 ```mermaid
 ---
-title: наименьший набор высокосигнальных токенов
+title: контекст содержит сведения для текущей задачи
 ---
 flowchart LR
   persistent["постоянный слой<br/>CLAUDE.md · CONTEXT.md<br/>загружается каждую сессию"]:::accent
