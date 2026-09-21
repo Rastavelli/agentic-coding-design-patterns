@@ -52,7 +52,7 @@
     "useMaxWidth": true,
     "wrap": true
   },
-  "themeCSS": ".accent rect, .accent polygon, .accent path { fill: #f6f1e7 !important; stroke: #a5764a !important; } .warn rect, .warn polygon, .warn path { fill: #f9eded !important; stroke: #a54a4a !important; } .muted rect, .muted polygon, .muted path { fill: #f4f5f6 !important; stroke: #5b6b7c !important; } .cluster rect { stroke-dasharray: 6 4 !important; stroke: #5b6b7c !important; } .cluster-label text { fill: #5b6b7c !important; } .nodes .node rect { fill: #4a6fa5 !important; stroke: #4a6fa5 !important; } .node-labels text { fill: #1a2b3c !important; }",
+  "themeCSS": ".accent rect, .accent polygon, .accent path { fill: #f6f1e7 !important; stroke: #a5764a !important; } .warn rect, .warn polygon, .warn path { fill: #f9eded !important; stroke: #a54a4a !important; } .muted rect, .muted polygon, .muted path { fill: #f4f5f6 !important; stroke: #5b6b7c !important; } .cluster rect { stroke-dasharray: 6 4 !important; stroke: #5b6b7c !important; } .cluster-label text { fill: #5b6b7c !important; } .nodes .node[id^=\"node-\"] rect { fill: #4a6fa5 !important; stroke: #4a6fa5 !important; } .node-labels text { fill: #1a2b3c !important; }",
   "htmlLabels": false,
   "sankey": {
     "useMaxWidth": true,
