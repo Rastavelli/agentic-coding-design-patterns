@@ -8,7 +8,7 @@ The book is built from markdown with [Honkit](https://github.com/honkit/honkit).
 1. Pick a kebab-case `slug` (e.g. `chain-of-thought`). It becomes the file name in every locale and the key under `book/assets/`.
 2. Create the chapter in the canonical locale: copy [`templates/ru/pattern.md`](templates/ru/pattern.md) to `book/ru/<slug>.md` and fill it in. Do not change the section headings — they are the same across all chapters of that language.
 3. Add a link in `book/ru/SUMMARY.md` under the right group heading (line order = order in the book).
-4. Draw diagrams as ```` ```mermaid ```` fences right in the chapter — they are rendered to SVG at build time and translated together with the surrounding text. Use the shared `accent` / `warn` / `muted` classes (`node:::accent`) so every diagram in the book shares one palette; the theme lives in `mermaid.config.json`.
+4. Draw diagrams as ```` ```mermaid ```` fences right in the chapter — they are rendered to SVG at build time and translated together with the surrounding text. Use the shared `accent` / `warn` / `muted` classes (`node:::accent`) so every diagram in the book shares one palette; the theme lives in `mermaid.config.json`, and its night-theme counterpart in `mermaid.config.dark.json`.
 5. Anything that is genuinely a file — images, sample code — goes in `book/assets/<slug>/` and is referenced with a relative path `../assets/<slug>/...`.
 6. Preview with `pnpm start`.
 
