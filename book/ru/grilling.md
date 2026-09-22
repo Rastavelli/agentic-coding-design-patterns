@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [let-claude-interview-you, prototype-to-answer, writer-reviewer]
+related: [let-claude-interview-you, design-it-twice, prototype-to-answer, writer-reviewer]
 source_rev:
 ---
 
@@ -124,6 +124,7 @@ flowchart TB
 ## Связанные паттерны
 
 - [Интервью у агента](let-claude-interview-you.md) помогает подготовить исходные требования.
+- [Спроектируй дважды](design-it-twice.md) помогает выбрать конструкцию через сравнение альтернатив до реализации.
 - [Одноразовый прототип](prototype-to-answer.md) проверяет вопросы, для которых нужны наблюдения.
 - [Писатель и рецензент](writer-reviewer.md) применяет независимую проверку к готовому коду.
 - [Словарь домена](domain-context-file.md) сохраняет согласованные термины и решения.

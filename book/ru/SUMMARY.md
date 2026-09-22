@@ -9,6 +9,7 @@
 * [Четыре фазы](explore-plan-code-commit.md)
 * [Интервью у агента](let-claude-interview-you.md)
 * [Гриллинг](grilling.md)
+* [Спроектируй дважды](design-it-twice.md)
 * [Трассирующие тикеты](tracer-bullet-tickets.md)
 
 ## Спеко-ориентированная разработка

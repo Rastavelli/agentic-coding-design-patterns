@@ -45,6 +45,7 @@ Source labels (`[xx]`) are resolved in [Sources](#sources) at the bottom.
 | explore-plan-code-commit | done | Four-phase workflow — explore, plan (plan mode), implement, commit — so the agent doesn't solve the wrong problem. | [cc-bp] |
 | let-claude-interview-you | done | Start minimal, let the agent interview you (AskUserQuestion), crystallize a self-contained `SPEC.md`, then execute in a fresh session. | [cc-bp] |
 | grilling | done | The agent relentlessly interviews you about a plan/decision until the holes surface — a stress-test of *your* thinking before work starts. Not `let-claude-interview-you`: that interview *builds* a spec, this one *attacks* a finished plan. | [mp] |
+| design-it-twice | done | Compare structurally different designs against shared requirements and caller scenarios before implementation. RU chapter complete; EN/ES translations pending. Complements grilling (challenge a plan) and prototype-to-answer (resolve a question experimentally). | [ousterhout], [mp] |
 | tracer-bullet-tickets | done | Slice a conversation/spec into tracer-bullet tickets with explicit blocking edges — the agent gets executable chunks, not an epic. Plugs into `spec-driven-development` (the Tasks step) with concrete mechanics. | [mp] |
 | visual-specification | candidate | Give the agent a focused UI reference plus behavior and technology constraints, then compare screenshots of the implementation and annotate discrepancies. Unlike a prose spec, the reference communicates visual intent; it does not establish responsive behavior, accessibility, or backend semantics by itself. | [duvall-patterns] |
 
@@ -238,6 +239,7 @@ The [screening notes](research/agentic-sdlc-handbook-2026-09-21.md) record two c
 - `[tessl]` — Tessl (spec as the source of code; SDD plugin on a "context as code" platform) — https://docs.tessl.io
 - `[superpowers]` — Jesse Vincent (obra), *Superpowers* (Claude Code skill pack: brainstorm → plan → subagent TDD → review) — https://github.com/obra/superpowers
 - `[mp]` — Matt Pocock, *skills* (engineering/productivity skill pack; vendored in this repo under `.agents/skills/`) — https://github.com/mattpocock/skills
+- `[ousterhout]` — John Ousterhout, *A Philosophy of Software Design* and CS 190 discussion of Design It Twice — https://web.stanford.edu/~ouster/cgi-bin/aposd.php and https://web.stanford.edu/~ouster/cs190-winter24/lectures/aposd/
 - `[addy]` — Addy Osmani, *What makes a good AI spec* — https://addyosmani.com/blog/good-spec/
 - `[sdd-survey]` — Piskala, *Spec-driven development survey*, arXiv:2602.00180 — https://arxiv.org/html/2602.00180v1
 - `[adp-paper]` — Dao et al., *Agentic Design Patterns: A System-Theoretic Framework*, arXiv:2601.19752 — https://arxiv.org/html/2601.19752v1
