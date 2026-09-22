@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer]
+related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer, one-shotting]
 source_rev:
 ---
 
@@ -152,3 +152,4 @@ flowchart TB
 - [Одна фича за раз](one-feature-at-a-time.md) ограничивает исполнение одним тикетом за проход.
 - [Карта исследования](wayfinder.md) проясняет решения до подготовки очереди реализации.
 - [Одноразовый прототип](prototype-to-answer.md) даёт проверенные решения для требований тикета.
+- [Уан-шот](one-shotting.md) возвращается, когда тикет не помещается в окно и агент снова пытается сделать всё за один проход.

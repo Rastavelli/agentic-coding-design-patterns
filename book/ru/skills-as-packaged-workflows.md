@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [claude-md-memory, context-engineering, handoff, tdd-with-agent]
+related: [claude-md-memory, context-engineering, handoff, tdd-with-agent, bloated-claude-md]
 source_rev:
 ---
 
@@ -149,3 +149,4 @@ disable-model-invocation: true
 - [Память проекта](claude-md-memory.md) хранит постоянные правила, на которые ссылаются процедуры.
 - [Инженерия контекста](context-engineering.md) объясняет загрузку инструкций по требованию.
 - [Передача сессии](handoff.md), [TDD с агентом](tdd-with-agent.md), [триаж](triage-state-machine.md) и [карта исследования](wayfinder.md) могут быть оформлены как повторяемые скиллы.
+- [Раздутая память](bloated-claude-md.md) описывает перегруженный файл памяти, который разгружают вынесением процедур в скиллы.

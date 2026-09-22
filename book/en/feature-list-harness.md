@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development]
+related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development, premature-success]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -201,7 +201,7 @@ asking around.
   the requirements, not their replacement: the "why" and the context live in
   the specification; the ledger holds only verifiable statuses.
 - **Unit tests as the check.** Green units without an end-to-end run are
-  premature success: the feature "works" until the first user.
+  [premature success](premature-success.md): the feature "works" until the first user.
 
 ## Known uses
 
@@ -229,3 +229,4 @@ asking around.
 - [Spec-Driven Development](spec-driven-development.md) — the ledger is
   derived from the specification, like the plan and the tasks; it is its
   verifiable projection.
+- [Premature Success](premature-success.md) — the anti-pattern the ledger degrades into when statuses flip without an end-to-end check.

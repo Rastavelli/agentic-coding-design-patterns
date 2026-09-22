@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [claude-md-memory, context-engineering, handoff, tdd-with-agent]
+related: [claude-md-memory, context-engineering, handoff, tdd-with-agent, bloated-claude-md]
 source_rev: eee14eb8dfdd94b3ab7dae41a322467765a940a6
 ---
 
@@ -210,7 +210,7 @@ como skills invocables.
   skill, o un skill «para todo»: el empaque funciona mientras un
   procedimiento sea un skill.
 - **Todo en modo de modelo.** Auto-invocación en cada skill — y las
-  descripciones se comen la ventana de cada sesión: la memoria hinchada
+  descripciones se comen la ventana de cada sesión: la [memoria hinchada](bloated-claude-md.md)
   volvió por la puerta trasera.
 - **Pasos sin criterios.** «Haz la revisión y corrige» sin un «listo»
   comprobable — el agente termina el paso cuando se cansa, no cuando
@@ -254,3 +254,4 @@ como skills invocables.
   [mapa de investigación](wayfinder.md) — patrones de este libro que en
   los packs reales existen precisamente como skills: el empaque es su
   forma nativa.
+- [Memoria hinchada](bloated-claude-md.md) — el antipatrón que curan los skills: los procedimientos sacados de la memoria dejan de cargarse en cada sesión.

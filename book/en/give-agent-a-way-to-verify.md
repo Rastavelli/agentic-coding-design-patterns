@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [tdd-with-agent, writer-reviewer, reflection, explore-plan-code-commit]
+related: [tdd-with-agent, writer-reviewer, reflection, explore-plan-code-commit, premature-success, one-shotting]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -189,8 +189,7 @@ Without the check it would have ridden to review — or to the users.
   like progress. Editing the check is always the developer's separate
   decision.
 - **Unit tests as the finale.** Green units are not yet a working feature:
-  without an end-to-end check as the user, that's premature success — see
-  the anti-pattern of that name.
+  without an end-to-end check as the user, that's [premature success](premature-success.md).
 
 ## Known uses
 
@@ -219,3 +218,5 @@ Without the check it would have ridden to review — or to the users.
 - [Four Phases](explore-plan-code-commit.md) — the loop lives in the code
   phase: the approved plan names the checks the agent verifies the
   implementation against.
+- [Premature Success](premature-success.md) — the anti-pattern of declaring work done on green units without an end-to-end check as the user.
+- [One-Shotting](one-shotting.md) — the anti-pattern of expecting a finished feature from one pass with no verification cycle.

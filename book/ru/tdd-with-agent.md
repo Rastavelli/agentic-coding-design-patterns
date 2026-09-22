@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
+related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit, premature-success]
 source_rev:
 ---
 
@@ -132,3 +132,4 @@ flowchart TB
 - [Писатель и рецензент](writer-reviewer.md) помогает обнаружить подгонку после прохождения тестов.
 - [Четыре фазы](explore-plan-code-commit.md) позволяет согласовать проверяемые сценарии в плане.
 - [Диагностика через гипотезы](hypothesis-driven-debugging.md) помогает установить причину дефекта до исправления.
+- [Преждевременный успех](premature-success.md) возникает, когда зелёные юнит-тесты принимают за работающую фичу.

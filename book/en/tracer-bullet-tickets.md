@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer]
+related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer, one-shotting]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -191,7 +191,7 @@ is done.
   piece is demoable, and the integration explodes at the end. Cut across
   the layers, not along them.
 - **The epic ticket.** A slice that doesn't fit the window reproduces the
-  original problem in miniature: the agent tries to one-shot again.
+  original problem in miniature: the agent tries to [one-shot](one-shotting.md) again.
 - **Edges in the head.** Unwritten blocking means the agent will take a
   ticket that depends on the undone — and invent the missing parts.
 - **Paths and snippets in tickets.** Implementation specifics go stale
@@ -226,3 +226,4 @@ is done.
 - [Throwaway Prototype](prototype-to-answer.md) — the supplier of
   decision-rich snippets for tickets — and a useful contrast: the prototype
   is thrown away, the tracer stays and grows.
+- [One-Shotting](one-shotting.md) — the anti-pattern an oversized ticket reproduces in miniature.

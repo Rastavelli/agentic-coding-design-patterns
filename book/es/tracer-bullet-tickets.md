@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer]
+related: [spec-driven-development, one-feature-at-a-time, wayfinder, prototype-to-answer, one-shotting]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -193,8 +193,8 @@ un correo con el informe — mucho antes del final de toda la especificación.
   ninguna pieza es demostrable y la integración explota al final. Cortar a
   través de las capas, no a lo largo.
 - **El ticket-épico.** Una rebanada que no cabe en la ventana reproduce el
-  problema original en miniatura: el agente vuelve a intentar el golpe
-  único.
+  problema original en miniatura: el agente vuelve a intentar el
+  [golpe único](one-shotting.md).
 - **Dependencias en la cabeza.** Los bloqueos sin escribir significan que
   el agente tomará un ticket que depende de lo no hecho — e inventará lo
   que falta.
@@ -233,3 +233,4 @@ un correo con el informe — mucho antes del final de toda la especificación.
 - [Prototipo desechable](prototype-to-answer.md) — el proveedor de
   fragmentos ricos en decisiones para los tickets — y un contraste útil: el
   prototipo se tira, el trazador se queda y crece.
+- [One-shotting](one-shotting.md) — el antipatrón que un ticket demasiado grande reproduce en miniatura.

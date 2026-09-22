@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development]
+related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development, premature-success]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -209,7 +209,7 @@ preguntar.
   de los requisitos, no su sustituto: el «para qué» y el contexto viven en
   la especificación; el registro sostiene solo estados verificables.
 - **Tests unitarios como comprobación.** Unidades en verde sin recorrido de
-  extremo a extremo es éxito prematuro: la funcionalidad «funciona» hasta el
+  extremo a extremo es [éxito prematuro](premature-success.md): la funcionalidad «funciona» hasta el
   primer usuario.
 
 ## Usos conocidos
@@ -241,3 +241,4 @@ preguntar.
 - [Desarrollo orientado a especificaciones](spec-driven-development.md) —
   el registro se deriva de la especificación, como el plan y las tareas; es
   su proyección verificable.
+- [Éxito prematuro](premature-success.md) — el antipatrón en el que degenera el registro cuando los estados cambian sin comprobación de extremo a extremo.

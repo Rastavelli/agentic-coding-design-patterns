@@ -1,7 +1,7 @@
 ---
 group: context
 status: draft
-related: [context-engineering, domain-context-file]
+related: [context-engineering, domain-context-file, bloated-claude-md]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -218,8 +218,8 @@ From the next session on, every agent on the project knows this rule.
 
 - **Bloated memory.** Hundreds of lines, duplicates, and contradictions — the
   agent ignores half of it, because the important is indistinguishable from
-  the noise. A mistake so common it gets its own chapter in the anti-patterns
-  section.
+  the noise. A mistake so common it gets [its own chapter](bloated-claude-md.md) in the
+  anti-patterns section.
 - **A dump of derivables.** Directory layout, dependency lists, an
   architecture overview — the agent sees all of that in the code itself. It
   doesn't belong in memory: tokens spent, no signal.
@@ -255,3 +255,4 @@ From the next session on, every agent on the project knows this rule.
 - [Spec-Driven Development](spec-driven-development.md) — project conventions
   serve as the standing input of the SDD pipeline; in the toolkits the
   pattern is embodied by the constitution, project.md, and steering files.
+- [Bloated Memory](bloated-claude-md.md) — the anti-pattern this pattern degrades into without regular pruning.
