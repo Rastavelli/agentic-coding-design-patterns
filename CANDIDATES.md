@@ -78,6 +78,7 @@ article per framework.
 | working-example-library | candidate | Keep a searchable collection of working examples and give the agent selected exemplars to adapt or combine, with their assumptions and verification commands. Unlike `skills-as-packaged-workflows`, the reusable unit is demonstrated code rather than a procedure; unlike `prototype-to-answer`, the question has already been answered. | [sw-hoard], [ap-library] |
 | context-forking | candidate | Branch from a researched conversation state to explore alternative designs or recover from a distracting detour. Unlike `handoff`, reuse the existing context rather than write a transfer summary; unlike worktrees, this isolates conversation history. Keep code state aligned with each branch of the conversation. | [hl-forking] |
 | evidence-linked-behavior-recovery | candidate | Ask the agent to reconstruct an existing system's behavior from complementary artifacts, link each inferred rule to evidence, and resolve contradictions with observations and domain experts before using the result as a specification. Unlike `linear-code-walkthrough`, the deliverable is a validated behavioral contract, including when source code is incomplete. | [mf-blackbox] |
+| instruction-activation-checks | candidate | Diagnose instruction failures by distinguishing file presence, discovery, context loading, and observed application. Unlike `context-engineering`, this supplies a troubleshooting procedure; unlike `agent-workflow-evals`, it diagnoses a particular activation failure. Conditional: may extend `skills-as-packaged-workflows`; tool-specific traces and loading semantics need independent verification. | [sdlc-load] |
 
 ## Verification
 
@@ -113,6 +114,7 @@ article per framework.
 | feedback-flywheel | candidate | Capture recurring corrections, identify their causes, update the appropriate shared instruction, skill, or check, and assess subsequent work. Conditional: `claude-md-memory` already covers learning from repeated mistakes; a standalone chapter must add the team-level maintenance cycle across multiple artifacts. The source presents a proposed practice, not validated productivity gains. | [rg-flywheel] |
 | verified-recovery-points | candidate | Preserve coherent, verified recovery points before risky work and choose a scoped recovery when a later attempt fails. Unlike `isolated-parallel-work`, this handles recovery inside one task; unlike `progress-file`, it restores state rather than describing it. A chapter must cover effects outside Git and preservation of unrelated work. | [seml-rollback] |
 | agent-residue-cleanup | candidate | Include a bounded completion pass that removes task-created scaffolding, debug artifacts, and obsolete text, then rerun relevant checks. Unlike `premature-success`, the problem is residue left by otherwise working code. Conditional: may fit inside `reviewable-agent-delivery`; never turn cleanup into unrelated refactoring or deletion of failing tests. | [seml-cleanup] |
+| bounded-retry-escalation | candidate | Define observable progress and an attempt or resource budget before delegating; when attempts stall, preserve verified work and failed hypotheses, then change the approach, split the task, or escalate. Unlike `premature-success`, this prevents continued work without progress; unlike `verified-recovery-points`, it decides when to abandon a strategy rather than how to restore state. Budget exhaustion is not task completion. | [sdlc-failures] |
 
 ## Anti-patterns
 
@@ -199,6 +201,13 @@ The [companion catalog survey](research/pattern-sources-2026-09-21-round-2-catal
 These are articles hosted by Martin Fowler, not necessarily authored by him. The black-box report describes a thin-slice experiment; it does not establish whole-system migration success. SPDD overlaps the book's existing spec lifecycle, domain modeling, and packaged workflows. Its additional structure is useful comparative material without reopening rejected tool-profile chapters.
 
 The [Böckeler research notes](research/fowler-bockeler-candidates-2026-09-21.md) record the candidate boundaries and the limits of her experiments. Together with `visual-specification` from the previous source survey, this pass adds five candidates. The existing `feedback-flywheel` remains the distinct candidate from Rahul Garg's series; its other four named patterns overlap chapters already present.
+
+### Agentic SDLC Handbook follow-up, 2026-09-21
+
+- `[sdlc-load]` — Daniel Meppiel, *The Load Lifecycle*, chapter 14 — https://danielmeppiel.github.io/agentic-sdlc-handbook/handbook/ch14-the-load-lifecycle.html
+- `[sdlc-failures]` — Daniel Meppiel, *Anti-Patterns and Failure Modes*, chapter 20, especially sections 20.4.4–20.4.5 — https://danielmeppiel.github.io/agentic-sdlc-handbook/handbook/ch20-anti-patterns-and-failure-modes.html
+
+The [screening notes](research/agentic-sdlc-handbook-2026-09-21.md) record two candidate adaptations, additions to existing chapters, and evidence limits. The handbook is practitioner guidance, not independent validation of universal loading behavior, retry thresholds, or productivity gains. Its package-manager and orchestration architecture is broader than this book's developer-workflow scope.
 
 ### Existing sources
 
