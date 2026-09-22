@@ -27,5 +27,8 @@ Puedes escribir en español, inglés o ruso; necesitas una cuenta de GitHub para
 | Aprendizaje del flujo de trabajo — convertir correcciones recurrentes en instrucciones y comprobaciones compartidas. | `feedback-flywheel` | [Comentar / votar](https://github.com/mokevnin/agentic-coding-design-patterns/issues/18) |
 | Puntos de recuperación — conservar estados verificados para deshacer intentos fallidos en pasos acotados. | `verified-recovery-points` | [Comentar / votar](https://github.com/mokevnin/agentic-coding-design-patterns/issues/19) |
 | Limpieza tras el agente — eliminar código temporal y restos de experimentos antes de terminar una tarea. | `agent-residue-cleanup` | [Comentar / votar](https://github.com/mokevnin/agentic-coding-design-patterns/issues/20) |
+| Comprobación de instrucciones — determinar si el agente encuentra una regla y la aplica durante la tarea. | `instruction-activation-checks` | Debate aún no abierto |
+| Procedimiento manual guiado — pedir al agente una guía interactiva para las acciones humanas y recoger sus resultados. | `guided-manual-procedure` | Debate aún no abierto |
+| Intentos acotados — si no hay progreso, conservar los resultados y cambiar el enfoque o transferir la tarea. | `bounded-retry-escalation` | Debate aún no abierto |
 | Fatiga de aprobación — las solicitudes frecuentes convierten la revisión consciente en clics automáticos. | `approval-fatigue` | [Comentar / votar](https://github.com/mokevnin/agentic-coding-design-patterns/issues/21) |
 | Pruebas que se confirman a sí mismas — una prueba calcula el resultado esperado con la misma lógica que debería comprobar. | `self-confirming-tests` | [Comentar / votar](https://github.com/mokevnin/agentic-coding-design-patterns/issues/22) |

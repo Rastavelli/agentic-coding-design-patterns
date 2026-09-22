@@ -2,7 +2,7 @@
 group: verification
 status: draft
 related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
-source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
+source_rev:
 ---
 
 # TDD con agente
@@ -233,3 +233,4 @@ código.
 - [Cuatro fases](explore-plan-code-commit.md) — los casos de test nacen de
   forma natural en la fase de plan: el plan aprobado nombra qué cuenta como
   «funciona».
+- [Diagnóstico mediante hipótesis](hypothesis-driven-debugging.md) ayuda a establecer la causa del defecto antes de corregirlo.

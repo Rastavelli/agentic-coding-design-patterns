@@ -86,6 +86,7 @@ article per framework.
 |------|--------|--------------|-----|
 | give-agent-a-way-to-verify | done | Hand the agent a pass/fail check (tests, build, linter, screenshot); it runs, reads, and iterates until it passes. | [cc-bp] |
 | tdd-with-agent | done | Enforce red-green-refactor with phase-specific prompts, else the agent defaults to implementation-first and writes tests retroactively. | [cc-bp] |
+| hypothesis-driven-debugging | done | Establish a reproducer, distinguish falsifiable causes with controlled experiments, then fix and preserve a regression test. Extends the earlier reproduce-before-fix research lead; reproduction alone is already covered by TDD. | [mp-diagnosis] |
 | reflection | done | Self-critique loop: generate → evaluate → improve. The `evaluator-optimizer` workflow reframed for the human-driven case. | [ng], [bea] |
 | writer-reviewer | done | Review the diff in a *fresh* context (separate session/subagent) so the agent isn't biased toward code it just wrote. Includes adversarial refutation (grader ≠ author) as a hardened variant (merge decided 2026-07-23). | [cc-bp] |
 | adversarial-review | rejected | Merged into `writer-reviewer` (author decision 2026-07-23): difference in degree, not structure. | [cc-bp] |
@@ -110,6 +111,7 @@ article per framework.
 | skills-as-packaged-workflows | done | Package recurring procedures as skills/slash-commands instead of re-explaining them in every prompt. Meta-pattern over most others in this list. | [mp] |
 | isolated-parallel-work | done | Give every concurrent task its own branch and Git worktree, with explicit ownership and integration order, so parallel sessions cannot corrupt shared state. | [cc-bp], [parallel-claude] |
 | reproducible-agent-bootstrap | done | Provide one command that installs dependencies, prepares safe local configuration and fixtures, and proves a green baseline for every fresh session or worktree. | [harness] |
+| guided-manual-procedure | candidate | Have the agent generate an interactive procedure for human-only steps, collect their results, and put them in the required configuration. Unlike agent bootstrap, the human performs the inaccessible actions; distinguish script validation from successful completion of the procedure. | [mp-wizard] |
 | reviewable-agent-delivery | candidate | Deliver agent work as a scoped change with rationale, check evidence tied to the revision, and actionable review feedback that drives the next iteration. Unlike `writer-reviewer`, this defines the delivery artifact and human review cycle, not independent agent critique. | [aipb-pr] |
 | feedback-flywheel | candidate | Capture recurring corrections, identify their causes, update the appropriate shared instruction, skill, or check, and assess subsequent work. Conditional: `claude-md-memory` already covers learning from repeated mistakes; a standalone chapter must add the team-level maintenance cycle across multiple artifacts. The source presents a proposed practice, not validated productivity gains. | [rg-flywheel] |
 | verified-recovery-points | candidate | Preserve coherent, verified recovery points before risky work and choose a scoped recovery when a later attempt fails. Unlike `isolated-parallel-work`, this handles recovery inside one task; unlike `progress-file`, it restores state rather than describing it. A chapter must cover effects outside Git and preservation of unrelated work. | [seml-rollback] |
@@ -152,6 +154,14 @@ an agent.
 | structure-vs-autonomy | Design axis: successful agentic software sits between a rigid DAG and full autonomy. Meta-principle, could inform task-setting. | [llamaindex] |
 
 ## Sources
+
+### Matt Pocock follow-up checked on 2026-09-21
+
+- `[mp-diagnosis]` — Matt Pocock, *Diagnosing Bugs* — https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md
+- `[mp-wizard]` — Matt Pocock, *Wizard* — https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md
+
+The [comparison](research/matt-pocock-new-skills-2026-09-21.md) distinguishes new chapters from extensions. The expert questionnaire and intent-based merge resolution extend existing chapters; the architecture survey remains a research lead until it earns a distinct interaction mechanism.
+
 
 ### Candidate collection checked on 2026-09-21
 

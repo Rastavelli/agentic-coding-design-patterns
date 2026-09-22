@@ -2,7 +2,7 @@
 group: verification
 status: draft
 related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
-source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
+source_rev:
 ---
 
 # TDD with an Agent
@@ -231,3 +231,4 @@ code.
   author.
 - [Four Phases](explore-plan-code-commit.md) — test cases are naturally born
   in the plan phase: the approved plan names what counts as "works".
+- [Hypothesis-Driven Debugging](hypothesis-driven-debugging.md) establishes the cause of a defect before fixing it.

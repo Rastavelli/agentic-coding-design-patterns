@@ -2,7 +2,7 @@
 group: project-org
 status: translated
 related: [one-feature-at-a-time, writer-reviewer, give-agent-a-way-to-verify]
-source_rev: 0d618e7f83cde18c4fca089b5f47825e1dc15baf
+source_rev:
 ---
 
 # Isolated Parallel Work
@@ -103,11 +103,7 @@ Do not apply the pattern automatically to two tightly coupled changes in the sam
 1. Split work by outcomes, not by agents. Every task needs a name, completion criterion, ownership scope, and known dependencies.
 2. Fix the starting point and create separate branches with worktrees:
 
-   ```bash
-   git fetch origin
-   git worktree add -b agent/auth ../project-auth origin/main
-   git worktree add -b agent/docs ../project-docs origin/main
-   ```
+   ```bash git fetch origin git worktree add -b agent/auth ../project-auth origin/main git worktree add -b agent/docs ../project-docs origin/main ```
 
    `git worktree list` shows every active directory and branch. Git prevents the same branch from being used in two worktrees unless you forcibly bypass the safeguard.
 3. Run the project's standard setup in every directory. A command such as `make setup` should bring a fresh worktree to a reproducible green state; manual per-instance setup does not scale.
@@ -118,13 +114,15 @@ Do not apply the pattern automatically to two tightly coupled changes in the sam
 8. Run a combined-state check after every merge. Two green branches do not guarantee a green composition.
 9. After integration, remove clean worktrees with the standard command:
 
-   ```bash
-   git worktree remove ../project-auth
-   git worktree remove ../project-docs
-   git worktree prune
-   ```
+   ```bash git worktree remove ../project-auth git worktree remove ../project-docs git worktree prune ```
 
    Do not blindly delete the directory: `git worktree remove` refuses to remove a worktree with uncommitted files, preserving unfinished work.
+
+### Resolve conflicts from intent
+
+Ask the agent to recover the purpose of both changes from commits, PRs, and originating issues. It should explain which requirements the combined version preserves. If the requirements conflict, agree on the intended behavior before continuing integration.
+
+One branch might add a request timeout while another limits retries. Choosing only one side can lose the other constraint. Check both behaviors and their interaction after merging, including when Git merges automatically. The [resolving-merge-conflicts](https://github.com/mattpocock/skills/blob/main/skills/engineering/resolving-merge-conflicts/SKILL.md) skill uses this intent recovery; stage only files belonging to the current integration and preserve unrelated changes.
 
 ## Example
 

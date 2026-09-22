@@ -27,5 +27,8 @@ Russian, English, and Spanish are welcome; participation requires a GitHub accou
 | Workflow learning — turn recurring corrections into shared instructions and checks. | `feedback-flywheel` | [Discuss / vote](https://github.com/mokevnin/agentic-coding-design-patterns/issues/18) |
 | Recovery points — preserve verified states so failed attempts can be undone in bounded steps. | `verified-recovery-points` | [Discuss / vote](https://github.com/mokevnin/agentic-coding-design-patterns/issues/19) |
 | Agent residue cleanup — remove temporary code and experimental leftovers before completing a task. | `agent-residue-cleanup` | [Discuss / vote](https://github.com/mokevnin/agentic-coding-design-patterns/issues/20) |
+| Instruction activation checks — determine whether the agent discovers a rule and applies it during the task. | `instruction-activation-checks` | Discussion not opened yet |
+| Guided manual procedure — have the agent prepare an interactive procedure for human actions and collect their results. | `guided-manual-procedure` | Discussion not opened yet |
+| Bounded retries — when progress stops, preserve findings and change the approach or hand off the task. | `bounded-retry-escalation` | Discussion not opened yet |
 | Approval fatigue — frequent requests turn considered approval into automatic clicking. | `approval-fatigue` | [Discuss / vote](https://github.com/mokevnin/agentic-coding-design-patterns/issues/21) |
 | Self-confirming tests — a test computes its expected answer using the very logic it should check. | `self-confirming-tests` | [Discuss / vote](https://github.com/mokevnin/agentic-coding-design-patterns/issues/22) |

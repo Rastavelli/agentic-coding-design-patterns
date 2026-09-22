@@ -2,7 +2,7 @@
 group: project-org
 status: translated
 related: [one-feature-at-a-time, writer-reviewer, give-agent-a-way-to-verify]
-source_rev: 0d618e7f83cde18c4fca089b5f47825e1dc15baf
+source_rev:
 ---
 
 # Trabajo paralelo aislado
@@ -103,11 +103,7 @@ No apliques el patrón automáticamente a dos cambios estrechamente vinculados d
 1. Divide el trabajo por resultados, no por agentes. Cada tarea necesita un nombre, un criterio de finalización, un ámbito de propiedad y dependencias conocidas.
 2. Fija el punto de partida y crea ramas separadas con worktrees:
 
-   ```bash
-   git fetch origin
-   git worktree add -b agent/auth ../project-auth origin/main
-   git worktree add -b agent/docs ../project-docs origin/main
-   ```
+   ```bash git fetch origin git worktree add -b agent/auth ../project-auth origin/main git worktree add -b agent/docs ../project-docs origin/main ```
 
    `git worktree list` muestra todos los directorios y ramas activos. Git impide usar la misma rama en dos worktrees salvo que se fuerce la omisión de esta protección.
 3. Ejecuta la preparación estándar del proyecto en cada directorio. Un comando como `make setup` debe llevar un worktree nuevo a un estado verde reproducible; la configuración manual de cada instancia no escala.
@@ -118,13 +114,15 @@ No apliques el patrón automáticamente a dos cambios estrechamente vinculados d
 8. Ejecuta una comprobación del estado combinado después de cada merge. Dos ramas verdes no garantizan una composición verde.
 9. Tras la integración, elimina los worktrees limpios con el comando estándar:
 
-   ```bash
-   git worktree remove ../project-auth
-   git worktree remove ../project-docs
-   git worktree prune
-   ```
+   ```bash git worktree remove ../project-auth git worktree remove ../project-docs git worktree prune ```
 
    No borres el directorio a ciegas: `git worktree remove` se niega a eliminar un worktree con archivos sin commit y así conserva el trabajo inacabado.
+
+### Resolver conflictos a partir de la intención
+
+Pide al agente reconstruir el propósito de ambos cambios mediante commits, PR e issues originales. Debe explicar qué requisitos conserva la versión combinada. Si son incompatibles, acuerda el comportamiento esperado antes de continuar la integración.
+
+Una rama puede añadir un tiempo límite a las solicitudes y otra limitar los reintentos. Elegir solo un lado puede perder la otra restricción. Comprueba ambos comportamientos y su interacción después de fusionar, incluso cuando Git lo hace automáticamente. El skill [resolving-merge-conflicts](https://github.com/mattpocock/skills/blob/main/skills/engineering/resolving-merge-conflicts/SKILL.md) usa esta recuperación de intenciones; añade al índice solo los archivos de la integración y conserva los cambios ajenos.
 
 ## Ejemplo
 
