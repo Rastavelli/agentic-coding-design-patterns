@@ -50,3 +50,9 @@ source_rev:              # for NON-canonical locales only (see below)
 - All text outside the language folders (`book/<locale>/`) and the localized templates is in English.
 
 For environment setup and commit conventions, see [AGENTS.md](AGENTS.md).
+
+## Reader-facing candidates
+
+`CANDIDATES.md` is the authoritative backlog. Keep the brief candidate lists in `book/ru/candidates.md`, `book/en/candidates.md`, and `book/es/candidates.md` synchronized when a candidate is added, renamed, accepted, completed, or rejected. Include rows with status `candidate`; once a topic leaves that status, remove it from the brief list and update its existing discussion with the outcome and the chapter link, if available.
+
+Reader discussions use GitHub Issues with the title `[Candidate] <slug>`. Search open and closed issues before creating one; reuse the existing thread to preserve votes. Readers vote with a thumbs-up reaction on the opening post. Keep the slug consistent across locales so all three editions link to the same discussion. The issue template supplies the common format; votes inform editorial priority rather than automatically accepting chapters.

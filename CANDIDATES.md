@@ -46,6 +46,7 @@ Source labels (`[xx]`) are resolved in [Sources](#sources) at the bottom.
 | let-claude-interview-you | done | Start minimal, let the agent interview you (AskUserQuestion), crystallize a self-contained `SPEC.md`, then execute in a fresh session. | [cc-bp] |
 | grilling | done | The agent relentlessly interviews you about a plan/decision until the holes surface — a stress-test of *your* thinking before work starts. Not `let-claude-interview-you`: that interview *builds* a spec, this one *attacks* a finished plan. | [mp] |
 | tracer-bullet-tickets | done | Slice a conversation/spec into tracer-bullet tickets with explicit blocking edges — the agent gets executable chunks, not an epic. Plugs into `spec-driven-development` (the Tasks step) with concrete mechanics. | [mp] |
+| visual-specification | candidate | Give the agent a focused UI reference plus behavior and technology constraints, then compare screenshots of the implementation and annotate discrepancies. Unlike a prose spec, the reference communicates visual intent; it does not establish responsive behavior, accessibility, or backend semantics by itself. | [duvall-patterns] |
 
 ## Spec-driven development
 
@@ -74,6 +75,9 @@ article per framework.
 | handoff | done | Deliberately compact the session into a handoff document for the next agent — instead of trusting auto-summarization. Neighbor of `progress-file`, but a different moment: progress is a running log, handoff is a session boundary. | [mp] |
 | domain-context-file | done | A domain glossary + ADRs in the repo (`CONTEXT.md`) as the canonical language the agent reads every session — cures term drift and renaming churn. Separate axis from `claude-md-memory`: that's "how to work", this is "what words mean". | [mp] |
 | executable-guardrails | done | Move enforceable constraints out of prose and into hooks, sandbox boundaries, permissions, and deterministic checks, so the agent can work autonomously inside explicit limits. | [gh-hooks], [cc-sandbox] |
+| working-example-library | candidate | Keep a searchable collection of working examples and give the agent selected exemplars to adapt or combine, with their assumptions and verification commands. Unlike `skills-as-packaged-workflows`, the reusable unit is demonstrated code rather than a procedure; unlike `prototype-to-answer`, the question has already been answered. | [sw-hoard], [ap-library] |
+| context-forking | candidate | Branch from a researched conversation state to explore alternative designs or recover from a distracting detour. Unlike `handoff`, reuse the existing context rather than write a transfer summary; unlike worktrees, this isolates conversation history. Keep code state aligned with each branch of the conversation. | [hl-forking] |
+| evidence-linked-behavior-recovery | candidate | Ask the agent to reconstruct an existing system's behavior from complementary artifacts, link each inferred rule to evidence, and resolve contradictions with observations and domain experts before using the result as a specification. Unlike `linear-code-walkthrough`, the deliverable is a validated behavioral contract, including when source code is incomplete. | [mf-blackbox] |
 
 ## Verification
 
@@ -86,6 +90,13 @@ article per framework.
 | adversarial-review | rejected | Merged into `writer-reviewer` (author decision 2026-07-23): difference in degree, not structure. | [cc-bp] |
 | prototype-to-answer | done | Build a throwaway prototype to answer a design question ("does this state model even fly?") before the real implementation — verify the design, not the code. | [mp] |
 | agent-workflow-evals | done | Maintain a small suite of representative tasks that measures whether agent instructions and skills still produce correct, bounded, and efficient behavior after changes. | [agent-evals] |
+| linear-code-walkthrough | candidate | Ask the agent for an ordered explanation of an execution path, extracting actual snippets from the repository so the developer can check and understand the implementation. Unlike `writer-reviewer`, the deliverable is human understanding rather than a defect verdict. Consider a shared chapter with `interactive-code-explanation`. | [sw-walkthrough] |
+| interactive-code-explanation | candidate | Have the agent turn a difficult algorithm into an explorable explanation with inputs, intermediate states, and step controls; compare its behavior with the actual implementation. Unlike `prototype-to-answer`, this explains an existing design rather than testing a proposed one. A separate chapter must earn its place alongside `linear-code-walkthrough`. | [sw-interactive] |
+| benchmark-guided-optimization | candidate | Define a fixed evaluator, allowed edit surface, baseline, and experiment budget; have the agent record trials and retain only measured improvements that preserve correctness. Unlike `agent-workflow-evals`, the object measured is the program being optimized, not the agent workflow. Adapt the autoresearch mechanism with an explicit total stop condition. | [kagan-ratchet], [autoresearch-program] |
+| approved-scenario-fixtures | candidate | Use a reviewed test runner and domain-readable fixtures containing inputs and expected outputs, so a developer reviews behavior changes rather than masses of generated assertion code. Complements TDD with a concrete human review surface. Expectations require independent approval; blindly updating snapshots invalidates the check. | [acp-scenarios] |
+| held-out-acceptance-scenarios | candidate | Maintain separate acceptance scenarios outside the implementing agent's editable and fully visible context, while keeping requirements explicit, to check generalization beyond its working tests. Unlike `writer-reviewer`, independence comes from the acceptance evidence; unlike workflow evals, the subject is the delivered application. Inspired by StrongDM's holdout analogy; exact access boundaries are our proposed adaptation. | [sdm-factory] |
+| mutation-guided-test-hardening | candidate | Deliberately mutate production code and use surviving mutations to direct the agent toward missing or weak assertions. Unlike TDD, this challenges the tests' detection power after they exist. Neither a mutation score nor killing every mutant proves adequate requirements coverage. | [mf-sensors] |
+| actionable-diagnostics | candidate | Attach project-specific repair guidance to linter and dependency-rule failures so the agent receives instructions at the point of correction. Conditional: could extend `executable-guardrails`; a separate chapter must focus on designing feedback, not merely enabling checks. | [mf-sensors] |
 
 ## Project organization
 
@@ -98,6 +109,10 @@ article per framework.
 | skills-as-packaged-workflows | done | Package recurring procedures as skills/slash-commands instead of re-explaining them in every prompt. Meta-pattern over most others in this list. | [mp] |
 | isolated-parallel-work | done | Give every concurrent task its own branch and Git worktree, with explicit ownership and integration order, so parallel sessions cannot corrupt shared state. | [cc-bp], [parallel-claude] |
 | reproducible-agent-bootstrap | done | Provide one command that installs dependencies, prepares safe local configuration and fixtures, and proves a green baseline for every fresh session or worktree. | [harness] |
+| reviewable-agent-delivery | candidate | Deliver agent work as a scoped change with rationale, check evidence tied to the revision, and actionable review feedback that drives the next iteration. Unlike `writer-reviewer`, this defines the delivery artifact and human review cycle, not independent agent critique. | [aipb-pr] |
+| feedback-flywheel | candidate | Capture recurring corrections, identify their causes, update the appropriate shared instruction, skill, or check, and assess subsequent work. Conditional: `claude-md-memory` already covers learning from repeated mistakes; a standalone chapter must add the team-level maintenance cycle across multiple artifacts. The source presents a proposed practice, not validated productivity gains. | [rg-flywheel] |
+| verified-recovery-points | candidate | Preserve coherent, verified recovery points before risky work and choose a scoped recovery when a later attempt fails. Unlike `isolated-parallel-work`, this handles recovery inside one task; unlike `progress-file`, it restores state rather than describing it. A chapter must cover effects outside Git and preservation of unrelated work. | [seml-rollback] |
+| agent-residue-cleanup | candidate | Include a bounded completion pass that removes task-created scaffolding, debug artifacts, and obsolete text, then rerun relevant checks. Unlike `premature-success`, the problem is residue left by otherwise working code. Conditional: may fit inside `reviewable-agent-delivery`; never turn cleanup into unrelated refactoring or deletion of failing tests. | [seml-cleanup] |
 
 ## Anti-patterns
 
@@ -108,6 +123,8 @@ article per framework.
 | bloated-claude-md | done | An over-specified memory file — the agent ignores half of it because rules get lost in the noise. Inverse of `claude-md-memory`. | [cc-bp] |
 | vibe-coding | done | Describe a goal, paste back whatever compiles; fine for throwaways, a trap on real/existing codebases. | [speckit] |
 | one-shotting | done | Expecting a whole feature from a single prompt instead of an iterative, verified loop. Primary sources confirmed: the one-shot attempt quote in [harness] plus the trust-then-verify gap in [cc-bp]. | [harness], [cc-bp] |
+| approval-fatigue | candidate | Requiring confirmation for every routine action trains the developer to approve mechanically; define bounded permissions and reserve human decisions for meaningful risk boundaries. Complements `executable-guardrails` by explaining how excessive interruptions undermine oversight. | [aipb-fatigue] |
+| self-confirming-tests | candidate | The agent calculates expected results through the same production logic under test, so implementation errors appear on both sides of the assertion. Require an independent oracle or reviewed expectations. Unlike `premature-success`, the failure is circular evidence even when the suite genuinely ran; may become a section of TDD or approved fixtures. | [mf-tdd-loop] |
 
 ## Out of scope / author decision
 
@@ -133,6 +150,57 @@ an agent.
 | structure-vs-autonomy | Design axis: successful agentic software sits between a rigid DAG and full autonomy. Meta-principle, could inform task-setting. | [llamaindex] |
 
 ## Sources
+
+### Candidate collection checked on 2026-09-21
+
+These are research candidates, not accepted chapters. “New” means newly examined for this backlog, not a claim about when a site launched. The linked pages establish the authors' proposed mechanisms; inclusion does not establish effectiveness. Distinctions and merge suggestions in the rows are our editorial assessment.
+
+- `[sw-hoard]` — Simon Willison, *Hoard things you know how to do* — https://simonwillison.net/guides/agentic-engineering-patterns/hoard-things-you-know-how-to-do/
+- `[ap-library]` — AgentPatterns.ai, *Codebase-Derived Pattern Libraries as Agent Context* — https://agentpatterns.ai/context-engineering/codebase-pattern-library-context/ ; implementation checked against https://arunksingh16.github.io/pattern-vault/getting-started/
+- `[sw-walkthrough]` — Simon Willison, *Linear walkthroughs* — https://simonwillison.net/guides/agentic-engineering-patterns/linear-walkthroughs/
+- `[sw-interactive]` — Simon Willison, *Interactive explanations* — https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/
+- `[aipb-pr]` — Bartley Editions, *Encyclopedia of Agentic Coding Patterns: Agentic Pull Request* — https://aipatternbook.com/agentic-pull-request
+- `[aipb-fatigue]` — Bartley Editions, *Encyclopedia of Agentic Coding Patterns: Approval Fatigue* — https://aipatternbook.com/approval-fatigue
+- `[rg-flywheel]` — Rahul Garg, *Feedback Flywheel*, part of *Patterns for Reducing Friction in AI-Assisted Development* — https://martinfowler.com/articles/reduce-friction-ai/feedback-flywheel.html
+- `[seml-rollback]` — Alex Serban, SE-ML, *Rollback & Reversibility* — https://se-ml.github.io/agentic_patterns/08-rollback-reversibility/
+- `[seml-cleanup]` — Alex Serban, SE-ML, *Cleanup & Hygiene* — https://se-ml.github.io/agentic_patterns/09-cleanup-hygiene/
+- `[kagan-ratchet]` — kagan.ai, *Patterns of AI Agent Workflows*, entry *Autoresearch (Ratchet Loop)* — https://kagan.ai/catalog/vol-01/
+- `[autoresearch-program]` — Andrej Karpathy, *autoresearch: program.md*, executable-workflow instructions behind the optimization candidate — https://github.com/karpathy/autoresearch/blob/master/program.md
+
+Simon Willison was already a source-survey lead; the three entries above were checked at chapter level in this pass. His TDD, test-baseline, and manual-testing chapters are additional evidence for existing topics rather than new candidates. Likewise, the other patterns in Rahul Garg's series largely overlap context engineering, planning, project memory, and shared workflows. No previous rejection is reversed by this collection.
+
+The SE-ML catalog explicitly describes its patterns as practices, not evidence-backed guarantees. Its destructive Git examples need adaptation before reuse. The kagan.ai catalog mainly concerns agent architecture; only the developer-configured experiment workflow is proposed here. Further source screening and overlap notes are in [the research notes](research/pattern-sources-2026-09-21.md).
+
+### Second source pass, 2026-09-21
+
+- `[acp-catalog]` — *Augmented Coding Patterns*, contributor-authored catalog of patterns, obstacles, and antipatterns — https://ai-coding-patterns.dev/pattern-catalog/ ; source repository https://github.com/lexler/augmented-coding-patterns
+- `[acp-scenarios]` — Ivett Ördög, *Approved Scenarios* — https://ai-coding-patterns.dev/patterns/approved-scenarios/
+- `[acp-slice]` — Ivett Ördög, *Slice for Review*; supporting material for `reviewable-agent-delivery`, not a separate candidate yet — https://ai-coding-patterns.dev/patterns/slice-for-review/
+- `[hl-forking]` — HumanLayer, *Context Forking to Save Time, Tokens and Trouble* — https://www.humanlayer.dev/blog/context-forking-to-save-time-trouble-and-tokens
+- `[hl-output]` — HumanLayer, *Context-Efficient Backpressure for Coding Agents*; concrete output-control example for existing context and verification chapters — https://www.humanlayer.dev/blog/context-efficient-backpressure
+- `[sdm-factory]` — Justin McCarthy, StrongDM, *Software Factories and the Agentic Moment*; scenarios outside the codebase as holdout validation — https://factory.strongdm.ai/
+- `[sdm-techniques]` — StrongDM, *Techniques*; behavioral dependency doubles and layered summaries are supporting leads, not accepted standalone chapters — https://factory.strongdm.ai/techniques
+- `[duvall-patterns]` — Paul Duvall, *AI Development Patterns*; lifecycle catalog, with *Image Spec* as a further candidate lead — https://github.com/PaulDuvall/ai-development-patterns#image-spec
+- `[kp-workflows]` — Kauan Polydoro, *Agentic Workflows*; task recipes and recipe-audit conventions, useful for implementation examples; individual recipes require their own verification — https://github.com/kauanpolydoro/agentic-workflows
+- `[gsa-patterns]` — GSA TTS, *Agentic Coding Patterns*; community-maintained instructions and workflows, currently experimental rather than established evidence — https://github.com/GSA-TTS/agentic-coding-patterns
+
+The [second-pass notes](research/pattern-sources-2026-09-21-round-2.md) record checked entries, overlaps, and source limitations. These sources do not establish that generated test expectations are correct, that short summaries are lossless, or that human review should be abandoned.
+
+The [companion catalog survey](research/pattern-sources-2026-09-21-round-2-catalogs.md) records the Duvall, Polydoro, and GSA sources, including entries that remain partially checked leads.
+
+### Fowler follow-up, 2026-09-21
+
+- `[mf-blackbox]` — Thiyagu Palanisamy and Chandirasekar Thiagarajan, *From Black Box to Blueprint* — https://martinfowler.com/articles/black-box-to-blueprint.html
+- `[mf-archaeologist]` — Nik Malykhin, *The Archaeologist's Copilot*; supporting experience report for bootstrap, baseline verification, and staged modernization — https://martinfowler.com/articles/archaeologist-copilot.html
+- `[mf-spdd]` — *Structured-Prompt-Driven Development*; supporting SDD methodology, not automatically another pattern or tool-profile chapter — https://martinfowler.com/articles/structured-prompt-driven/
+- `[mf-sensors]` — Birgitta Böckeler, *Maintainability sensors for coding agents* — https://martinfowler.com/articles/sensors-for-coding-agents.html
+- `[mf-tdd-loop]` — Birgitta Böckeler, *TDD inside the agent loop - theater or actual value?* — https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html
+
+These are articles hosted by Martin Fowler, not necessarily authored by him. The black-box report describes a thin-slice experiment; it does not establish whole-system migration success. SPDD overlaps the book's existing spec lifecycle, domain modeling, and packaged workflows. Its additional structure is useful comparative material without reopening rejected tool-profile chapters.
+
+The [Böckeler research notes](research/fowler-bockeler-candidates-2026-09-21.md) record the candidate boundaries and the limits of her experiments. Together with `visual-specification` from the previous source survey, this pass adds five candidates. The existing `feedback-flywheel` remains the distinct candidate from Rahul Garg's series; its other four named patterns overlap chapters already present.
+
+### Existing sources
 
 - `[bea]` — Anthropic, *Building effective agents* — https://www.anthropic.com/engineering/building-effective-agents
 - `[harness]` — Anthropic, *Effective harnesses for long-running agents* — https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents

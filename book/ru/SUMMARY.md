@@ -62,3 +62,7 @@
 * [Глоссарий](glossary.md)
 * [Фразы для AGENTS.md](agents-md-phrases.md)
 * [Полезные ссылки](resources.md)
+
+## Будущие главы
+
+* [Кандидаты и голосование](candidates.md)

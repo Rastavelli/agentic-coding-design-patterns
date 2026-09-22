@@ -62,3 +62,7 @@
 * [Glosario](glossary.md)
 * [Frases para AGENTS.md](agents-md-phrases.md)
 * [Enlaces útiles](resources.md)
+
+## Próximos capítulos
+
+* [Candidatos y votación](candidates.md)
