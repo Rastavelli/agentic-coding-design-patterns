@@ -4,7 +4,7 @@
   "description": "Design patterns for coding with AI agents (ru/en/es), in the spirit of the Gang of Four",
   "private": true,
   "license": "CC-BY-SA-4.0",
-  "packageManager": "pnpm@12.4.2",
+  "packageManager": "pnpm@12.5.1",
   "scripts": {
     "start": "honkit serve ./book",
     "build": "honkit build ./book ../dist",
@@ -14,8 +14,8 @@
     "pdf:es": "honkit pdf ./book/es ../../dist/agentic-coding-design-patterns-es.pdf"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.2.2",
-    "@commitlint/config-conventional": "^21.2.2",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
     "gitbook-plugin-toolbar": "^0.6.0",
     "honkit": "^6.2.2",
     "honkit-plugin-mermaid": "workspace:*",
