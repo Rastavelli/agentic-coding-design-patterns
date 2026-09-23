@@ -23,6 +23,10 @@ const CACHE_DIR = path.join(process.cwd(), 'node_modules', '.cache', 'honkit-mer
 /** @type {import('mermaid').MermaidConfig} */
 let mermaidConfig = {};
 
+// Palette for the night reader theme, or null when the book has none.
+/** @type {import('mermaid').MermaidConfig | null} */
+let darkConfig = null;
+
 /** @type {Promise<import('mermaid-isomorphic').MermaidRenderer> | null} */
 let rendererPromise = null;
 
@@ -30,12 +34,13 @@ let rendererPromise = null;
  * Cache key for a diagram: its source plus the theme it is rendered with.
  *
  * @param {string} source
+ * @param {import('mermaid').MermaidConfig} config
  * @returns {string}
  */
-function digest(source) {
+function digest(source, config) {
   return crypto
     .createHash('sha256')
-    .update(JSON.stringify(mermaidConfig))
+    .update(JSON.stringify(config))
     .update(source)
     .digest('hex')
     .slice(0, 16);
@@ -55,17 +60,22 @@ function readCached(key) {
 
 /**
  * @param {string} source
- * @param {string} key
+ * @param {import('mermaid').MermaidConfig} config
  * @returns {Promise<string>}
  */
-async function render(source, key) {
+async function render(source, config) {
+  const key = digest(source, config);
+  const cached = readCached(key);
+  if (cached !== null) {
+    return cached;
+  }
   // Memoised as a promise: a page with several fences renders them in parallel,
   // and each of those calls must reuse the one browser the renderer manages.
   rendererPromise ??= import('mermaid-isomorphic').then(({ createMermaidRenderer }) => createMermaidRenderer());
   const renderer = await rendererPromise;
   // One diagram per call, so the SVG ids are derived from the content and stay
   // unique on a page that mixes freshly rendered and cached diagrams.
-  const [result] = await renderer([source], { mermaidConfig, prefix: `mermaid-${key}` });
+  const [result] = await renderer([source], { mermaidConfig: config, prefix: `mermaid-${key}` });
   if (result.status === 'rejected') {
     const reason = result.reason?.message ?? String(result.reason);
     throw new Error(`Mermaid diagram failed to render: ${reason}\n\n${source}`);
@@ -91,6 +101,16 @@ module.exports = {
       const options = this.config.get('pluginsConfig.mermaid', {});
       const configFile = path.resolve(process.cwd(), options.configFile || 'mermaid.config.json');
       mermaidConfig = fs.existsSync(configFile) ? JSON.parse(fs.readFileSync(configFile, 'utf8')) : {};
+
+      // The dark file holds only what differs; nested sections merge key by key.
+      const darkFile = path.resolve(process.cwd(), options.darkConfigFile || 'mermaid.config.dark.json');
+      if (fs.existsSync(darkFile)) {
+        const dark = JSON.parse(fs.readFileSync(darkFile, 'utf8'));
+        darkConfig = { ...mermaidConfig, ...dark };
+        for (const section of ['themeVariables', 'flowchart', 'sequence', 'sankey']) {
+          darkConfig[section] = { ...mermaidConfig[section], ...dark[section] };
+        }
+      }
     },
 
     // Honkit has already turned the chapter's Markdown into HTML by this point,
@@ -103,16 +123,23 @@ module.exports = {
         return page;
       }
 
-      const svgs = await Promise.all(
-        fences.toArray().map((element) => {
+      // The PDF has no reader themes, so only the website gets the dark copy.
+      const withDark = darkConfig !== null && this.output.name === 'website';
+
+      const figures = await Promise.all(
+        fences.toArray().map(async (element) => {
           const source = $(element).text();
-          const key = digest(source);
-          return readCached(key) ?? render(source, key);
+          const light = await render(source, mermaidConfig);
+          if (!withDark) {
+            return `<figure class="mermaid">${light}</figure>`;
+          }
+          const dark = await render(source, /** @type {import('mermaid').MermaidConfig} */ (darkConfig));
+          return `<figure class="mermaid mermaid-themed"><div class="mermaid-light">${light}</div><div class="mermaid-dark">${dark}</div></figure>`;
         })
       );
 
       fences.each((index, element) => {
-        $(element).parent().replaceWith(`<figure class="mermaid">${svgs[index]}</figure>`);
+        $(element).parent().replaceWith(figures[index]);
       });
 
       page.content = $.html();
