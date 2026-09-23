@@ -135,14 +135,9 @@ the EPCC phases are mapped onto the four most widespread ones.
 [Spec Kit](https://github.com/github/spec-kit) walks you through the phases
 with a series of slash commands, each leaving an artifact in the repository:
 
-- **Explore and plan** — `/speckit.specify` pins down *what* is being built
-  (requirements and user stories), `/speckit.clarify` asks questions about the
-  underspecified spots, `/speckit.plan` writes the technical plan, and
-  `/speckit.tasks` slices it into tasks. The checkpoint is reviewing and
-  editing these artifacts before any code starts.
+- **Explore and plan** — `/speckit.specify` pins down *what* is being built (requirements and user stories), `/speckit.clarify` asks questions about the underspecified spots, `/speckit.plan` writes the technical plan, and `/speckit.tasks` slices it into tasks. `/speckit.analyze` then checks the spec, plan, and tasks for consistency. The checkpoint is reviewing and editing these artifacts before any code starts.
 - **Code** — `/speckit.implement` executes the task list.
-- **Commit** — the usual git flow; `/speckit.analyze` additionally checks the
-  spec, plan, and tasks for consistency.
+- **Commit** — the usual git flow.
 
 ### With OpenSpec
 
