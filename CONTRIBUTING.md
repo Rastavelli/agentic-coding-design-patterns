@@ -12,6 +12,15 @@ The book is built from markdown with [Honkit](https://github.com/honkit/honkit).
 5. Anything that is genuinely a file — images, sample code — goes in `book/assets/<slug>/` and is referenced with a relative path `../assets/<slug>/...`.
 6. Preview with `pnpm start`.
 
+## Extend an existing pattern
+
+The book has no margin notes or comment threads: an addition becomes part of the chapter text.
+
+1. Decide where it belongs. A new step, variant, consequence, or pitfall of the same technique goes into the matching template section of that chapter (`Implementation`, `Consequences and trade-offs`, `Anti-patterns and common mistakes`, and so on). If the idea works on its own and is useful outside this pattern, it is a candidate for a separate chapter — add it to [CANDIDATES.md](CANDIDATES.md) and link it from `Related patterns` instead.
+2. For anything larger than a wording fix, open an issue first and describe the addition and the experience behind it, so the placement can be agreed before you write.
+3. Edit `book/ru/<slug>.md` first. Keep the template headings; extend a section rather than adding a new one.
+4. Update `book/en/` and `book/es/` in the same PR if you can; otherwise say so in the PR and the maintainer will translate. Refresh `source_rev` in every translation you touch.
+
 Anti-patterns go into the separate "Anti-patterns" chapter and use `templates/<locale>/anti-pattern.md`.
 
 Tool profiles are not patterns. Put them under the relevant methodology section, add `kind: tool` and `checked_on: YYYY-MM-DD` to their front matter, and use the practical-card structure: installation, workflow, artifacts, distinctions, and selection criteria. Show the check date to readers because commands and product capabilities change faster than pattern descriptions.

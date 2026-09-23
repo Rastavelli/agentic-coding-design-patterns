@@ -6,4 +6,4 @@
 
 Большинство решений автор не придумал, а собрал из инженерных руководств Anthropic, практик сообщества, наборов [скиллов](glossary.md), статей и докладов. Ссылки на первоисточники вы найдёте в главах. Кроме того, автор добавляет в каталог находки и идеи из собственной практики.
 
-Книга живая и открытая: в неё добавляют новые паттерны и уточняют старые. Если хотите предложить свой паттерн, начните с [CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).
+Книга живая и открытая: в неё добавляют новые паттерны и уточняют старые. Если хотите предложить новый паттерн или [дополнить существующую главу](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md#extend-an-existing-pattern) своим опытом, прочитайте [CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).

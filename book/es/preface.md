@@ -21,5 +21,4 @@ comunidad, paquetes de skills, artículos y charlas; las fuentes primarias se
 citan en los capítulos. A ellas se suman los hallazgos e ideas propios del
 autor, probados en su práctica.
 
-El libro es vivo y abierto. Los patrones se añaden y se refinan; véase
-[CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).
+El libro es vivo y abierto. Los patrones se añaden y se refinan. Para proponer un patrón nuevo o [ampliar un capítulo existente](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md#extend-an-existing-pattern) con tu experiencia, consulta [CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).

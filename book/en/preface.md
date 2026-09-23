@@ -20,5 +20,4 @@ Anthropic's engineering guides, community practices, skill packs, articles, and
 talks; primary sources are cited in the chapters. To these are added the
 author's own findings and ideas, tested in his own practice.
 
-The book is living and open. Patterns are added and refined; see
-[CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).
+The book is living and open. Patterns are added and refined. To propose a new pattern or [extend an existing chapter](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md#extend-an-existing-pattern) with your own experience, see [CONTRIBUTING](https://github.com/mokevnin/agentic-coding-design-patterns/blob/main/CONTRIBUTING.md).
