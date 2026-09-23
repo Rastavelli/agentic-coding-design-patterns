@@ -6,6 +6,7 @@ Operating guide for agents (and humans) working in this repository.
 
 - Book content lives in `book/<locale>/` (ru/en/es); localized chapter skeletons in `templates/<locale>/`.
 - Everything else — READMEs, configs, CI, and the `book/` chrome outside locale folders — is written in **English**.
+- Book prose avoids a grammatical actor where it can: prefer impersonal constructions («после утверждения плана агент пишет код») over «вы утверждаете план» or «разработчик утверждает план». When the reader must be addressed — instructions, advice — use «вы» and plural imperatives («включите режим планирования»), never «ты». The developer may still appear as a named role in lists of participants and in diagrams.
 
 ## Diagrams
 
