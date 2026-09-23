@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [spec-driven-development, premature-specification]
+related: [spec-driven-development, premature-specification, writer-reviewer, reflection]
 source_rev: 7f11d956633c1981bc349bb2fac1261b4125afe2
 ---
 
@@ -40,7 +40,7 @@ code in the first two.
 1. **Explore.** The agent reads the relevant code and gathers context. No
    edits — understanding the task only.
 2. **Plan.** The agent proposes an approach: what to change, in what order,
-   what the risks are. The developer reads the plan and approves or amends it.
+   what the risks are. Before the developer reads it, a reviewer with a fresh context checks the plan for gaps, contradictions with the code, and steps nothing can verify; the author fixes it. Then the developer reads the plan and approves or amends it.
    This is the main checkpoint: correcting course at the plan level is many
    times cheaper than at the code level.
 3. **Code.** The agent implements the approved plan, checking itself against
@@ -57,15 +57,20 @@ title: a checkpoint between the plan and the code
 flowchart TB
   explore["Explore<br/>reads the code, writes nothing"]
   plan["Plan<br/>approach and risks, no code yet"]
+  check["Plan review<br/>a reviewer looks for gaps"]:::muted
   code["Code<br/>implements the plan"]
   commit["Commit<br/>commit, PR, documentation"]
   explore --> plan
-  plan -- "the developer approves the plan" --> code
+  plan --> check
+  check -. "findings — fix the plan" .-> plan
+  check -- "the developer approves the plan" --> code
   code --> commit
   code -. "plan diverges from reality — go back" .-> plan
   gate["checkpoint<br/>the one place a human is required"]:::warn
   plan -.- gate
 ```
+
+The reviewer strips the mechanical mistakes out of the plan — forgotten files, contradictions with the code, unverifiable steps — so the developer reads an already cleaned-up plan and spends attention on the choice of approach.
 
 The phases run strictly in order, but the process is not one-way: if the plan
 diverges from reality during implementation, the right move is to return to the
@@ -79,6 +84,7 @@ implementation.
 - **Developer** — sets the task, reads and approves the plan, accepts the
   result.
 - **Agent** — explores the codebase, proposes a plan, implements it.
+- **Plan reviewer** — an agent with a fresh context that checks the plan against criteria before the developer reads it. It hasn't seen the author's reasoning, so it notices what the plan leaves out.
 - **Plan** — the intermediary artifact: a short "what and how" document. It can
   be edited, saved, executed in a fresh session, or handed to another agent.
 - **Codebase** — the source of context in the exploration phase and the object
@@ -100,10 +106,12 @@ only slow the work down.
   caught at the plan, not at diff review.
 - ➕ Reviewing a plan is an order of magnitude cheaper than reviewing code —
   both for the human and in tokens.
+- ➕ The reviewer catches gaps and contradictions in the plan, so you spend attention on decisions rather than hunting for forgotten files.
 - ➕ The plan remains an artifact: it can be refined, executed in a fresh
   session, or reused as the pull request description.
 - ➖ For simple tasks the cycle is slower and more expensive than a direct
   "just do it".
+- ➖ Plan review adds one more agent pass, and some of the reviewer's findings are noise you have to filter out.
 - ➖ The plan goes stale during implementation — returning to the planning
   phase takes discipline, otherwise code and plan silently diverge.
 - ➖ The temptation to grow the plan into a step-by-step instruction leads back
@@ -116,13 +124,14 @@ only slow the work down.
 2. Hand over the task and ask for a plan. There's no need to rewrite it into a
    prompt — dropping the ticket from the tracker is enough: the agent reads
    the description and the relevant code itself.
-3. Read the plan the way you would review code: ask questions, cross out the
+3. Before reading the plan, hand it to a subagent with a fresh context for review, as in [Writer and Reviewer](writer-reviewer.md). Pass the task, the plan, and the criteria: the plan rests on the real code, covers the whole task, names the risks, and says how each step will be verified. Have the author fix the plan for the findings you agree with.
+4. Read the plan the way you would review code: ask questions, cross out the
    unnecessary, demand alternatives, bring up the constraints that aren't
    visible in the code. Iterate until you agree — this is the cheapest phase
    to argue in.
-4. Approve the plan with the tool's own confirmation and point out what the
+5. Approve the plan with the tool's own confirmation and point out what the
    agent can verify itself with: tests, build, linter.
-5. Finish with the commit phase: a meaningful message, a pull request with the
+6. Finish with the commit phase: a meaningful message, a pull request with the
    plan in the description, and documentation updates if the changes touched
    it.
 
@@ -135,7 +144,7 @@ the EPCC phases are mapped onto the four most widespread ones.
 [Spec Kit](https://github.com/github/spec-kit) walks you through the phases
 with a series of slash commands, each leaving an artifact in the repository:
 
-- **Explore and plan** — `/speckit.specify` pins down *what* is being built (requirements and user stories), `/speckit.clarify` asks questions about the underspecified spots, `/speckit.plan` writes the technical plan, and `/speckit.tasks` slices it into tasks. `/speckit.analyze` then checks the spec, plan, and tasks for consistency. The checkpoint is reviewing and editing these artifacts before any code starts.
+- **Explore and plan** — `/speckit.specify` pins down *what* is being built (requirements and user stories), `/speckit.clarify` asks questions about the underspecified spots, `/speckit.plan` writes the technical plan, and `/speckit.tasks` slices it into tasks. `/speckit.analyze` then checks the spec, plan, and tasks for consistency — this is the machine review of the plan. The checkpoint is reviewing and editing these artifacts before any code starts.
 - **Code** — `/speckit.implement` executes the task list.
 - **Commit** — the usual git flow.
 
@@ -207,11 +216,15 @@ is:
 where the timestamps get converted when writing the CSV.
 
 **Plan:** the agent proposes two options — convert the time when writing or
-when reading. The developer replies:
+when reading. Before reading the plan, the developer sends it for review:
+
+> Have a subagent with a fresh context review the plan: does everything rest on the code, and how will each step be verified?
+
+The reviewer notes that the plan has no test reproducing the one-hour shift, and the agent adds one. The developer reads the revised plan and adds the constraint the reviewer couldn't have known:
 
 > Converting on read breaks the files that have already been exported — the
-> format is read by external integrations. Take the first option, and add a
-> test for the daylight-saving boundary to the plan.
+> format is read by external integrations. Take the first option, and use the
+> daylight-saving boundary as the date in the test.
 
 **Code:** the developer accepts the revised plan with the tool's own
 confirmation — the agent leaves planning mode, implements the plan, and runs
@@ -231,7 +244,7 @@ implementation would have been thrown away.
 - **Skipping exploration.** The agent plans from guesses about the codebase —
   the plan looks convincing but doesn't match the real code.
 - **Approving the plan without reading it.** The checkpoint becomes a
-  formality, and the pattern merely adds overhead to a plain "just do it".
+  formality, and the pattern merely adds overhead to a plain "just do it". A reviewer doesn't replace reading: it finds gaps and contradictions, but only you can choose the approach and name the hidden constraints.
 - **The plan as an instruction.** Demanding step-by-step detail from the plan
   before the problem is understood is premature specification.
 - **Stretching the code to fit a stale plan.** If reality has diverged from
@@ -257,3 +270,5 @@ implementation would have been thrown away.
 - [Premature Specification](premature-specification.md) — the anti-pattern the
   planning phase degrades into when you demand detail before the problem is
   understood.
+- [Writer and Reviewer](writer-reviewer.md) — review by a fresh agent; here the same technique is applied to the plan instead of the diff.
+- [Reflection](reflection.md) — a cheaper option: the agent checks its own plan against criteria in the same window, but misses more than a separate reviewer.

@@ -1,7 +1,7 @@
 ---
 group: task-setting
 status: draft
-related: [spec-driven-development, premature-specification]
+related: [spec-driven-development, premature-specification, writer-reviewer, reflection]
 source_rev: 7f11d956633c1981bc349bb2fac1261b4125afe2
 ---
 
@@ -41,7 +41,7 @@ escribir código en las dos primeras.
 1. **Exploración.** El agente lee el código relevante y reúne contexto. Nada de
    cambios — solo entender la tarea.
 2. **Plan.** El agente propone un enfoque: qué cambiar, en qué orden, qué
-   riesgos hay. El desarrollador lee el plan y lo aprueba o lo corrige. Es el
+   riesgos hay. Antes de que el desarrollador lo lea, un revisor con contexto limpio busca en el plan huecos, contradicciones con el código y pasos que nada puede verificar; el autor lo corrige. Después el desarrollador lee el plan y lo aprueba o lo corrige. Es el
    punto de control principal: corregir el rumbo a nivel de plan es mucho más
    barato que a nivel de código.
 3. **Código.** El agente implementa el plan aprobado, contrastándolo con el
@@ -58,15 +58,20 @@ title: un punto de control entre el plan y el código
 flowchart TB
   explore["Exploración<br/>lee el código, no escribe nada"]
   plan["Plan<br/>enfoque y riesgos, aún sin código"]
+  check["Revisión del plan<br/>un revisor busca huecos"]:::muted
   code["Código<br/>implementación según el plan"]
   commit["Commit<br/>commit, PR, documentación"]
   explore --> plan
-  plan -- "el desarrollador aprueba el plan" --> code
+  plan --> check
+  check -. "hallazgos — corregir el plan" .-> plan
+  check -- "el desarrollador aprueba el plan" --> code
   code --> commit
   code -. "el plan se aparta de la realidad — volver" .-> plan
   gate["punto de control<br/>el único lugar donde el humano es obligatorio"]:::warn
   plan -.- gate
 ```
+
+El revisor elimina del plan los errores mecánicos — archivos olvidados, contradicciones con el código, pasos sin verificación —, así que el desarrollador lee un plan ya depurado y dedica su atención a elegir el enfoque.
 
 Las fases van estrictamente en orden, pero el proceso no es unidireccional: si
 durante la implementación el plan se aparta de la realidad, lo correcto es
@@ -80,6 +85,7 @@ implementación.
 - **Desarrollador** — plantea la tarea, lee y aprueba el plan, acepta el
   resultado.
 - **Agente** — explora la base de código, propone un plan, lo implementa.
+- **Revisor del plan** — un agente con contexto limpio que revisa el plan según criterios antes de que lo lea el desarrollador. No ha visto el razonamiento del autor, así que nota lo que falta en el plan.
 - **Plan** — el artefacto intermediario: un documento breve de «qué y cómo». Se
   puede editar, guardar, ejecutar en una sesión nueva o pasar a otro agente.
 - **Base de código** — la fuente de contexto en la fase de exploración y el
@@ -102,9 +108,11 @@ cuatro fases solo ralentizan el trabajo.
   equivocada se detecta en el plan, no en la revisión del diff.
 - ➕ Revisar un plan es un orden de magnitud más barato que revisar código —
   tanto para el humano como en tokens.
+- ➕ El revisor encuentra huecos y contradicciones en el plan, y tú dedicas la atención a las decisiones, no a buscar archivos olvidados.
 - ➕ El plan queda como artefacto: se puede refinar, ejecutar en una sesión
   nueva o reutilizar como descripción del pull request.
 - ➖ Para tareas simples el ciclo es más lento y caro que un «hazlo» directo.
+- ➖ La revisión del plan añade otra pasada del agente, y parte de los hallazgos del revisor es ruido que hay que filtrar.
 - ➖ El plan se queda obsoleto durante la implementación — volver a la fase de
   plan exige disciplina; si no, código y plan divergen en silencio.
 - ➖ La tentación de convertir el plan en una instrucción paso a paso devuelve
@@ -117,12 +125,13 @@ cuatro fases solo ralentizan el trabajo.
 2. Entrega la tarea y pide un plan. No hace falta reescribirla en un prompt —
    basta con pasar el ticket del tracker: el agente lee la descripción y el
    código relevante por sí mismo.
-3. Lee el plan como si revisaras código: haz preguntas, tacha lo innecesario,
+3. Antes de leer el plan, pásalo a revisar a un subagente con contexto limpio, como en [Escritor y revisor](writer-reviewer.md). Entrégale la tarea, el plan y los criterios: el plan se apoya en el código real, cubre toda la tarea, nombra los riesgos e indica cómo se verificará cada paso. Pide al autor que corrija el plan según los hallazgos con los que estés de acuerdo.
+4. Lee el plan como si revisaras código: haz preguntas, tacha lo innecesario,
    exige alternativas, saca las restricciones que no se ven en el código.
    Itera hasta estar de acuerdo — es la fase más barata para discutir.
-4. Aprueba el plan con la confirmación propia de la herramienta e indica con
+5. Aprueba el plan con la confirmación propia de la herramienta e indica con
    qué puede verificarse el agente: tests, build, linter.
-5. Cierra con la fase de commit: mensaje con sentido, pull request con el plan
+6. Cierra con la fase de commit: mensaje con sentido, pull request con el plan
    en la descripción y actualización de la documentación si los cambios la
    tocaron.
 
@@ -135,7 +144,7 @@ A continuación, las fases de EPCC mapeadas a los cuatro más extendidos.
 [Spec Kit](https://github.com/github/spec-kit) te lleva por las fases con una
 serie de comandos slash, cada uno dejando un artefacto en el repositorio:
 
-- **Exploración y plan** — `/speckit.specify` fija *qué* se construye (requisitos e historias de usuario), `/speckit.clarify` hace preguntas sobre los puntos poco definidos, `/speckit.plan` escribe el plan técnico y `/speckit.tasks` lo corta en tareas. Después, `/speckit.analyze` verifica la coherencia entre especificación, plan y tareas. El punto de control es revisar y editar estos artefactos antes de que empiece el código.
+- **Exploración y plan** — `/speckit.specify` fija *qué* se construye (requisitos e historias de usuario), `/speckit.clarify` hace preguntas sobre los puntos poco definidos, `/speckit.plan` escribe el plan técnico y `/speckit.tasks` lo corta en tareas. Después, `/speckit.analyze` verifica la coherencia entre especificación, plan y tareas: es la revisión automática del plan. El punto de control es revisar y editar estos artefactos antes de que empiece el código.
 - **Código** — `/speckit.implement` ejecuta la lista de tareas.
 - **Commit** — el flujo git habitual.
 
@@ -206,11 +215,15 @@ se apruebe — y le pasa el ticket tal cual:
 y encuentra dónde se convierte la hora al escribir el CSV.
 
 **Plan:** el agente propone dos opciones — convertir la hora al escribir o al
-leer. El desarrollador responde:
+leer. Antes de leer el plan, el desarrollador lo manda a revisar:
+
+> Pide a un subagente con contexto limpio que revise el plan: ¿todo se apoya en el código y cómo se verificará cada paso?
+
+El revisor señala que el plan no tiene un test que reproduzca el desfase de una hora, y el agente lo añade. El desarrollador lee el plan corregido y añade la restricción que el revisor no podía conocer:
 
 > Convertir al leer rompe los archivos ya exportados — el formato lo leen
-> integraciones externas. Toma la primera opción y añade al plan un test para
-> el límite del cambio de horario.
+> integraciones externas. Toma la primera opción y usa en el test la fecha del
+> cambio de horario.
 
 **Código:** el desarrollador acepta el plan corregido con la confirmación
 propia de la herramienta — el agente sale del modo de planificación, implementa
@@ -231,7 +244,7 @@ tirar una implementación terminada.
   sobre la base de código — el plan parece convincente pero no encaja con el
   código real.
 - **Aprobar el plan sin leerlo.** El punto de control se vuelve un trámite y el
-  patrón solo añade sobrecarga a un simple «hazlo».
+  patrón solo añade sobrecarga a un simple «hazlo». El revisor no sustituye la lectura: encuentra huecos y contradicciones, pero solo tú puedes elegir el enfoque y nombrar las restricciones ocultas.
 - **El plan como instrucción.** Exigir al plan detalle paso a paso antes de
   entender el problema es especificación prematura.
 - **Estirar el código hacia un plan obsoleto.** Si la realidad se apartó del
@@ -259,3 +272,5 @@ tirar una implementación terminada.
 - [Especificación prematura](premature-specification.md) — el antipatrón en el
   que degenera la fase de plan si se exige detalle antes de entender el
   problema.
+- [Escritor y revisor](writer-reviewer.md) — la revisión por un agente nuevo; aquí la misma técnica se aplica al plan en lugar del diff.
+- [Reflexión](reflection.md) — una opción más barata: el agente revisa su propio plan según criterios en la misma ventana, pero se le escapa más que a un revisor aparte.
