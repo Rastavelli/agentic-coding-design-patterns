@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [feature-list-harness, give-agent-a-way-to-verify, progress-file]
+related: [feature-list-harness, give-agent-a-way-to-verify, progress-file, one-shotting]
 source_rev:
 ---
 
@@ -127,3 +127,4 @@ flowchart TB
 - [Петля обратной связи](give-agent-a-way-to-verify.md) определяет готовность фичи.
 - [Журнал прогресса](progress-file.md) сохраняет состояние прохода и попутные находки.
 - [Четыре фазы](explore-plan-code-commit.md) завершает работу проверкой и коммитом.
+- [Уан-шот](one-shotting.md) описывает попытку получить всё приложение за один проход без промежуточных проверок.

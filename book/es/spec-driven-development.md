@@ -36,7 +36,7 @@ una tarea corta basta, pero en una funcionalidad grande el chat no escala:
   poco a poco la implementación del objetivo original, y no hay con qué
   detectar la deriva: no hay contra qué comparar.
 
-El extremo opuesto es el vibe coding: describir el objetivo en una frase y
+El extremo opuesto es el [vibe coding](vibe-coding.md): describir el objetivo en una frase y
 aceptar todo lo que compile. En un prototipo funciona; en una base de código
 viva deja una capa de código de la que nadie puede decir qué *debería* hacer.
 

@@ -34,7 +34,7 @@ task that is enough, but for a large feature the chat does not scale:
   gradually pulls the implementation away from the original goal, and there is
   nothing to detect the drift with — nothing to compare against.
 
-The opposite extreme is vibe coding: describe the goal in one phrase and accept
+The opposite extreme is [vibe coding](vibe-coding.md): describe the goal in one phrase and accept
 whatever compiles. It works on a prototype; in a living codebase it leaves
 behind a layer of code that nobody can say what it is *supposed* to do.
 

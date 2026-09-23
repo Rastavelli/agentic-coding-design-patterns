@@ -1,7 +1,7 @@
 ---
 group: context
 status: draft
-related: [claude-md-memory, domain-context-file, progress-file, handoff, spec-driven-development]
+related: [claude-md-memory, domain-context-file, progress-file, handoff, spec-driven-development, bloated-claude-md]
 source_rev: 3120a142aaac8f8f3c416ab35fd2871419ec7f84
 ---
 
@@ -218,8 +218,8 @@ tres mil líneas de log y una reconstrucción de memoria.
 
 - **Archivo de memoria hinchado.** La capa permanente se convierte en un
   vertedero de cientos de reglas — y el agente ignora la mitad, porque lo
-  importante es indistinguible del ruido. Un error tan frecuente que tiene su
-  propio capítulo en la sección de antipatrones.
+  importante es indistinguible del ruido. Un error tan frecuente que tiene
+  [su propio capítulo](bloated-claude-md.md) en la sección de antipatrones.
 - **«Lo pego entero, por si acaso».** Archivos y logs enteros en lugar de
   rutas y enlaces: la ventana queda ocupada por tokens de baja señal antes de
   empezar el trabajo.
@@ -262,3 +262,4 @@ tres mil líneas de log y una reconstrucción de memoria.
 - [Cuatro fases](explore-plan-code-commit.md) — la fase de exploración de ese
   ciclo es precisamente el llenado just-in-time de la ventana: el agente reúne
   por sí mismo el contexto de la tarea antes del plan.
+- [Memoria hinchada](bloated-claude-md.md) — el antipatrón de la capa permanente: cientos de reglas en las que lo importante se pierde en el ruido.

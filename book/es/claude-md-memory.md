@@ -1,7 +1,7 @@
 ---
 group: context
 status: draft
-related: [context-engineering, domain-context-file]
+related: [context-engineering, domain-context-file, bloated-claude-md]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -226,7 +226,7 @@ Desde la sesión siguiente, todos los agentes del proyecto conocen esta regla.
 
 - **Memoria hinchada.** Cientos de líneas, duplicados y contradicciones — el
   agente ignora la mitad, porque lo importante es indistinguible del ruido. Un
-  error tan frecuente que tiene su propio capítulo en la sección de
+  error tan frecuente que tiene [su propio capítulo](bloated-claude-md.md) en la sección de
   antipatrones.
 - **Vertedero de lo deducible.** Estructura de directorios, listas de
   dependencias, panorama de la arquitectura — todo eso el agente lo ve en el
@@ -267,3 +267,4 @@ Desde la sesión siguiente, todos los agentes del proyecto conocen esta regla.
   convenciones del proyecto sirven de entrada permanente de la tubería SDD; en
   los toolkits el patrón se encarna en la constitución, project.md y los
   archivos de steering.
+- [Memoria hinchada](bloated-claude-md.md) — el antipatrón en el que degenera este patrón sin una poda regular.

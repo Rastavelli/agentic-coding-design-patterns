@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [design-it-twice, give-agent-a-way-to-verify, handoff, explore-plan-code-commit]
+related: [design-it-twice, give-agent-a-way-to-verify, handoff, explore-plan-code-commit, vibe-coding]
 source_rev:
 ---
 
@@ -140,3 +140,4 @@ flowchart TB
 - [Передача сессии](handoff.md) сохраняет вопрос для отдельного эксперимента.
 - [Четыре фазы](explore-plan-code-commit.md) позволяет вынести неопределённость плана в прототип.
 - [Спеко-ориентированная разработка](spec-driven-development.md) сохраняет вывод прототипа как требование или ограничение.
+- [Вайб-кодинг](vibe-coding.md) описывает принятие кода без сверки с требованиями. Так заканчивается прототип, который дописали до рабочей системы.

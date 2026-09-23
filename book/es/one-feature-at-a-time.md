@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [feature-list-harness, give-agent-a-way-to-verify, progress-file]
+related: [feature-list-harness, give-agent-a-way-to-verify, progress-file, one-shotting]
 source_rev: 06d7f7e9afdb7ae107480d2107ae5cfecca7f7c5
 ---
 
@@ -184,7 +184,7 @@ averiguando qué de aquello funcionaba.
 - **El intento de one-shot.** «Haz toda la aplicación» en una pasada — el
   frente es más ancho que la ventana, y el poso es un puñado de «casis».
   Esperar una funcionalidad de un solo prompt sin ciclo de verificación es
-  un antipatrón aparte, tratado en su propia sección.
+  un antipatrón aparte, tratado en [su propio capítulo](one-shotting.md).
 - **«De paso».** Cada «y arregla también X» incidental difumina el diff y
   aleja la verificación. Lo notado va a la lista, no a la pasada.
 - **Funcionalidad sin final.** Implementada pero no verificada ni
@@ -225,3 +225,4 @@ averiguando qué de aquello funcionaba.
 - [Cuatro fases](explore-plan-code-commit.md) — el mismo principio de
   completitud a escala de una tarea: la pasada termina con un commit, no con
   un «casi».
+- [One-shotting](one-shotting.md) — el antipatrón que contrarresta esta disciplina: toda la aplicación esperada de una sola pasada.

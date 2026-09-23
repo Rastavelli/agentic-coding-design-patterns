@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development]
+related: [give-agent-a-way-to-verify, progress-file, one-feature-at-a-time, spec-driven-development, premature-success]
 source_rev:
 ---
 
@@ -142,3 +142,4 @@ flowchart TB
 - [Одна фича за раз](one-feature-at-a-time.md) ограничивает объём одного прохода.
 - [Журнал прогресса](progress-file.md) сохраняет причины решений и состояние незавершённой работы.
 - [Спеко-ориентированная разработка](spec-driven-development.md) поставляет требования для реестра.
+- [Преждевременный успех](premature-success.md) возникает, когда статус меняют без сквозной проверки сценария.

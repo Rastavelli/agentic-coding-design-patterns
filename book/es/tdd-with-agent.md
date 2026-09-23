@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
+related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit, premature-success]
 source_rev:
 ---
 
@@ -234,3 +234,4 @@ código.
   forma natural en la fase de plan: el plan aprobado nombra qué cuenta como
   «funciona».
 - [Diagnóstico mediante hipótesis](hypothesis-driven-debugging.md) ayuda a establecer la causa del defecto antes de corregirlo.
+- [Éxito prematuro](premature-success.md) — el antipatrón de tomar unos tests unitarios en verde por una funcionalidad que funciona.

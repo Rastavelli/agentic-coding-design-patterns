@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [feature-list-harness, give-agent-a-way-to-verify, progress-file]
+related: [feature-list-harness, give-agent-a-way-to-verify, progress-file, one-shotting]
 source_rev: 06d7f7e9afdb7ae107480d2107ae5cfecca7f7c5
 ---
 
@@ -176,7 +176,7 @@ session spent half its context figuring out what of it worked at all.
 - **The one-shot attempt.** "Build the whole app" in one pass — the front is
   wider than the window, and the residue is a scattering of "almosts".
   Expecting a feature from a single prompt with no verification cycle is a
-  separate anti-pattern, covered in its own section.
+  separate anti-pattern, covered in [its own chapter](one-shotting.md).
 - **"While you're at it."** Every incidental "and also fix X" smears the
   diff and pushes verification out. What's noticed goes to the list, not
   into the pass.
@@ -215,3 +215,4 @@ session spent half its context figuring out what of it worked at all.
 - [Four Phases](explore-plan-code-commit.md) — the same completeness
   principle at the scale of one task: the pass ends with a commit, not an
   "almost".
+- [One-Shotting](one-shotting.md) — the anti-pattern this discipline counters: the whole application expected from a single pass.

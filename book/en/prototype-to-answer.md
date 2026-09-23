@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [give-agent-a-way-to-verify, handoff, explore-plan-code-commit]
+related: [give-agent-a-way-to-verify, handoff, explore-plan-code-commit, vibe-coding]
 source_rev:
 ---
 
@@ -130,3 +130,4 @@ The verdict goes into an ADR: the event model is confirmed with one amendment �
 - [Session Handoff](handoff.md) — the standard entrance into a prototype: an extract of the question and the context for a clean session instead of the discussion's tail.
 - [Four Phases](explore-plan-code-commit.md) — the prototype's question is usually born in the plan phase: an argument that text can't settle gets taken to an experiment.
 - [Spec-Driven Development](spec-driven-development.md) — the prototype's verdict returns into the specification as a requirement or a constraint — before the implementation begins.
+- [Vibe Coding](vibe-coding.md) — the anti-pattern a prototype turns into when its code is accepted into production without understanding.

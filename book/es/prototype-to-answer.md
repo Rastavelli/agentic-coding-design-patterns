@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [give-agent-a-way-to-verify, handoff, explore-plan-code-commit]
+related: [give-agent-a-way-to-verify, handoff, explore-plan-code-commit, vibe-coding]
 source_rev:
 ---
 
@@ -130,3 +130,4 @@ El veredicto va a un ADR: el modelo de eventos queda confirmado con una enmienda
 - [Traspaso de sesión](handoff.md) — la entrada estándar al prototipo: el extracto de la pregunta y el contexto para una sesión limpia en vez de la cola de la discusión.
 - [Cuatro fases](explore-plan-code-commit.md) — la pregunta del prototipo suele nacer en la fase de plan: la discusión que el texto no resuelve se lleva al experimento.
 - [Desarrollo orientado a especificaciones](spec-driven-development.md) — el veredicto del prototipo vuelve a la especificación como requisito o restricción — antes de que empiece la implementación.
+- [Vibe coding](vibe-coding.md) — el antipatrón en el que se convierte el prototipo cuando su código se acepta en producción sin comprensión.

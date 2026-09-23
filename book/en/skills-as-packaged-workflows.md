@@ -1,7 +1,7 @@
 ---
 group: project-org
 status: draft
-related: [claude-md-memory, context-engineering, handoff, tdd-with-agent]
+related: [claude-md-memory, context-engineering, handoff, tdd-with-agent, bloated-claude-md]
 source_rev: eee14eb8dfdd94b3ab7dae41a322467765a940a6
 ---
 
@@ -201,7 +201,7 @@ patterns — and all five exist in Matt Pocock's pack as invocable skills.
   skill "for everything": the packaging works while one procedure is one
   skill.
 - **Everything model-invoked.** Auto-invocation on every skill — and the
-  descriptions eat every session's window: bloated memory returned through
+  descriptions eat every session's window: [bloated memory](bloated-claude-md.md) returned through
   the back door.
 - **Steps without criteria.** "Do the review and fix things" with no
   checkable "done" — the agent ends the step when it's tired, not when
@@ -239,3 +239,4 @@ patterns — and all five exist in Matt Pocock's pack as invocable skills.
   [Issue Triage](triage-state-machine.md), and the
   [Investigation Map](wayfinder.md) — this book's patterns that exist in
   real packs precisely as skills: packaging is their native form.
+- [Bloated Memory](bloated-claude-md.md) — the anti-pattern skills cure: procedures moved out of memory stop loading into every session.

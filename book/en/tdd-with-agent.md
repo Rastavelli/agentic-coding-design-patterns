@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit]
+related: [give-agent-a-way-to-verify, writer-reviewer, explore-plan-code-commit, premature-success]
 source_rev:
 ---
 
@@ -232,3 +232,4 @@ code.
 - [Four Phases](explore-plan-code-commit.md) — test cases are naturally born
   in the plan phase: the approved plan names what counts as "works".
 - [Hypothesis-Driven Debugging](hypothesis-driven-debugging.md) establishes the cause of a defect before fixing it.
+- [Premature Success](premature-success.md) — the anti-pattern of taking green unit tests for a working feature.

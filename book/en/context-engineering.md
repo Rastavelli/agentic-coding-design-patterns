@@ -1,7 +1,7 @@
 ---
 group: context
 status: draft
-related: [claude-md-memory, domain-context-file, progress-file, handoff, spec-driven-development]
+related: [claude-md-memory, domain-context-file, progress-file, handoff, spec-driven-development, bloated-claude-md]
 source_rev: 3120a142aaac8f8f3c416ab35fd2871419ec7f84
 ---
 
@@ -204,7 +204,7 @@ thousand lines of log and reconstruction from memory.
 - **A bloated memory file.** The persistent layer turns into a dump of
   hundreds of rules — and the agent ignores half of them, because the
   important is indistinguishable from the noise. A mistake so common it gets
-  its own chapter in the anti-patterns section.
+  [its own chapter](bloated-claude-md.md) in the anti-patterns section.
 - **"I'll paste it whole, just to be safe."** Whole files and logs instead of
   paths and links: the window is occupied by low-signal tokens before the work
   even starts.
@@ -244,3 +244,4 @@ thousand lines of log and reconstruction from memory.
 - [Four Phases](explore-plan-code-commit.md) — the exploration phase of that
   cycle is just-in-time window filling: the agent gathers the task's context
   itself before the plan.
+- [Bloated Memory](bloated-claude-md.md) — the anti-pattern of the persistent layer: hundreds of rules where the important is lost in the noise.

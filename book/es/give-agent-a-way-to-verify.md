@@ -1,7 +1,7 @@
 ---
 group: verification
 status: draft
-related: [tdd-with-agent, writer-reviewer, reflection, explore-plan-code-commit]
+related: [tdd-with-agent, writer-reviewer, reflection, explore-plan-code-commit, premature-success, one-shotting]
 source_rev: 5df7b47a444c5c22419c5b424a05805eccc71275
 ---
 
@@ -195,7 +195,7 @@ los usuarios.
   del desarrollador.
 - **Tests unitarios como final.** Unidades en verde aún no son una
   funcionalidad que funciona: sin la comprobación de extremo a extremo como
-  usuario, eso es éxito prematuro — ver el antipatrón homónimo.
+  usuario, eso es [éxito prematuro](premature-success.md).
 
 ## Usos conocidos
 
@@ -225,3 +225,5 @@ los usuarios.
 - [Cuatro fases](explore-plan-code-commit.md) — el bucle vive en la fase de
   código: el plan aprobado nombra las comprobaciones con las que el agente
   coteja la implementación.
+- [Éxito prematuro](premature-success.md) — el antipatrón de dar el trabajo por hecho con unidades en verde, sin comprobación de extremo a extremo como usuario.
+- [One-shotting](one-shotting.md) — el antipatrón de esperar una funcionalidad terminada de una sola pasada, sin ciclo de verificación.
