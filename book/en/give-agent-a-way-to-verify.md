@@ -58,10 +58,7 @@ setup for autonomy:
    the result: the work is graded by someone other than whoever did it (see
    [Writer and Reviewer](writer-reviewer.md)).
 
-And the final rule: evidence instead of assertions. Have the agent show the
-test output, the command with its result, or a screenshot — reading evidence
-is faster than re-verifying yourself, and it is the only way to accept the
-work of a session you weren't watching.
+And the final rule: evidence instead of assertions, and the evidence has to come from the environment, not from the agent's retelling. Output the agent pasted into its final message could just as well be made up: `4 passed` written without a run, or taken from a run before the last edit. Check against a record the harness kept — the tool call in the session log, the CI log, the exit code in a hook, a screenshot taken by the browser tool. Reading such evidence is faster than re-verifying yourself, and it is the only way to accept the work of a session you weren't watching.
 
 ## Structure
 
@@ -73,7 +70,7 @@ flowchart TB
   dev["Developer<br/>sets the check, accepts the work"]:::accent
   agent["Agent<br/>works and iterates"]
   check["Check<br/>tests · build · linter<br/>diff vs fixture · screenshot<br/>signal: pass / fail"]
-  evidence["Evidence<br/>test output, a screenshot,<br/>the command and its result"]:::accent
+  evidence["Evidence from the environment<br/>run log, CI log,<br/>exit code, screenshot"]:::accent
   dev -- "task + a way to verify" --> agent
   agent -- "runs and reads" --> check
   check -- "fail — iterate" --> agent
@@ -97,8 +94,7 @@ unattended.
 - **Check** — an oracle with a binary outcome: tests, build, linter, a diff
   script, a screenshot against a design.
 - **Signal** — pass/fail, read by the agent inside the session.
-- **Evidence** — the check's output, presented to the developer instead of
-  the word "done".
+- **Evidence** — the check's output as recorded by the environment (session log, CI, hook), presented to the developer instead of the word "done".
 
 ## When to use
 
@@ -144,8 +140,7 @@ unattended.
 5. Climb the ladder as autonomy grows: a supervised task needs only the
    prompt; a session you walk away from — a goal or a hook; long autonomous
    work — a review by a fresh subagent.
-6. Demand evidence: test output, the command and its result, a screenshot.
-   "Done" without evidence is not a signal.
+6. Accept the work by the environment's records: the tool call log, the CI log, the hook's result. The agent retelling the output in its final message is not evidence.
 7. Anchor the verification commands in [Project Memory](claude-md-memory.md)
    so the agent knows them in every session.
 
@@ -168,8 +163,8 @@ the task:
 
 The agent writes the implementation and the tests, runs them: two of four
 are red — the expired code passes, because the date comparison ignores the
-time zone. The agent fixes it, runs again — green. The reply carries the
-test runner's output: 4 passed.
+time zone. The agent fixes it, runs again — green. The session log shows the last
+test run after the final edit: 4 passed.
 
 The developer was doing something else the whole time: the time zone bug was
 caught and fixed inside the loop, at the cost of one agent iteration.
@@ -180,6 +175,7 @@ Without the check it would have ridden to review — or to the users.
 - **Taking it at its word.** "Done" without the check's output is not a
   signal, it's politeness. Asking for evidence is not distrust, it's
   protocol.
+- **Retold output.** `4 passed` in the final message is still the agent's words. Check it against the run in the session log or in CI.
 - **A weak oracle.** A check that is dishonestly easy to pass produces green
   garbage: the agent optimizes for it, not for the task.
 - **A check exists, but no loop.** The tests sit in the repository, but

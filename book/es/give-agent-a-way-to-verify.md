@@ -60,10 +60,7 @@ peldaños; cada uno cambia configuración por autonomía:
    el resultado: el trabajo no lo califica quien lo hizo (ver
    [Escritor y revisor](writer-reviewer.md)).
 
-Y la regla final: evidencia en vez de afirmaciones. Que el agente muestre la
-salida de los tests, el comando con su resultado o una captura — leer
-evidencia es más rápido que reverificar tú mismo, y es la única forma de
-aceptar el trabajo de una sesión que no vigilabas.
+Y la regla final: evidencia en vez de afirmaciones, y la evidencia debe venir del entorno, no del relato del agente. Una salida que el agente copió en su mensaje final también pudo inventarla: escribir `4 passed` sin ejecutar nada o tomarlo de una ejecución anterior a la última edición. Verifica contra un registro que guardó el harness: la llamada a la herramienta en el log de la sesión, el log de CI, el código de salida en un hook, una captura hecha por la herramienta de navegador. Leer esa evidencia es más rápido que reverificar tú mismo, y es la única forma de aceptar el trabajo de una sesión que no vigilabas.
 
 ## Estructura
 
@@ -75,7 +72,7 @@ flowchart TB
   dev["Desarrollador<br/>define la comprobación, acepta el trabajo"]:::accent
   agent["Agente<br/>trabaja e itera"]
   check["Comprobación<br/>tests · build · linter<br/>diff contra patrón · captura<br/>señal: pasa / no pasa"]
-  evidence["Evidencia<br/>salida de tests, una captura,<br/>el comando y su resultado"]:::accent
+  evidence["Evidencia del entorno<br/>registro de ejecuciones, log de CI,<br/>código de salida, captura"]:::accent
   dev -- "tarea + forma de verificar" --> agent
   agent -- "ejecuta y lee" --> check
   check -- "no pasa — itera" --> agent
@@ -99,8 +96,7 @@ bucle sin vigilancia.
 - **Comprobación** — un oráculo con resultado binario: tests, compilación,
   linter, script de diff, captura contra el diseño.
 - **Señal** — pasa / no pasa, leída por el agente dentro de la sesión.
-- **Evidencia** — la salida de la comprobación, presentada al desarrollador
-  en lugar de la palabra «listo».
+- **Evidencia** — la salida de la comprobación tal como la registró el entorno (log de la sesión, CI, hook), presentada al desarrollador en lugar de la palabra «listo».
 
 ## Cuándo aplicarlo
 
@@ -148,8 +144,7 @@ bucle sin vigilancia.
 5. Sube por la escalera según crezca la autonomía: a una tarea vigilada le
    basta el prompt; a una sesión de la que te alejas — un objetivo o un
    hook; al trabajo autónomo largo — la revisión de un subagente fresco.
-6. Exige evidencia: salida de tests, el comando y su resultado, una
-   captura. «Hecho» sin evidencia no es una señal.
+6. Acepta el trabajo por los registros del entorno: el log de llamadas a herramientas, el log de CI, el resultado del hook. El relato de la salida en el mensaje final del agente no es evidencia.
 7. Ancla los comandos de verificación en la
    [memoria del proyecto](claude-md-memory.md) para que el agente los
    conozca en cada sesión.
@@ -173,8 +168,8 @@ comprobación junto con la tarea:
 
 El agente escribe la implementación y los tests, los ejecuta: dos de cuatro
 en rojo — el código caducado pasa, porque la comparación de fechas ignora la
-zona horaria. El agente lo arregla, ejecuta de nuevo — verde. En la
-respuesta, la salida del test runner: 4 passed.
+zona horaria. El agente lo arregla, ejecuta de nuevo — verde. El log de la
+sesión muestra la última ejecución tras la edición final: 4 passed.
 
 El desarrollador estuvo todo ese tiempo en otra cosa: el bug de la zona
 horaria fue atrapado y corregido dentro del bucle, al precio de una
@@ -185,6 +180,7 @@ los usuarios.
 
 - **Creer bajo palabra.** «Listo» sin la salida de la comprobación no es
   una señal, es cortesía. Pedir evidencia no es desconfianza, es protocolo.
+- **Salida relatada.** `4 passed` en el mensaje final sigue siendo palabra del agente. Contrástalo con la ejecución en el log de la sesión o en CI.
 - **Oráculo débil.** Una comprobación deshonestamente fácil de pasar
   produce basura verde: el agente optimiza para ella, no para la tarea.
 - **Hay comprobación, pero no hay bucle.** Los tests están en el
