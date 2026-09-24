@@ -46,5 +46,8 @@
     "pageNumbers": true,
     "fontSize": 12,
     "paperSize": "a4"
+  },
+  "styles": {
+    "website": "styles/website.css"
   }
 }
